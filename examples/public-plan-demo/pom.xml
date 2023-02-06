@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>public-plan-demo</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>public-plan-demo</name>
+	<description>forms-flow and cmis integrations for a demo</description>
+
+	<parent>
+		<groupId>io.miragon.consulting</groupId>
+		<artifactId>examples</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modules>
+		<module>public-plan-demo-core</module>
+		<module>public-plan-demo-forms-flow</module>
+	</modules>
+
+</project>
