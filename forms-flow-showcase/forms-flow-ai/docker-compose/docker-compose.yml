@@ -81,6 +81,23 @@ services:
     ports:
       - "5432:5432"
 
+  camunda-bpm:
+    image: camunda/camunda-bpm-platform:run-7.17.0
+    restart: always
+    environment:
+      - DB_URL=${CAMUNDA_JDBC_URL:-jdbc:postgresql://forms-flow-bpm-db:5432/formsflow-bpm}
+      - DB_USERNAME=${CAMUNDA_JDBC_USER:-admin}
+      - DB_PASSWORD=${CAMUNDA_JDBC_PASSWORD:-changeme}
+      - DB_DRIVER=${CAMUNDA_JDBC_DRIVER:-org.postgresql.Driver}
+      - CAMUNDA_BPM_JOBEXECUTION_ENABLEB=false
+      - CAMUNDA_BPM_HISTORYLEVEL=none
+      - SPRING_JPA_HIBERNATE_DDLAUTO=validate
+      - CAMUNDA_BPM_AUTODEPLOYMENTENABLED=false
+    ports:
+      - "8085:8080"
+    links:
+      - forms-flow-bpm-db
+
   forms-flow-bpm:
     image: formsflow/forms-flow-bpm:v5.1.0
     restart: always
