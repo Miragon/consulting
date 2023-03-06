@@ -20,9 +20,9 @@
         </dependency>
 
         <dependency>
-            <groupId>io.miragon.miranum</groupId>
+            <groupId>io.miragon.miranum.consulting</groupId>
             <artifactId>waiter-core</artifactId>
-            <version>${project.version}</version>
+            <version>0.1.0-SNAPSHOT</version>
         </dependency>
 
         <!--Miranum-->
