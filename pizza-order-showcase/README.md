@@ -17,7 +17,7 @@ There are four services in total:
 
 <br>
 <div align="center">
-    <img src="./../../images/pizza-order-frontend.png" alt="pizza-order-frontend" width="300" align="center">
+    <img src="./images/pizza-order-frontend.png" alt="pizza-order-frontend" width="300" align="center">
 </div>
 <br>
 
@@ -30,7 +30,7 @@ After submitting your order, you should notice the success message below.
 
 <br>
 <div align="center">
-    <img src="./../../images/pizza-order-success-msg.png" alt="pizza-order-success-message" width="300" align="center">
+    <img src="./images/pizza-order-success-msg.png" alt="pizza-order-success-message" width="300" align="center">
 </div>
 <br>
 
@@ -38,7 +38,7 @@ You now can follow the logs in the different service consoles to get a better ov
 
 ## The process
 
-<img src="./../../images/pizza-order-bpmn.png" alt="pizza-order-bpmn">
+<img src="./images/pizza-order-bpmn.png" alt="pizza-order-bpmn">
 
 The order pizza example demonstrates a simple modern pizza order process.
 The process starts with the order placement by the guest.
@@ -60,7 +60,7 @@ call our domain (e.g. REST-calls), outgoing dependencies get called by our domai
 A common way to do so is by using a layered architecture.It usually looks something like this:
 
 <br/>
-<img src="./../../images/layer-architecture.png" alt="layer-architecture">
+<img src="./images/layer-architecture.png" alt="layer-architecture">
 <br/>
 
 A problem with that - also discussed in "Get Your Hands Dirty On Clean Architecture" by Tom Hombergs - is that you still have
@@ -69,7 +69,7 @@ leading the development.
 The suggested architecture that we also use to build the services looks roughly like this:
 
 <br/>
-<img src="./../../images/hexagonal-architecture.png" alt="hexagonal-architecture">
+<img src="./images/hexagonal-architecture.png" alt="hexagonal-architecture">
 <br/>
 
 For more references see:
@@ -83,7 +83,7 @@ For more references see:
 The waiter is responsible for placing the order, serving the food and the drinks, issuing the check and also for reassuring the guest.
 
 <br/>
-<img src="./../../images/pizza-order-waiter-service-architecture.png" alt="waiter-service-architecture">
+<img src="./images/pizza-order-waiter-service-architecture.png" alt="waiter-service-architecture">
 <br/>
 
 You notice the `MiranumAdapter` at the top of the diagram. This adapter is an incoming adapter, which is calling our service,
@@ -135,7 +135,7 @@ The kitchen service is equally designed as the `waiter`-service using the hexago
 The kitchen is responsible for making the ordered food. It exposes the `PreparePizzaUseCase` which is used by a `MiranumAdapter`
 which registers the function as an external task.
 
-<img src="./../../images/kitchen-service-architecture.png" alt="kitchen-service-architecture.png" width="450">
+<img src="./images/kitchen-service-architecture.png" alt="kitchen-service-architecture.png" width="450">
 
 ### Email
 
@@ -145,4 +145,4 @@ only logs the email content to the console.\
 One of the goals of miranum is to implement a number of useful and common integrations that you can use out of the box
 in your application.
 
-<img src="./../../images/email-service-architecture.png" alt="email-service-architecture.png" width="450">
+<img src="./images/email-service-architecture.png" alt="email-service-architecture.png" width="450">
