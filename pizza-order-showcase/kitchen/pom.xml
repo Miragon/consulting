@@ -18,9 +18,6 @@
         <module>kitchen-c7</module>
         <module>kitchen-c8</module>
         <module>kitchen-core</module>
-        <module>kitchen-c7</module>
-        <module>kitchen-c8</module>
-        <module>kitchen-core</module>
     </modules>
 
 </project>

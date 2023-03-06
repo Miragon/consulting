@@ -44,14 +44,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <!-- Import dependency management from Spring Cloud -->
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -67,7 +59,6 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -80,14 +71,17 @@
             <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>json-api</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>5.1.1</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -212,41 +206,12 @@
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
-                    <groupId>org.openapitools</groupId>
-                    <artifactId>openapi-generator-maven-plugin</artifactId>
-                    <version>6.3.0</version>
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-
-            <!-- Nexus Staging Plugin -->
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.jacoco</groupId>
-                <artifactId>jacoco-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>prepare-agent</id>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
@@ -256,12 +221,14 @@
             <id>deploy</id>
             <build>
                 <plugins>
+
                     <!-- maven versions plugin-->
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>versions-maven-plugin</artifactId>
                         <version>2.15.0</version>
                     </plugin>
+
                     <!-- Source plugin -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -317,21 +284,6 @@
                                         <arg>loopback</arg>
                                     </gpgArguments>
                                 </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <!-- Jacoco Code Coverage Plugin -->
-                    <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>${jacoco.version}</version>
-                        <executions>
-                            <execution>
-                                <id>prepare-agent</id>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
                             </execution>
                         </executions>
                     </plugin>
