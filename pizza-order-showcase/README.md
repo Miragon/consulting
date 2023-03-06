@@ -11,9 +11,10 @@ There are four services in total:
 
 ## Run the project
 
-1. Start all services, either the Camunda 7 or Camunda 8 ones (e.g. `WaiterC8Application`, `KitchenC8Application`, `NotificationC8Application`) and the `PizzaOrderFrontEnd`
-2. Make sure that you have a running instance of the Camunda Platform 8 engine running. <br> *If not, just start the [camunda-8 stack](./stack/camunda-8/docker-compose.yml).*
-3. Now navigate to http://localhost:5050 to view the Frontend-Application. You will end up seeing something like this:
+1. If the project does not show any modules in IntelliJ click on `File > New > Module from existing Sources > Import module from external model > maven`. Once having done so all modules should show up properly. 
+2. Start all services, either the Camunda 7 or Camunda 8 ones (e.g. `WaiterC8Application`, `KitchenC8Application`, `NotificationC8Application`) and the `PizzaOrderFrontEnd`
+3. Make sure that you have a running instance of the Camunda Platform 8 engine running. <br> *If not, just start the [camunda-8 stack](./stack/camunda-8/docker-compose.yml).*
+4. Now navigate to http://localhost:5050 to view the Frontend-Application. You will end up seeing something like this:
 
 <br>
 <div align="center">
