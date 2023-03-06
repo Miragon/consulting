@@ -1,0 +1,4 @@
+io/miragon/miranum/examples/notification/adapter/in/NotifyGuestCommand.class
+io/miragon/miranum/examples/notification/adapter/in/SendMailCommandFactory.class
+io/miragon/miranum/examples/notification/adapter/in/MiranumCustomerNotificationAdapterConfiguration.class
+io/miragon/miranum/examples/notification/adapter/in/MiranumCustomerNotificationAdapter.class
