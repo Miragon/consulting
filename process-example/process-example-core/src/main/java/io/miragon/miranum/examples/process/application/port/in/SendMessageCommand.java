@@ -8,9 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SendMessageCommand {
-
     private String name;
     private String key;
-
-
 }

@@ -8,10 +8,9 @@
     <version>0.1.0-SNAPSHOT</version>
     <name>Miranum Consulting</name>
     <packaging>pom</packaging>
-    <description>Miranum</description>
+    <description>Miranum-Consulting</description>
 
     <modules>
-        <module>gateway-example</module>
         <module>pizza-order-showcase</module>
         <module>process-example</module>
         <module>schema-client-example</module>
