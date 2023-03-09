@@ -1,0 +1,7 @@
+server:
+  port: 5050
+
+miranum:
+  waiter:
+    port: 5151
+    url: http://localhost:${miranum.waiter.port}/api/place-order
