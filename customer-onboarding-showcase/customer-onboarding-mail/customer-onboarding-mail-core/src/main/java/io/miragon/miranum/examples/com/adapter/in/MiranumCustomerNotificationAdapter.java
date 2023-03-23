@@ -1,6 +1,7 @@
-package io.miragon.miranum.examples.notification.adapter.in;
+package io.miragon.miranum.examples.com.adapter.in;
 
 import io.miragon.miranum.connect.worker.api.Worker;
+import io.miragon.miranum.integrations.mail.application.port.in.SendMailCommand;
 import io.miragon.miranum.integrations.mail.application.port.in.SendMailUseCase;
 import lombok.AllArgsConstructor;
 
@@ -9,15 +10,15 @@ public class MiranumCustomerNotificationAdapter {
 
     private final SendMailUseCase sendMailUseCase;
 
-    @Worker(type = "notifyGuest")
-    public void notifyCustomer(NotifyGuestCommand notifyGuestCommand) {
-        var sendMailCommand = SendMailCommandFactory.create(notifyGuestCommand);
+    @Worker(type = "sendMail")
+    public void notifyCustomer(MailCommand sendMailCommand) {
+        SendMailCommand mailCommand = io.miragon.miranum.examples.com.adapter.com.adapter.in.SendMailCommandFactory.create(sendMailCommand);
         // Simulate delay
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        sendMailUseCase.sendMail(sendMailCommand);
+        sendMailUseCase.sendMail(mailCommand);
     }
 }
