@@ -1,0 +1,21 @@
+{
+    "key": "customer-onboarding-showcase_control",
+    "schema": {
+        "type": "object",
+        "x-display": "stepper",
+        "allOf": [
+            {
+                "title": "Abschnitt",
+                "description": "",
+                "type": "object",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [],
+                "key": "ff1071c4-4165-4251-acb0-2d02c74adbee"
+            }
+        ]
+    }
+}
