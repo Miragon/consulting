@@ -3,20 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>customer-onboarding-mail</artifactId>
-    <name>notification</name>
+    <artifactId>customer-onboarding-risk-evaluation</artifactId>
+    <name>risk-evaluation</name>
+    <modules>
+        <module>risk-evaluation-core</module>
+        <module>risk-evaluation-c7</module>
+        <module>risk-evaluation-c8</module>
+    </modules>
     <packaging>pom</packaging>
-    <description>Mail Service</description>
+    <description>Evaluating the risk of incoming applications</description>
 
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
         <artifactId>customer-onboarding-showcase</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
-
-    <modules>
-        <module>customer-onboarding-mail-c7</module>
-        <module>customer-onboarding-mail-c8</module>
-        <module>customer-onboarding-mail-core</module>
-    </modules>
 </project>

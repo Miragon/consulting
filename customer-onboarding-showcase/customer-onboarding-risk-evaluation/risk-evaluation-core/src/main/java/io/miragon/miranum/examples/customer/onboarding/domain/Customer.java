@@ -1,4 +1,4 @@
-package io.miragon.miranum.examples.com.adapter.in;
+package io.miragon.miranum.examples.customer.onboarding.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class MailCommand {
-
+public class Customer {
     private String name;
+    private String address;
     private String email;
-    private String content;
+    private String employment;
+    private double income;
 }

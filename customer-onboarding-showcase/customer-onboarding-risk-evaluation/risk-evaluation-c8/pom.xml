@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-    <artifactId>customer-onboarding-mail-c8</artifactId>
-    <name>customer-onboarding-mail-c8</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>risk-evaluation-c8</artifactId>
+    <name>risk-evaluation-c8</name>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
-        <artifactId>customer-onboarding-mail</artifactId>
+        <artifactId>customer-onboarding-risk-evaluation</artifactId>
         <version>0.1.0-SNAPSHOT</version>
     </parent>
 
@@ -21,7 +21,7 @@
 
         <dependency>
             <groupId>io.miragon.miranum.consulting</groupId>
-            <artifactId>customer-onboarding-mail-core</artifactId>
+            <artifactId>risk-evaluation-core</artifactId>
             <version>0.1.0-SNAPSHOT</version>
         </dependency>
 

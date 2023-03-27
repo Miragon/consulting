@@ -2,7 +2,7 @@
   "projectVersion": "1.0.0",
   "name": "customer-onboarding-process",
   "workspace": [
-    { "type": "bpmn", "path": "", "extension": ".bpmn" },
+    { "type": "bpmn", "path": "process/c7", "extension": ".bpmn" },
     { "type": "dmn", "path": "", "extension": ".dmn" },
     { "type": "form", "path": "forms", "extension": ".form" },
     { "type": "element-template", "path": "element-templates", "extension": ".json" },

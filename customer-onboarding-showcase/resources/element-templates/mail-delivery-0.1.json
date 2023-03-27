@@ -1,0 +1,60 @@
+{
+  "$schema" : "https://unpkg.com/@camunda/element-templates-json-schema@0.1.0/resources/schema.json",
+  "name" : "Mail Delivery",
+  "id" : "mail-delivery",
+  "appliesTo" : [ "bpmn:ServiceTask" ],
+  "properties" : [ {
+    "value" : "external",
+    "label" : "Implementation Type",
+    "type" : "String",
+    "editable" : false,
+    "binding" : {
+      "type" : "property",
+      "name" : "camunda:type"
+    }
+  }, {
+    "value" : "mailDelivery",
+    "label" : "Topic",
+    "type" : "String",
+    "binding" : {
+      "type" : "property",
+      "name" : "camunda:topic"
+    }
+  }, {
+    "value" : "",
+    "label" : "Name",
+    "type" : "String",
+    "editable" : true,
+    "binding" : {
+      "type" : "camunda:inputParameter",
+      "name" : "name"
+    },
+    "constraints" : {
+      "notEmpty" : true
+    }
+  }, {
+    "value" : "",
+    "label" : "Email",
+    "type" : "String",
+    "editable" : true,
+    "binding" : {
+      "type" : "camunda:inputParameter",
+      "name" : "email"
+    },
+    "constraints" : {
+      "notEmpty" : true
+    }
+  }, {
+    "value" : "",
+    "label" : "Subject",
+    "type" : "String",
+    "editable" : true,
+    "binding" : {
+      "type" : "camunda:inputParameter",
+      "name" : "content"
+    },
+    "constraints" : {
+      "notEmpty" : true
+    }
+  } ]
+}

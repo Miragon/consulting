@@ -1,6 +1,4 @@
-package io.miragon.miranum.examples.com.adapter.com.adapter.in;
-
-import io.miragon.miranum.examples.com.adapter.in.MailCommand;
+package io.miragon.miranum.examples.customer.onboarding.adapter.in;
 import io.miragon.miranum.integrations.mail.application.port.in.SendMailCommand;
 
 public class SendMailCommandFactory {
@@ -20,7 +18,7 @@ public class SendMailCommandFactory {
         return String.format(
                 "Hi %s, \n" +
                         "Thank you for your interest! \n" +
-                        "Your application: \n %s %s!",
+                        "Your application: \n %s!",
                 mailCommand.getName(),
                 mailCommand.getContent()
         );

@@ -30,6 +30,7 @@
 
     <modules>
         <module>customer-onboarding-mail</module>
+        <module>customer-onboarding-risk-evaluation</module>
     </modules>
 
     <dependencyManagement>
