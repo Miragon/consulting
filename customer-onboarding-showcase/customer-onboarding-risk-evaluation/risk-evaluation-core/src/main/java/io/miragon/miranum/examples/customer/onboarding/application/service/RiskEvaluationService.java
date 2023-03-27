@@ -8,8 +8,6 @@ import io.miragon.miranum.examples.customer.onboarding.domain.Risk;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 
-import java.util.logging.Logger;
-
 @AllArgsConstructor
 @Log
 public class RiskEvaluationService implements EvaluateRiskUseCase {

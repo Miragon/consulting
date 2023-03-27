@@ -1,7 +1,6 @@
 package io.miragon.miranum.examples.customer.onboarding.adapter.in;
 
 import io.miragon.miranum.connect.elementtemplate.api.BPMNElementType;
-import io.miragon.miranum.connect.elementtemplate.api.ElementTemplateProperty;
 import io.miragon.miranum.connect.elementtemplate.api.GenerateElementTemplate;
 import io.miragon.miranum.connect.worker.api.Worker;
 import io.miragon.miranum.integrations.mail.application.port.in.SendMailCommand;

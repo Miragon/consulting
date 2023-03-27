@@ -5,7 +5,7 @@
     { "type": "bpmn", "path": "process/c7", "extension": ".bpmn" },
     { "type": "dmn", "path": "", "extension": ".dmn" },
     { "type": "form", "path": "forms", "extension": ".form" },
-    { "type": "element-template", "path": "element-templates", "extension": ".json" },
+    { "type": "element-template", "path": "process/c7/.camunda/element-templates", "extension": ".json" },
     { "type": "config", "path": "configs", "extension": ".config.json" }
   ],
   "deployment": [

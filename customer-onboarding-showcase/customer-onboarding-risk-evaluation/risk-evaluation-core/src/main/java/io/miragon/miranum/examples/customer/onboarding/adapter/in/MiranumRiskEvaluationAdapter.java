@@ -8,9 +8,6 @@ import io.miragon.miranum.examples.customer.onboarding.application.port.in.Evalu
 import io.miragon.miranum.examples.customer.onboarding.domain.Risk;
 import lombok.AllArgsConstructor;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @AllArgsConstructor
 public class MiranumRiskEvaluationAdapter {
 
