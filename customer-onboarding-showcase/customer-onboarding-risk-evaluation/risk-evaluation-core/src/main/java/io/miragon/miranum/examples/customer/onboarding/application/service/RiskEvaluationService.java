@@ -21,7 +21,7 @@ public class RiskEvaluationService implements EvaluateRiskUseCase {
                 evaluateRiskCommand.getAddress(),
                 evaluateRiskCommand.getEmail(),
                 evaluateRiskCommand.getEmployment(),
-                Double.parseDouble(evaluateRiskCommand.getIncome()));
+                evaluateRiskCommand.getIncome());
 
         Risk riskLevel= evaluation.makeRiskEvaluation(customer);
         log.info("Risk level for customer " + customer.getName() + " is " + riskLevel.getRiskLevel());

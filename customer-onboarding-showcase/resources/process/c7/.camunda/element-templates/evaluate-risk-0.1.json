@@ -58,7 +58,7 @@
     }
   }, {
     "value" : "",
-    "label" : "Phone",
+    "label" : "Employment",
     "type" : "String",
     "editable" : true,
     "binding" : {
@@ -71,7 +71,7 @@
   }, {
     "value" : "",
     "label" : "Income",
-    "type" : "String",
+    "type" : "Hidden",
     "editable" : true,
     "binding" : {
       "type" : "camunda:inputParameter",

@@ -10,5 +10,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Risk {
-    private String riskLevel;
+    private int riskLevel;
 }

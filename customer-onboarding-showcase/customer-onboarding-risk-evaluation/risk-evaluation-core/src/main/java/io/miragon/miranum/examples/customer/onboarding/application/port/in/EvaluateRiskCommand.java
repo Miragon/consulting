@@ -18,8 +18,8 @@ public class EvaluateRiskCommand {
     private String address;
     @ElementTemplateProperty(label = "Email", type = PropertyType.STRING, notEmpty = true)
     private String email;
-    @ElementTemplateProperty(label = "Phone", type = PropertyType.STRING, notEmpty = false)
+    @ElementTemplateProperty(label = "Employment", type = PropertyType.STRING, notEmpty = false)
     private String employment;
-    @ElementTemplateProperty(type = PropertyType.STRING, label = "Income", notEmpty = true)
-    private String income;
+    @ElementTemplateProperty(type = PropertyType.HIDDEN, label = "Income", notEmpty = true)
+    private Double income;
 }

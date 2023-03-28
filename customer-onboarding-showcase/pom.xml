@@ -31,6 +31,10 @@
     <modules>
         <module>customer-onboarding-mail</module>
         <module>customer-onboarding-risk-evaluation</module>
+        <module>customer-onboarding-starter</module>
+        <module>customer-onboarding-starter/customer-onboarding-starter-c7</module>
+        <module>customer-onboarding-starter/customer-onboarding-starter-c8</module>
+        <module>customer-onboarding-starter/customer-onboarding-starter-core</module>
     </modules>
 
     <dependencyManagement>
