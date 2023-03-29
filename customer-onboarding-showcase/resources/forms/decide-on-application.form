@@ -1,9 +1,8 @@
 {
-    "key": "Form_DecisionApplication",
     "schema": {
         "key": "MyStartForm",
         "type": "object",
-        "x-display": "stepper",
+        "x-display": "",
         "allOf": [
             {
                 "key": "sectionKey1",
@@ -70,7 +69,7 @@
                                 "x-display": "switch",
                                 "default": false,
                                 "type": "boolean",
-                                "key": "",
+                                "key": "approved",
                                 "x-options": {
                                     "fieldColProps": {
                                         "cols": 12,
@@ -89,5 +88,6 @@
                 ]
             }
         ]
-    }
+    },
+    "key": "Form_DecisionApplication"
 }
