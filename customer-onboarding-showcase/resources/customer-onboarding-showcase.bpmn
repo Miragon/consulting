@@ -6,7 +6,7 @@
   <bpmn:process id="customer-onboarding" name="customer-onboarding-showcase" isExecutable="true">
     <bpmn:documentation />
     <bpmn:extensionElements />
-    <bpmn:startEvent id="StartEvent_1" name="Application received" camunda:asyncAfter="true">
+    <bpmn:startEvent id="StartEvent_1" name="Application received" camunda:asyncAfter="true" camunda:formKey="Form_Application">
       <bpmn:outgoing>Flow_0rfwlqb</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:serviceTask id="Activity_0lkcikg" name="Evaluate risk" camunda:modelerTemplate="evaluate-risk" camunda:asyncAfter="true" camunda:type="external" camunda:topic="evaluateRisk">
@@ -29,10 +29,10 @@
       <bpmn:outgoing>Flow_0sqjwgm</bpmn:outgoing>
       <bpmn:outgoing>Flow_15opx27</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:userTask id="Activity_0uxx2sx" name="Decide on Application" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:formKey="Form_Decision">
+    <bpmn:userTask id="Activity_0uxx2sx" name="Decide on Application" camunda:asyncBefore="true" camunda:asyncAfter="true" camunda:formKey="Form_DecisionApplication" camunda:candidateGroups="group1">
       <bpmn:extensionElements>
         <camunda:inputOutput>
-          <camunda:inputParameter name="app_task_schema_key">Form_Decision</camunda:inputParameter>
+          <camunda:inputParameter name="app_task_schema_key">Form_DecisionApplication</camunda:inputParameter>
         </camunda:inputOutput>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_15opx27</bpmn:incoming>

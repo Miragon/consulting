@@ -13,7 +13,6 @@ public class EvaluateRiskCommand {
 
     @ElementTemplateProperty(label = "Name", type = PropertyType.STRING, notEmpty = true)
     private String name;
-
     @ElementTemplateProperty(label = "Address", type = PropertyType.STRING, notEmpty = true)
     private String address;
     @ElementTemplateProperty(label = "Email", type = PropertyType.STRING, notEmpty = true)

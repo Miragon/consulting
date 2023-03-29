@@ -2,10 +2,10 @@
   "projectVersion": "1.0.0",
   "name": "customer-onboarding-process",
   "workspace": [
-    { "type": "bpmn", "path": "process/c7", "extension": ".bpmn" },
+    { "type": "bpmn", "path": "", "extension": ".bpmn" },
     { "type": "dmn", "path": "", "extension": ".dmn" },
     { "type": "form", "path": "forms", "extension": ".form" },
-    { "type": "element-template", "path": "process/c7/.camunda/element-templates", "extension": ".json" },
+    { "type": "element-template", "path": ".camunda/element-templates", "extension": ".json" },
     { "type": "config", "path": "configs", "extension": ".config.json" }
   ],
   "deployment": [
@@ -14,11 +14,11 @@
       "targetEnvironments": [
         {
           "name": "local",
-          "url": "http://localhost:8080"
+          "url": "http://localhost:8081"
         },
         {
           "name": "dev",
-          "url": "http://localhost:8080"
+          "url": "http://localhost:8081"
         }
       ]
     }
