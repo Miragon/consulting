@@ -1,5 +1,5 @@
 {
-    "key": "Form_Decision",
+    "key": "Form_DecisionApplication",
     "schema": {
         "key": "MyStartForm",
         "type": "object",
@@ -23,11 +23,11 @@
                             "childrenClass": "pl-0"
                         },
                         "properties": {
-                            "Task": {
+                            "task": {
                                 "fieldType": "text",
-                                "title": "Task:",
+                                "title": "Task",
                                 "type": "string",
-                                "key": "Task",
+                                "key": "task",
                                 "readOnly": true,
                                 "default": "Decide on Application",
                                 "x-options": {
@@ -64,14 +64,14 @@
                                 },
                                 "x-rules": []
                             },
-                            "humanDecision": {
+                            "approved": {
                                 "fieldType": "switch",
                                 "title": "Approve Application",
                                 "x-display": "switch",
                                 "default": false,
                                 "type": "boolean",
-                                "key": "humanDecision",
-                                "x-options": {
+                                "key": "",
+                                de"x-options": {
                                     "fieldColProps": {
                                         "cols": 12,
                                         "sm": 12,
