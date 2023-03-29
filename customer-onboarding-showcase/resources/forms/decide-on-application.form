@@ -71,7 +71,7 @@
                                 "default": false,
                                 "type": "boolean",
                                 "key": "",
-                                de"x-options": {
+                                "x-options": {
                                     "fieldColProps": {
                                         "cols": 12,
                                         "sm": 12,
