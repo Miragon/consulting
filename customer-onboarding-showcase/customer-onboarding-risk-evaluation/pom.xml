@@ -8,7 +8,6 @@
     <modules>
         <module>risk-evaluation-core</module>
         <module>risk-evaluation-c7</module>
-        <module>risk-evaluation-c8</module>
     </modules>
     <packaging>pom</packaging>
     <description>Evaluating the risk of incoming applications</description>

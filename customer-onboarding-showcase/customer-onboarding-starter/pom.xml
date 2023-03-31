@@ -8,6 +8,11 @@
     <packaging>pom</packaging>
     <description>Evaluating the risk of incoming applications</description>
 
+    <modules>
+        <module>customer-onboarding-starter-c7</module>
+        <module>customer-onboarding-starter-core</module>
+    </modules>
+
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
         <artifactId>customer-onboarding-showcase</artifactId>

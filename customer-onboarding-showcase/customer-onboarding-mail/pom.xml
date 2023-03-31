@@ -16,7 +16,6 @@
 
     <modules>
         <module>customer-onboarding-mail-c7</module>
-        <module>customer-onboarding-mail-c8</module>
         <module>customer-onboarding-mail-core</module>
     </modules>
 </project>
