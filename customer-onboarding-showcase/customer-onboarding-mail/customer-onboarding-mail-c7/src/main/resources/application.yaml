@@ -1,7 +1,7 @@
 camunda:
   bpm:
     client:
-      base-url: http://localhost:39146/engine-rest
+      base-url: http://localhost:8080/engine-rest
   autoDeploy:
     enabled: false
   disable-backoff-strategy: true

@@ -26,11 +26,11 @@
                         "properties": {
                             "6cd277bd-04b9-472a-af25-056516ef3159": {
                                 "fieldType": "text",
-                                "title": "Willkommen bei den Stadtwerken Bielefeld",
+                                "title": "Welcome to ACME AG",
                                 "type": "string",
                                 "key": "6cd277bd-04b9-472a-af25-056516ef3159",
                                 "readOnly": true,
-                                "default": "Auf dieser Website können Sie spielend leicht ihren Stromanbieterwechsel beantragen!",
+                                "default": "This form allows you to easily start the customer onboarding process of ACME AG",
                                 "x-options": {
                                     "fieldColProps": {
                                         "cols": 12,
