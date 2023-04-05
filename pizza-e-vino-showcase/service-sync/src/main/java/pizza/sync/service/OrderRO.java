@@ -1,4 +1,4 @@
-package hello.service;
+package pizza.sync.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

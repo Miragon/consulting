@@ -1,4 +1,4 @@
-package hello.service;
+package pizza.async.service;
 
 import io.camunda.zeebe.spring.client.annotation.JobWorker;
 import io.camunda.zeebe.spring.client.annotation.Variable;

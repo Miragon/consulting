@@ -1,4 +1,4 @@
-package hello.service;
+package pizza.sync.service;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;

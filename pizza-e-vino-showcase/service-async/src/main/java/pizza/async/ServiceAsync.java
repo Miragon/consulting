@@ -1,4 +1,4 @@
-package hello;
+package pizza.async;
 
 import io.camunda.zeebe.spring.client.EnableZeebeClient;
 import io.camunda.zeebe.spring.client.annotation.Deployment;
