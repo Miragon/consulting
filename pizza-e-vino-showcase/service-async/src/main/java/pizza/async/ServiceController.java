@@ -18,16 +18,17 @@ public class ServiceController {
 
     private ZeebeClientLifecycle zeebeClient;
 
-    @RequestMapping(value = "/sendOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String handleOrder(@RequestBody OrderRO orderRO){
 
-        System.out.printf("Got this order for %s: %s %n", orderRO.getCustomerName(), orderRO.getOrderMessage());
+        System.out.printf("Got this order for %s: Pizza %s, Vino %s %n", orderRO.getCustomerName(), orderRO.getPizza(), orderRO.getVino());
 
         Map<String, String> vars = new HashMap<>();
 
-        vars.put("orderMessage", orderRO.getOrderMessage().toLowerCase());
+        vars.put("pizza", orderRO.getPizza());
+        vars.put("vino", orderRO.getPizza());
         vars.put("customerName", orderRO.getCustomerName());
-        vars.put("businessKey", String.format("order-%s-%s", orderRO.getOrderMessage(), LocalDate.now()));
+        vars.put("businessKey", String.format("order-%s-%s", orderRO.getCustomerName(), LocalDate.now()));
 
         zeebeClient.newCreateInstanceCommand()
                 .bpmnProcessId("ProcessOrder")

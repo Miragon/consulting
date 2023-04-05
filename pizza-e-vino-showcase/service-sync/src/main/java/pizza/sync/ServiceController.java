@@ -9,6 +9,8 @@ import pizza.sync.service.OrderRO;
 import pizza.sync.service.PizzaOrderService;
 import pizza.sync.service.VinoOrderService;
 
+import static java.util.Objects.isNull;
+
 @RestController
 @AllArgsConstructor
 public class ServiceController {
@@ -16,18 +18,18 @@ public class ServiceController {
     VinoOrderService vinoOrderService;
     PizzaOrderService pizzaOrderService;
 
-    @RequestMapping(value = "/sendOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String handleOrder(@RequestBody OrderRO orderRO) throws Exception {
 
-        System.out.printf("Got this order for %s: %s %n", orderRO.getCustomerName(), orderRO.getOrderMessage());
+        System.out.printf("Got this order for %s: Pizza %s, Vino %s %n", orderRO.getCustomerName(), orderRO.getPizza(), orderRO.getVino());
         String orderMessage = "";
 
-        if (orderRO.getOrderMessage().toLowerCase().contains("vino")) {
+        if (!isNull(orderRO.getVino()) && !orderRO.getVino().isEmpty()) {
             vinoOrderService.execute(orderRO);
             orderMessage = orderMessage + " Here is your Vino!";
         }
 
-        if (orderRO.getOrderMessage().toLowerCase().contains("pizza/async")) {
+        if (!isNull(orderRO.getPizza()) && !orderRO.getPizza().isEmpty()) {
             pizzaOrderService.execute(orderRO);
             orderMessage = orderMessage + " Here is your Pizza!";
         }

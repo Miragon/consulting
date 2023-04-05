@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRO {
-    private String orderMessage;
     private String customerName;
+    private String pizza;
+    private String vino;
 }

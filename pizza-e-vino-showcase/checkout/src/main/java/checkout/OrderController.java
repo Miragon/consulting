@@ -21,11 +21,10 @@ public class OrderController {
         this.restTemplate = restTemplateBuilder.build();
     }
 
-    @RequestMapping(value = "/sendOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String sendOrder(@RequestBody OrderRO order){
-        System.out.println("-- Sending order  "+ order.getCustomerName() + " to our " +
-                "Order Sorter -- >");
-        URI uri = URI.create("http://localhost:8080/sendOrder/");
+        System.out.println("-- Sending order  "+ order.getCustomerName() + " to our " + "Order Sorter -- >");
+        URI uri = URI.create("http://localhost:8080/order/");
         String response = restTemplate.postForObject(uri, order, String.class);
         System.out.println("-- All good - the order has been sent -- ");
         return response;

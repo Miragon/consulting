@@ -1,6 +1,7 @@
 package checkout;
 
 import checkout.websockets.NotificationApplicationListener;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,21 +9,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@AllArgsConstructor
 public class MessageForCheckout {
-	@Autowired
-	NotificationApplicationListener notificationApp;
+	private final NotificationApplicationListener notificationApp;
 
     @RequestMapping(value = "/messageForCheckout", method = RequestMethod.PUT)
     public String message(@RequestBody OrderRO orderMessageRequest) {
 
-        if (orderMessageRequest.getOrderMessage().contains("OUT OF STOCK") || orderMessageRequest.getOrderMessage().contains("No Pineapple")) {
+        if (orderMessageRequest.getPizza().contains("OUT OF STOCK") || orderMessageRequest.getPizza().contains("No Pineapple")) {
 
-            notificationApp.notify("<p style=\"border:2px solid Red;\"> -- " + orderMessageRequest.getOrderMessage() + " " +
+            notificationApp.notify("<p style=\"border:2px solid Red;\"> -- " + orderMessageRequest.getPizza() + " " +
                     "for" +
                     " " + orderMessageRequest.getCustomerName() + " --  </p>");
 
-        } else if (orderMessageRequest.getOrderMessage().contains("order is taking a little longer")) {
-            notificationApp.notify("<p style=\"border:2px solid Yellow;\"> -- " + orderMessageRequest.getOrderMessage() +
+        } else if (orderMessageRequest.getPizza().contains("order is taking a little longer")) {
+            notificationApp.notify("<p style=\"border:2px solid Yellow;\"> -- " + orderMessageRequest.getPizza() +
                     " " +
                     "for" +
                     " " + orderMessageRequest.getCustomerName() + " --  </p>");

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableZeebeClient
-@Deployment(resources = {"classpath:/howAreYou.bpmn"})
+@Deployment(resources = {"classpath:/pizzaEvino.bpmn"})
 public class ServiceAsync {
 
     public static void main(String[] args) {
