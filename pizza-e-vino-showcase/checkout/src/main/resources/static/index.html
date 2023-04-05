@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+
+	<link rel="stylesheet"
+          href="css/styles.css">
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <title>Welcome to Pizza e Vino</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="jumbotron">
+                <h1 class="display-4">Welcome to... &#127829; and &#127863;</h1>
+                <hr class="my-4">
+                <form id="form">
+                    <div class="input-group mb-3">
+                        <label>What would you like?</label>
+                        <input type="text" id="Order" name="Order" class="form-control" placeholder="Take a pizza and vino - both together are great" aria-label="Type something" aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label>Name?</label>
+                        <input type="text" id="Name" name="Name" class="form-control" placeholder="What's your name?" aria-label="Type something" aria-describedby="button-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="submit"  class="btn btn-primary"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="response"></div>
+        </div>
+    </div>
+</div>
+<div id='loadingDiv'><div class="loader"></div></div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+<script src="/js/index.js"></script>
+</body>
+</html>
