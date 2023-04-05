@@ -3,23 +3,20 @@ package pizza.async.service;
 import io.camunda.zeebe.spring.client.annotation.JobWorker;
 import io.camunda.zeebe.spring.client.annotation.Variable;
 import io.camunda.zeebe.spring.client.exception.ZeebeBpmnError;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.util.Random;
 
-@Component(value = "sortPizzaOrder")
-public class SortPizzaOrderService {
+@Component
+@AllArgsConstructor
+public class PizzaOrderService implements OrderService {
     private final RestTemplate restTemplate;
 
-    public SortPizzaOrderService(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder.build();
-    }
-
-    @JobWorker(type = "sortPizzaOrder", fetchAllVariables = true)
-    public void sortPizzaOrder(@Variable String orderMessage) throws Exception {
+    @JobWorker(type = "sortVinoOrder", fetchAllVariables = true)
+    public void execute(@Variable String customerName, @Variable String orderMessage) throws Exception {
         Random random = new Random();
 
         if(orderMessage.contains("hawaii") && random.nextBoolean()){
@@ -33,3 +30,4 @@ public class SortPizzaOrderService {
         }
     }
 }
+

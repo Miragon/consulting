@@ -26,8 +26,8 @@ public class ServiceController {
         Map<String, String> vars = new HashMap<>();
 
         vars.put("orderMessage", orderRO.getOrderMessage().toLowerCase());
+        vars.put("customerName", orderRO.getCustomerName());
         vars.put("businessKey", String.format("order-%s-%s", orderRO.getOrderMessage(), LocalDate.now()));
-
 
         zeebeClient.newCreateInstanceCommand()
                 .bpmnProcessId("ProcessOrder")

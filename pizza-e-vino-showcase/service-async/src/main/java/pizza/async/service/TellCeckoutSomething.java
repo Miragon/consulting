@@ -17,8 +17,8 @@ public class TellCeckoutSomething {
     }
 
     @JobWorker(type = "tellCheckout")
-    public void tellCheckoutAboutOrder(@Variable String message, @Variable String orderMessage, @Variable String businessKey) {
-        restTemplate.put(URI.create("http://localhost:8082/messageForCheckout/"), new OrderRO(orderMessage, businessKey));
-        System.out.println(businessKey + " Ready!");
+    public void tellCheckoutAboutOrder(@Variable String orderMessage, @Variable String customerName) {
+        restTemplate.put(URI.create("http://localhost:8082/messageForCheckout/"), new OrderRO(orderMessage, customerName));
+        System.out.println(customerName + " Ready!");
     }
 }
