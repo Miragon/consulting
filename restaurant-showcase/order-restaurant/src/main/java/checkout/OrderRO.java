@@ -11,6 +11,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class OrderRO {
     private String customerName;
-    private String pizza;
-    private String vino;
+    private String meal;
+    private String diningOption;
 }

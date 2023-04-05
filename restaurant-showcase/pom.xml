@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.miragon.miranum.consulting</groupId>
-    <artifactId>pizza-e-vino-showcase</artifactId>
+    <artifactId>restaurant-showcase</artifactId>
     <name>pizza-e-vino-showcase</name>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -21,10 +21,10 @@
     </properties>
 
     <modules>
-        <module>checkout</module>
-        <module>cooking</module>
-        <module>service-sync</module>
-        <module>service-async</module>
+        <module>order-restaurant</module>
+        <module>kirchen-restaurant</module>
+        <module>waiter-restaurant</module>
+        <module>waiter-restaurant-kafka</module>
     </modules>
 
     <dependencyManagement>
