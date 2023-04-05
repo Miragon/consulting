@@ -16,7 +16,7 @@ public class ServiceController {
     @Autowired
     private ZeebeClientLifecycle zeebeClient;
 
-    @RequestMapping(value = "/orderUp", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendOrder", method = RequestMethod.POST)
     public String index(@RequestBody OrderMessageRequest orderMessageRequest){
 
         System.out.println("Got this message for Mike: " + orderMessageRequest.orderMessage);

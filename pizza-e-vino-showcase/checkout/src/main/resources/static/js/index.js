@@ -25,17 +25,17 @@ connect();
 $( "#form" ).submit(function( event ) {
 
   event.preventDefault();
-    var data = { orderName: $("#Name").val(), orderMessage: $("#Order").val() };
+    var data = { customerName: $("#Name").val(), orderMessage: $("#Order").val() };
   $.ajax({
     method: "POST",
     contentType:"application/json; charset=utf-8",
     dataType:"json",
-    url: "/localOrderUp",
+    url: "/sendOrder",
     data: JSON.stringify(data)
   })
     .done(function( msg ) {
     		$('.response').append('<br><p style="border:2px solid DodgerBlue;">'+msg+'</p>');
-      
+
     }).fail(function( jqXHR, textStatus ) {
     	  $('.response').append('<p>'+jqXHR.responseText+'</p>');
     });

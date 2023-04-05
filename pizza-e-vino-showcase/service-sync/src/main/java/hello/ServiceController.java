@@ -1,37 +1,34 @@
 package hello;
 
-import hello.service.OrderMessageRequest;
-import hello.service.SortPizzaOrderService;
-import hello.service.SortVinoOrderService;
-import org.springframework.beans.factory.annotation.Autowired;
+import hello.service.OrderRO;
+import hello.service.PizzaOrderService;
+import hello.service.VinoOrderService;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@AllArgsConstructor
 public class ServiceController {
 
-    @Autowired
-    SortVinoOrderService sortVinoOrder;
+    VinoOrderService vinoOrderService;
+    PizzaOrderService pizzaOrderService;
 
-    @Autowired
-    SortPizzaOrderService sortPizzaOrder;
+    @RequestMapping(value = "/sendOrder", method = RequestMethod.POST)
+    public String index(@RequestBody OrderRO orderRequest) throws Exception {
 
-    @RequestMapping(value = "/orderUp", method = RequestMethod.POST)
-    public String index(@RequestBody OrderMessageRequest orderMessageRequest) throws Exception {
-
-        System.out.println("Got this message for Mike: " + orderMessageRequest.orderMessage);
-        // Map<String, Object> vars = new HashMap<String, Object>();
+        System.out.printf("Got this order for %s: %s%n", orderRequest.getCustomerName(), orderRequest.getOrderMessage());
         String orderMessage = "";
 
-        if(orderMessageRequest.orderMessage.toLowerCase().contains("vino")){
+        if(orderRequest.getOrderMessage().toLowerCase().contains("vino")){
             orderMessage = orderMessage + " Vino ";
-            sortVinoOrder.execute();
+            vinoOrderService.execute(orderRequest);
         }
-        if(orderMessageRequest.orderMessage.toLowerCase().contains("pizza")){
+        if(orderRequest.getOrderMessage().toLowerCase().contains("pizza")){
             orderMessage = orderMessage + " Pizza ";
-            sortPizzaOrder.execute();
+            pizzaOrderService.execute(orderRequest);
         }
 
         return "Order of " + orderMessage + " Is Ready";
