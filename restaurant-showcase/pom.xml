@@ -22,9 +22,10 @@
 
     <modules>
         <module>order-restaurant</module>
-        <module>kirchen-restaurant</module>
-        <module>waiter-restaurant</module>
-        <module>waiter-restaurant-kafka</module>
+        <module>kitchen-restaurant</module>
+        <module>waiter-restaurant-plain</module>
+        <module>waiter-restaurant-integration</module>
+        <module>waiter-restaurant-integration-kafka</module>
     </modules>
 
     <dependencyManagement>
