@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceSync {
+public class WaiterRestaurantApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ServiceSync.class, args);
+        SpringApplication.run(WaiterRestaurantApplication.class, args);
     }
 }

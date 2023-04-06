@@ -23,6 +23,7 @@
     <modules>
         <module>order</module>
         <module>kitchen</module>
+        <module>payment</module>
         <module>waiter-plain</module>
         <module>waiter-restaurant-integration</module>
         <module>waiter-restaurant-integration-kafka</module>

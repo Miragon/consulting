@@ -15,7 +15,7 @@ public class KitchenController {
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String order(@RequestBody OrderRO orderRO) throws InterruptedException {
         for (int i = 0; i < 10; i++) {
-            log.info("We're preparing the {} for {}... {}%!", orderRO.getMeal(), orderRO.getCustomerName(), (i+1)*10);
+            log.info("We're preparing the {} for {}... {}%", orderRO.getMeal(), orderRO.getCustomerName(), (i+1)*10);
             Thread.sleep(ONE_SECOND);
         }
 

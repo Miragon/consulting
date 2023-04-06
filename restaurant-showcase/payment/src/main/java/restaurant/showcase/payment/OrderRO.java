@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.service;
+package restaurant.showcase.payment;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class OrderRO {
     private String customerName;
-    private String pizza;
-    private String vino;
+    private String meal;
+    private String diningOption;
 }
+
