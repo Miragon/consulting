@@ -109,8 +109,9 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
         crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 <script>
-    let stompClient = null;
     const $loading = $('#loading-button').hide();
     const $notLoading = $('#submit-button');
     $(document)
@@ -122,6 +123,20 @@
             $notLoading.show();
             $loading.hide();
         });
+
+    let stompClient = null;
+    function connect() {
+        var socket = new SockJS('/restaurant');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function (frame) {
+
+            stompClient.subscribe('/topic/message', function (greeting) {
+                console.log(greeting.body)
+                $('.response').append('<p>'+greeting.body+'</p>');
+            });
+        });
+    }
+    connect();
 
     $("#form").submit(function (event) {
 
@@ -135,7 +150,7 @@
             data: JSON.stringify(data)
         })
             .done(function (msg) {
-                $('.response').append('<br><p style="border:2px solid DodgerBlue;">' + msg + '</p>');
+                $('.response').append('<p>' + msg + '</p>');
 
             }).fail(function (jqXHR, textStatus) {
             $('.response').append('<p>' + jqXHR.responseText + '</p>');

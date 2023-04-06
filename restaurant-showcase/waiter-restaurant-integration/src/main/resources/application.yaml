@@ -1,8 +1,0 @@
-server:
-  port : 8080
-zeebe.client:
-  cloud:
-    region: dsm-1
-    clusterId: ${CLUSTER_ID}
-    clientId: ${CLIENT_ID}
-    clientSecret: ${CLIENT_SECRET}

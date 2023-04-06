@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import restaurant.showcase.waiter.websocket.WebsocketNotificationListener;
 
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -18,14 +19,13 @@ import java.util.Map;
 public class WaiterController {
 
     private final ZeebeClientLifecycle zeebeClient;
+    private final WebsocketNotificationListener websocketNotificationListener;
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String handleOrder(@RequestBody OrderRO orderRO){
-
         log.info("{} ordered a {} to {}.", orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption());
 
         Map<String, String> vars = new HashMap<>();
-
         vars.put("businessKey", String.format("order-%s-%s", orderRO.getCustomerName(), LocalDate.now()));
         vars.put("customerName", orderRO.getCustomerName());
         vars.put("meal", orderRO.getMeal());
@@ -42,11 +42,15 @@ public class WaiterController {
 
     @RequestMapping(value = "/calm/customer", method = RequestMethod.POST)
     public void payment(@RequestBody OrderRO orderRO) {
-        log.info("Jo {}, calm down! Your order is on its way!", orderRO.getCustomerName());
+        String response = String.format("Jo %s, calm down! Your order is on its way!", orderRO.getCustomerName());
+        log.info(response);
+        websocketNotificationListener.notify(response);
     }
 
     @RequestMapping(value = "/meal/serve", method = RequestMethod.POST)
     public void serveMeal(@RequestBody OrderRO orderRO) {
-        log.info("Here is your {}, {}!", orderRO.getMeal(), orderRO.getCustomerName());
+        String response = String.format("Here is your %s, %s!", orderRO.getMeal(), orderRO.getCustomerName());
+        log.info(response);
+        websocketNotificationListener.notify(response);
     }
 }
