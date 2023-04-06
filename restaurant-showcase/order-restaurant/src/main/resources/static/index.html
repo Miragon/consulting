@@ -57,30 +57,26 @@
 
                 <div class="form-row">
                     <label for="name" class="form-label">Name:</label>
-                    <input
-                            type="text"
-                            id="name"
-                            class="form-control"
-                    />
+                    <input required type="text" id="name" class="form-control" />
                 </div>
 
                 <div class="form-row">
                     <label for="meal" class="form-label">Meal:</label>
-                    <select name="meal" id="meal" class="form-select">
+                    <select required name="meal" id="meal" class="form-select">
                         <option hidden selected disabled></option>
-                        <option value="margarita">Pizza Margarita</option>
-                        <option value="prosciutto">Pizza Prosciutto</option>
+                        <option value="pizza-margarita">Pizza Margarita</option>
+                        <option value="pizza-prosciutto">Pizza Prosciutto</option>
                         <option value="cheeseburger">Cheeseburger</option>
                         <option value="hamburger">Hamburger</option>
                     </select>
                 </div>
 
                 <div class="form-row">
-                    <label for="dining" class="form-label">Dining Option:</label>
-                    <select name="dining" id="dining" class="form-select">
+                    <label for="diningOption" class="form-label">Dining Option:</label>
+                    <select required name="diningOption" id="diningOption" class="form-select">
                         <option hidden selected disabled></option>
-                        <option value="in">Dine In</option>
-                        <option value="away">Take Away</option>
+                        <option value="dine-in">Dine In</option>
+                        <option value="take-away">Take Away</option>
                     </select>
                 </div>
 

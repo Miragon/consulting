@@ -21,14 +21,14 @@ public class OrderController {
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String handleOrder(@RequestBody OrderRO orderRO){
 
-        System.out.printf("%s ordered %s to %s.%n", orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption());
+        System.out.printf("%s ordered a %s to %s.%n", orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption());
 
         Map<String, String> vars = new HashMap<>();
 
         vars.put("businessKey", String.format("order-%s-%s", orderRO.getCustomerName(), LocalDate.now()));
         vars.put("customerName", orderRO.getCustomerName());
         vars.put("meal", orderRO.getMeal());
-        vars.put("dining", orderRO.getDiningOption());
+        vars.put("diningOption", orderRO.getDiningOption());
 
         zeebeClient.newCreateInstanceCommand()
                 .bpmnProcessId("RestaurantPlain")
@@ -36,10 +36,7 @@ public class OrderController {
                 .variables(vars)
                 .send();
 
-        String response = String.format("Thanks, %s! We'll prepare your %s to %s!", orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption());
-
-        System.out.println(response);
-        return response;
+        return String.format("Thanks, %s! We'll prepare your %s to %s!", orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption());
     }
 
 }
