@@ -51,7 +51,7 @@
             <zeebe:input source="20" target="connectionTimeoutInSeconds" />
             <zeebe:input source="post" target="method" />
             <zeebe:input source="={&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-            <zeebe:input source="http://192.168.1.107:8883" target="url" />
+            <zeebe:input source="http://192.168.1.107:8883/calm/customer" target="url" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
@@ -158,7 +158,7 @@
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
           <zeebe:input source="={&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883" target="url" />
+          <zeebe:input source="http://192.168.1.107:8883/meal/serve" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>

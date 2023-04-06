@@ -20,9 +20,9 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <groupId>io.camunda</groupId>
+            <artifactId>spring-zeebe-starter</artifactId>
+            <version>${camunda8.version}</version>
         </dependency>
     </dependencies>
 

@@ -21,7 +21,6 @@
     </properties>
 
     <modules>
-        <module>order</module>
         <module>kitchen</module>
         <module>payment</module>
         <module>waiter-plain</module>

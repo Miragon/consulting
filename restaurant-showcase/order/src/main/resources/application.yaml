@@ -1,8 +1,0 @@
-server:
-  port : 8884
-zeebe:
-  client:
-    broker:
-      gateway-address: localhost:26500
-    security:
-      plaintext: true
