@@ -27,6 +27,8 @@ services:
       - ZEEBE_BROKER_DATA_DISKUSAGEREPLICATIONWATERMARK=0.999
       - "JAVA_TOOL_OPTIONS=-Xms512m -Xmx512m"
     restart: always
+    extra_hosts:
+      - "${HOST}:host-gateway" #access hosts localhost from within the container
     volumes:
       - .data/zeebe:/usr/local/zeebe/data
     networks:

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.miragon.miranum.consulting</groupId>
     <artifactId>restaurant-showcase</artifactId>
-    <name>pizza-e-vino-showcase</name>
+    <name>restaurant-showcase</name>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -21,9 +21,9 @@
     </properties>
 
     <modules>
-        <module>order-restaurant</module>
-        <module>kitchen-restaurant</module>
-        <module>waiter-restaurant-plain</module>
+        <module>order</module>
+        <module>kitchen</module>
+        <module>waiter-plain</module>
         <module>waiter-restaurant-integration</module>
         <module>waiter-restaurant-integration-kafka</module>
     </modules>
