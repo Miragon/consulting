@@ -134,7 +134,7 @@
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function () {
             stompClient.subscribe(`/topic/message/${orderId}`, function (greeting) {
-                $('.response').append('<p>' + greeting.body + '</p>');
+                $('.response').append('<div class="responseMessage"><p>' + greeting.body + '</p></div>');
             });
         });
     }
@@ -148,11 +148,15 @@
             data: JSON.stringify({ orderId: orderId })
         })
             .done(function (response) {
-                console.log(response);
-                $(`.payment-${orderId}`).append('<p>' + response.message + '</p>');
+                const p = document.createElement('p');
+                p.innerHTML = 'Your Payment is processed right away.';
+                const elementId = '#payment-' + orderId;
+                console.log(elementId);
+                console.log(document.getElementById(elementId))
+                document.getElementById(elementId).appendChild(p);
             })
             .fail(function () {
-                $(`.payment-${orderId}`).append('<p>Payment failed</p>');
+                $('#payment-' + orderId).append('<p>Payment failed</p>');
             });
     }
 
@@ -167,15 +171,22 @@
             data: JSON.stringify(data)
         })
             .done(function (response) {
-                $('.response').append(
-                    '<div class="responseMessage" id="payment-' + response.orderId + '">' +
-                        '<p>' + response.message + '</p>' +
-                        '<button onClick="pay(\'' + response.orderId + '\')" /" type="submit" class="btn btn-primary">Pay Now</button>' +
-                    '</div>');
+                if (data.diningOption === "take-away") {
+                    $('.response').append(
+                        '<div class="responseMessage" id="payment-' + response.orderId + '">' +
+                        '<p>' + response.message + ' Your Payment is processed right away.</p>' +
+                        '</div>');
+                } else {
+                    $('.response').append(
+                        '<div class="responseMessage" id="payment-' + response.orderId + '">' +
+                            '<p>' + response.message + '</p>' +
+                            '<button onClick="pay(\'' + response.orderId + '\')" /" type="submit" class="btn btn-primary">Pay Now</button>' +
+                        '</div>');
+                }
                 connect(response.orderId);
             })
             .fail(function (jqXHR) {
-                $('.response').append('<div class="responseMessage"></div><p>' + jqXHR.responseText + '</p></div>');
+                $('.response').append('<div class="responseMessage"><p>' + jqXHR.responseText + '</p></div>');
             });
     });
 </script>
