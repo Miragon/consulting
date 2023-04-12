@@ -30,7 +30,7 @@
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>process-adapter-c7</artifactId>
-            <version>${project.version}</version>
+            <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

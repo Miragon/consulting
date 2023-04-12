@@ -21,17 +21,17 @@
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>mail-core</artifactId>
-            <version>${project.version}</version>
+            <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>worker-api</artifactId>
-            <version>${project.version}</version>
+            <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>element-template-api</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
+            <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
