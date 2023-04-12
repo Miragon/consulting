@@ -17,7 +17,7 @@ public class MiranumCustomerNotificationAdapter {
             id = "mail-delivery",
             type = "mailDelivery",
             appliesTo = {BPMNElementType.BPMN_SERVICE_TASK},
-            version = 0.1)
+            version = 1)
     public void notifyCustomer(MailCommand sendMailCommand) {
         SendMailCommand mailCommand = SendMailCommandFactory.create(sendMailCommand);
         sendMailUseCase.sendMail(mailCommand);
