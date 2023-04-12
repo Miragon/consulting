@@ -10,6 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderRO {
+    private String orderId;
     private String customerName;
     private String meal;
     private String diningOption;

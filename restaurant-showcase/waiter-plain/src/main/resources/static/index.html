@@ -20,7 +20,6 @@
             justify-content: center;
             margin: 1rem 0;
         }
-
         #main {
             display: flex;
             flex-direction: column;
@@ -28,19 +27,24 @@
             background-color: #ddd;
             border-radius: 5px;
         }
-
         #form {
             display: flex;
             flex-direction: column;
             gap: 1rem
         }
-
         .form-row {
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-direction: row;
         }
-
+        .responseMessage {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
         .form-label {
             width: 200px;
         }
@@ -95,7 +99,7 @@
             </form>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-12">
         <div class="response"></div>
     </div>
 </div>
@@ -130,14 +134,29 @@
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function () {
             stompClient.subscribe(`/topic/message/${orderId}`, function (greeting) {
-                console.log(greeting.body)
-                $('.response').append('<p>'+greeting.body+'</p>');
+                $('.response').append('<p>' + greeting.body + '</p>');
             });
         });
     }
 
-    $("#form").submit(function (event) {
+    function pay(orderId) {
+        $.ajax({
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "/pay",
+            data: JSON.stringify({ orderId: orderId })
+        })
+            .done(function (response) {
+                console.log(response);
+                $(`.payment-${orderId}`).append('<p>' + response.message + '</p>');
+            })
+            .fail(function () {
+                $(`.payment-${orderId}`).append('<p>Payment failed</p>');
+            });
+    }
 
+    $("#form").submit(function (event) {
         event.preventDefault();
         var data = { orderId: "set-by-backend", customerName: $("#name").val(), meal: $("#meal").val(), diningOption: $("#diningOption").val() };
         $.ajax({
@@ -148,11 +167,15 @@
             data: JSON.stringify(data)
         })
             .done(function (response) {
-                $('.response').append('<p>' + response.message + '</p>');
+                $('.response').append(
+                    '<div class="responseMessage" id="payment-' + response.orderId + '">' +
+                        '<p>' + response.message + '</p>' +
+                        '<button onClick="pay(\'' + response.orderId + '\')" /" type="submit" class="btn btn-primary">Pay Now</button>' +
+                    '</div>');
                 connect(response.orderId);
             })
             .fail(function (jqXHR) {
-                $('.response').append('<p>' + jqXHR.responseText + '</p>');
+                $('.response').append('<div class="responseMessage"></div><p>' + jqXHR.responseText + '</p></div>');
             });
     });
 </script>

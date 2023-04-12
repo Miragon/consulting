@@ -114,7 +114,7 @@
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
           <zeebe:input source="http://192.168.1.107:8881/order" target="url" />
-          <zeebe:input source="={&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
+          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
         </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0sxl6rc</bpmn:incoming>
@@ -127,8 +127,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="={&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
           <zeebe:input source="http://192.168.1.107:8882/payment" target="url" />
+          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -142,8 +142,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="={&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
           <zeebe:input source="http://192.168.1.107:8881/order" target="url" />
+          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -172,8 +172,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="={&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
           <zeebe:input source="http://192.168.1.107:8882/payment" target="url" />
+          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -183,7 +183,7 @@
   </bpmn:process>
   <bpmn:message id="Message_09q557m" name="ReadyToPay">
     <bpmn:extensionElements>
-      <zeebe:subscription correlationKey="=businessKey" />
+      <zeebe:subscription correlationKey="=orderId" />
     </bpmn:extensionElements>
   </bpmn:message>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
