@@ -1,0 +1,187 @@
+{
+    "key": "Form_Application",
+    "schema": {
+        "key": "MyStartForm",
+        "type": "object",
+        "x-display": "stepper",
+        "allOf": [
+            {
+                "title": "Energy Contractor Change",
+                "description": "",
+                "type": "object",
+                "key": "afe5cff5-d9fe-4f41-9625-7319f1db0563",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [
+                    {
+                        "containerType": "group",
+                        "title": "Group",
+                        "description": "",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "6cd277bd-04b9-472a-af25-056516ef3159": {
+                                "fieldType": "text",
+                                "title": "Welcome to ACME AG",
+                                "type": "string",
+                                "key": "6cd277bd-04b9-472a-af25-056516ef3159",
+                                "readOnly": true,
+                                "default": "This form allows you to easily start the customer onboarding process of ACME AG",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            }
+                        },
+                        "key": "12a00368-3875-4f33-b8a8-ab2c86dda5f8"
+                    }
+                ]
+            },
+            {
+                "key": "sectionKey1",
+                "title": "Perosnal Information",
+                "type": "object",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [
+                    {
+                        "containerType": "group",
+                        "title": "Personal Information",
+                        "description": "",
+                        "key": "4c7e6449-b470-4f43-821e-7cfe3ce42bdc",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "name": {
+                                "fieldType": "text",
+                                "title": "Name",
+                                "type": "string",
+                                "key": "name",
+                                "description": "Your name here",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "email": {
+                                "fieldType": "text",
+                                "title": "Email",
+                                "type": "string",
+                                "key": "email",
+                                "description": "Your email-address",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "address": {
+                                "fieldType": "text",
+                                "title": "Address",
+                                "type": "string",
+                                "key": "address",
+                                "description": "Your Address",
+                                "readOnly": false,
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "employment": {
+                                "fieldType": "select",
+                                "title": "Employment",
+                                "type": "string",
+                                "key": "employment",
+                                "x-display": "select",
+                                "anyOf": [
+                                    {
+                                        "title": "Unemployed",
+                                        "const": "unemployed"
+                                    },
+                                    {
+                                        "title": "Permanent",
+                                        "const": "permanent"
+                                    },
+                                    {
+                                        "title": "Self-employed",
+                                        "const": "self-employed"
+                                    }
+                                ],
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "income": {
+                                "fieldType": "number",
+                                "title": "Income",
+                                "type": "number",
+                                "key": "income",
+                                "description": "Your current net income",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

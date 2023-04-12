@@ -1,0 +1,93 @@
+{
+    "schema": {
+        "key": "MyStartForm",
+        "type": "object",
+        "x-display": "",
+        "allOf": [
+            {
+                "key": "sectionKey1",
+                "title": "First Section",
+                "type": "object",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [
+                    {
+                        "key": "group1",
+                        "title": "First Group",
+                        "type": "object",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "task": {
+                                "fieldType": "text",
+                                "title": "Task",
+                                "type": "string",
+                                "key": "task",
+                                "readOnly": true,
+                                "default": "Decide on Application",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "description": {
+                                "fieldType": "textarea",
+                                "title": "Description of the Task",
+                                "x-display": "textarea",
+                                "type": "string",
+                                "key": "description",
+                                "readOnly": true,
+                                "default": "Please check this new Application. It was classified with a moderate risk. Hence your opinion is necessary to proceed further with it. You can either decline or approve it.",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "approved": {
+                                "fieldType": "switch",
+                                "title": "Approve Application",
+                                "x-display": "switch",
+                                "default": false,
+                                "type": "boolean",
+                                "key": "approved",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "key": "Form_DecisionApplication"
+}
