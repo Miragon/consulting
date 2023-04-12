@@ -26,7 +26,7 @@
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>process-api</artifactId>
-            <version>${miranum.version}</version>
+            <version>0.1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
