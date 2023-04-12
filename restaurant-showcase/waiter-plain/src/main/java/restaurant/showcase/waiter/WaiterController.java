@@ -50,10 +50,10 @@ public class WaiterController {
     }
 
     @RequestMapping(value = "/pay", method = RequestMethod.POST)
-    public ResponseEntity<PayResponseRO> handleOrder(@RequestBody PayRO payRO){
+    public ResponseEntity<PayResponseRO> handlePay(@RequestBody PayRO payRO){
 
         zeebeClient.newPublishMessageCommand()
-                .messageName("Customer wants to pay")
+                .messageName("ReadyToPay")
                 .correlationKey(payRO.getOrderId())
                 .send();
 
@@ -62,16 +62,28 @@ public class WaiterController {
         return ResponseEntity.ok(new PayResponseRO(response));
     }
 
-    @RequestMapping(value = "/calm/customer", method = RequestMethod.POST)
-    public void payment(@RequestBody OrderRO orderRO) {
-        String response = String.format("Jo %s, calm down! I'm with you in a second!", orderRO.getCustomerName());
+    @RequestMapping(value = "/serve", method = RequestMethod.POST)
+    public void serveMeal(@RequestBody OrderRO orderRO) {
+        String response = String.format("Here is your %s, %s!", orderRO.getMeal(), orderRO.getCustomerName());
         log.info("[{}] {}", orderRO.getOrderId(), response);
         websocketNotificationListener.notify(orderRO.getOrderId(), response);
     }
 
-    @RequestMapping(value = "/meal/serve", method = RequestMethod.POST)
-    public void serveMeal(@RequestBody OrderRO orderRO) {
-        String response = String.format("Here is your %s, %s!", orderRO.getMeal(), orderRO.getCustomerName());
+    @RequestMapping(value = "/ready", method = RequestMethod.POST)
+    public void payment(@RequestBody OrderRO orderRO) {
+        String response;
+        if (orderRO.getDiningOption().equals("dine-in")) {
+            response = String.format("We received your payment, %s. Thanks for having a %s at our place!", orderRO.getCustomerName(), orderRO.getMeal());
+        } else {
+            response = String.format("We finished your %s and received your payment, %s. Thanks for ordering at our place!", orderRO.getMeal(), orderRO.getCustomerName());
+        }
+        log.info("[{}] {}", orderRO.getOrderId(), response);
+        websocketNotificationListener.notify(orderRO.getOrderId(), response);
+    }
+
+    @RequestMapping(value = "/calm", method = RequestMethod.POST)
+    public void calm(@RequestBody OrderRO orderRO) {
+        String response = String.format("Jo %s, calm down! I'm with you in a second!", orderRO.getCustomerName());
         log.info("[{}] {}", orderRO.getOrderId(), response);
         websocketNotificationListener.notify(orderRO.getOrderId(), response);
     }

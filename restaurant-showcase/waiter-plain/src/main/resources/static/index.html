@@ -20,7 +20,6 @@
             justify-content: center;
             margin: 1rem 0;
         }
-
         #main {
             display: flex;
             flex-direction: column;
@@ -28,20 +27,17 @@
             background-color: #ddd;
             border-radius: 5px;
         }
-
         #form {
             display: flex;
             flex-direction: column;
             gap: 1rem
         }
-
         .form-row {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: row;
         }
-
         .responseMessage {
             display: flex;
             flex-direction: row;
@@ -49,7 +45,6 @@
             justify-content: center;
             gap: 1rem;
         }
-
         .form-label {
             width: 200px;
         }
@@ -93,9 +88,9 @@
                 </div>
 
                 <div id="submit-button" class="text-center">
-                    <button onclick="order()" type="submit" class="btn btn-primary">Submit Order</button>
+                    <button type="submit" class="btn btn-primary">Submit Order</button>
                 </div>
-                <div id="loading-button" class="text-center">
+                <div id="loading-button"  class="text-center">
                     <button class="btn btn-primary" disabled>
                         <span class="spinner-grow spinner-grow-sm"></span>
                         Loading...
@@ -105,7 +100,7 @@
         </div>
     </div>
     <div class="col-12">
-        <div class="response" id="response"></div>
+        <div class="response"></div>
     </div>
 </div>
 
@@ -134,27 +129,23 @@
         });
 
     let stompClient = null;
-
-    function post(url, data, onSuccess, onFail) {
-        fetch('url', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then(response => onSuccess(response.json()))
-            .then(response => onFail(JSON.stringify(response)))
-    }
-
     function connect(orderId) {
-        const socket = new SockJS('/restaurant');
+        var socket = new SockJS('/restaurant');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function () {
             stompClient.subscribe(`/topic/message/${orderId}`, function (greeting) {
                 $('.response').append('<div class="responseMessage"><p>' + greeting.body + '</p></div>');
             });
+        });
+    }
+
+    function pay(orderId) {
+        $.ajax({
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "/pay",
+            data: JSON.stringify({ orderId: orderId })
         });
     }
 
@@ -177,8 +168,8 @@
                 } else {
                     $('.response').append(
                         '<div class="responseMessage" id="payment-' + response.orderId + '">' +
-                        '<p>' + response.message + '</p>' +
-                        '<button data-id="' + response.orderId + '" id="payment-button" class="btn btn-primary">Pay Now</button>' +
+                            '<p>' + response.message + '</p>' +
+                            '<button onClick="pay(\'' + response.orderId + '\')" /" type="submit" class="btn btn-primary">Pay Now</button>' +
                         '</div>');
                 }
                 connect(response.orderId);
@@ -187,23 +178,6 @@
                 $('.response').append('<div class="responseMessage"><p>' + jqXHR.responseText + '</p></div>');
             });
     });
-
-    $("#payment-button").click(function (event) {
-        event.preventDefault();
-        const orderId = $(this).data('id');
-        console.log(orderId);
-        const onSuccess = (res) => {
-            console.log(res);
-            const containerId = '#payment-' + res.orderId;
-            console.log(containerId);
-            $(containerId).append('<p>' + res.message + '</p>');
-        };
-        const onFail = (res) => {
-            $('#payment-' + orderId).append('<p>Payment failed. Please try again.</p>');
-        };
-        post('/pay', { orderId: orderId }, onSuccess, onFail );
-    });
-
 </script>
 
 </body>
