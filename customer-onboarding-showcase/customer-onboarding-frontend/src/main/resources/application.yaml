@@ -1,0 +1,7 @@
+server:
+  port: 5050
+
+miranum:
+  customer-onboarding-starter:
+    port: 5151
+    url: http://localhost:${miranum.customer-onboarding-starter.port}/api/place-application

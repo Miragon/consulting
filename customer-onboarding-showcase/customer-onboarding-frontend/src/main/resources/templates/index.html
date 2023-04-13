@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"‚
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet"
+          href="css/style.css" th:src="@{/css/style.css}">
+    <title>ACME Onboarding</title>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        const processStarterURL = /*[[${@environment.getProperty('miranum.customer-onboarding-starter.url')}]]*/ null;
+
+        /*]]>*/
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="interaction-container">
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to ACME AG &#x26A1;</h1>
+            <p>On this website you can easily start a customer-onboarding-process!</p>
+            <hr class="my-4">
+            <form id="form">
+                <div class="input-group mb-3">
+                    <label>Your name:</label>
+                    <input required type="text" id="name" name="name" class="form-control" placeholder="John Doe"
+                           aria-label="Type something" aria-describedby="button-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <label>Email Address:</label>
+                    <input required type="email" id="email" name="email" class="form-control" placeholder="john.doe@mail.com"
+                           aria-label="Type something" aria-describedby="button-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <label>Address to be provisioned:</label>
+                    <input required type="text" id="address" name="address" class="form-control" placeholder="Street 1, 12345 City"
+                           aria-label="Your address" aria-describedby="button-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <label>Employment:</label>
+                    <input required type="text" id="employment" name="employment" class="form-control" placeholder="permanent"
+                           aria-label="Your name" aria-describedby="button-addon2">
+                </div>
+                <div class="input-group mb-3">
+                    <label>Net income per year:</label>
+                    <input required type="number" id="income" name="income" class="form-control" placeholder="10000"
+                           aria-label="Your name" aria-describedby="button-addon2">
+                </div>
+                <div class="submit-button mb-3">
+                    <input type="submit" value="Submit" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="response"></div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" th:src="@{https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js}"></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js}"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+<script src="js/index.js" th:src="@{/js/index.js}"></script>
+</body>
+</html>
