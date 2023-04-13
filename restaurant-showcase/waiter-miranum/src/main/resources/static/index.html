@@ -146,23 +146,12 @@
             dataType: "json",
             url: "/pay",
             data: JSON.stringify({ orderId: orderId })
-        })
-            .done(function (response) {
-                const p = document.createElement('p');
-                p.innerHTML = 'Your Payment is processed right away.';
-                const elementId = '#payment-' + orderId;
-                console.log(elementId);
-                console.log(document.getElementById(elementId))
-                document.getElementById(elementId).appendChild(p);
-            })
-            .fail(function () {
-                $('#payment-' + orderId).append('<p>Payment failed</p>');
-            });
+        });
     }
 
     $("#form").submit(function (event) {
         event.preventDefault();
-        var data = { orderId: "set-by-backend", customerName: $("#name").val(), meal: $("#meal").val(), diningOption: $("#diningOption").val() };
+        const data = { orderId: "set-by-backend", customerName: $("#name").val(), meal: $("#meal").val(), diningOption: $("#diningOption").val() };
         $.ajax({
             method: "POST",
             contentType: "application/json; charset=utf-8",

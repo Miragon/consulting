@@ -24,6 +24,7 @@
         <module>kitchen</module>
         <module>payment</module>
         <module>waiter-plain</module>
+        <module>waiter-miranum</module>
     </modules>
 
     <dependencyManagement>

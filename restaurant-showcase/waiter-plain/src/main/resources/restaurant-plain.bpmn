@@ -190,11 +190,6 @@
       <bpmn:incoming>Flow_12zcjg8</bpmn:incoming>
       <bpmn:outgoing>Flow_0is0xwd</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:intermediateCatchEvent id="ReadyToPayMessage" name="Ready to pay">
-      <bpmn:incoming>Flow_0mco1ib</bpmn:incoming>
-      <bpmn:outgoing>Flow_12zcjg8</bpmn:outgoing>
-      <bpmn:messageEventDefinition id="MessageEventDefinition_1rxm4cj" messageRef="Message_09q557m" />
-    </bpmn:intermediateCatchEvent>
     <bpmn:parallelGateway id="DineAwayParallelGatewayClose">
       <bpmn:incoming>Flow_0o2v7mn</bpmn:incoming>
       <bpmn:incoming>Flow_0f5wn8k</bpmn:incoming>
@@ -205,6 +200,11 @@
       <bpmn:outgoing>Flow_02qc5l9</bpmn:outgoing>
       <bpmn:outgoing>Flow_0sxl6rc</bpmn:outgoing>
     </bpmn:parallelGateway>
+    <bpmn:intermediateCatchEvent id="ReadyToPayMessage" name="Ready to pay">
+      <bpmn:incoming>Flow_0mco1ib</bpmn:incoming>
+      <bpmn:outgoing>Flow_12zcjg8</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1rxm4cj" messageRef="Message_09q557m" />
+    </bpmn:intermediateCatchEvent>
   </bpmn:process>
   <bpmn:message id="Message_09q557m" name="ReadyToPay">
     <bpmn:extensionElements>
@@ -243,17 +243,17 @@
       <bpmndi:BPMNShape id="Activity_1u60zff_di" bpmnElement="IssueCheckIn">
         <dc:Bounds x="930" y="500" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_06h94rv_di" bpmnElement="ReadyToPayMessage">
-        <dc:Bounds x="802" y="522" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="788" y="565" width="65" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_129tfoc_di" bpmnElement="DineAwayParallelGatewayClose">
         <dc:Bounds x="725" y="295" width="50" height="50" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1uvkura_di" bpmnElement="DineAwayParallelGateway">
         <dc:Bounds x="465" y="295" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06h94rv_di" bpmnElement="ReadyToPayMessage">
+        <dc:Bounds x="812" y="522" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="798" y="565" width="65" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0ktr1r7_di" bpmnElement="Activity_1j8htk1" isExpanded="true">
         <dc:Bounds x="210" y="610" width="348" height="130" />
@@ -312,12 +312,12 @@
         <di:waypoint x="1070" y="540" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_12zcjg8_di" bpmnElement="Flow_12zcjg8">
-        <di:waypoint x="838" y="540" />
+        <di:waypoint x="848" y="540" />
         <di:waypoint x="930" y="540" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0mco1ib_di" bpmnElement="Flow_0mco1ib">
         <di:waypoint x="770" y="540" />
-        <di:waypoint x="802" y="540" />
+        <di:waypoint x="812" y="540" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1g81fpi_di" bpmnElement="Flow_1g81fpi">
         <di:waypoint x="775" y="320" />

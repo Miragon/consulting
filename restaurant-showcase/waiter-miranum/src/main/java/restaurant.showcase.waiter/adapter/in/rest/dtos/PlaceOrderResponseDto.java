@@ -1,15 +1,12 @@
-package restaurant.showcase.waiter;
+package restaurant.showcase.waiter.adapter.in.rest.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PayRO {
+@Getter
+public class PlaceOrderResponseDto {
     private String orderId;
 }
-

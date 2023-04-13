@@ -1,18 +1,14 @@
-package restaurant.showcase.waiter;
+package restaurant.showcase.waiter.adapter.in.rest.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderRO {
-    private String orderId;
+@Getter
+public class PlaceOrderRequestDto {
     private String customerName;
     private String meal;
     private String diningOption;
 }
-

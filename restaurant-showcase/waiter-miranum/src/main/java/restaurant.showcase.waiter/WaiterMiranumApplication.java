@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableZeebeClient
-public class WaiterPlainApplication {
+public class WaiterMiranumApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WaiterPlainApplication.class, args);
+        SpringApplication.run(WaiterMiranumApplication.class, args);
     }
 }
