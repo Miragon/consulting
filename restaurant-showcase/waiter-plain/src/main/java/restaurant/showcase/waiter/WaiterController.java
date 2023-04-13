@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import restaurant.showcase.waiter.model.OrderRO;
+import restaurant.showcase.waiter.model.OrderResponseRO;
+import restaurant.showcase.waiter.model.PayRO;
+import restaurant.showcase.waiter.model.PayResponseRO;
 import restaurant.showcase.waiter.websocket.WebsocketNotificationListener;
 
 import java.time.LocalDateTime;
@@ -46,7 +50,7 @@ public class WaiterController {
     }
 
     @RequestMapping(value = "/pay", method = RequestMethod.POST)
-    public String handleOrder(@RequestBody PayRO payRO){
+    public ResponseEntity<PayResponseRO> handleOrder(@RequestBody PayRO payRO){
 
         zeebeClient.newPublishMessageCommand()
                 .messageName("Customer wants to pay")
@@ -55,7 +59,7 @@ public class WaiterController {
 
         String response = "Payment handled. Thank you.";
         log.info("[{}] {}", payRO.getOrderId(), response);
-        return response;
+        return ResponseEntity.ok(new PayResponseRO(response));
     }
 
     @RequestMapping(value = "/calm/customer", method = RequestMethod.POST)

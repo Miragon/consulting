@@ -1,11 +1,10 @@
-package restaurant.showcase.waiter;
+package restaurant.showcase.waiter.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class OrderResponseRO {
-    private String orderId;
+public class PayResponseRO {
     private String message;
 }

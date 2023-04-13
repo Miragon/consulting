@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter;
+package restaurant.showcase.waiter.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
