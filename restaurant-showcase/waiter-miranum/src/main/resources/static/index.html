@@ -139,31 +139,25 @@
         });
     }
 
-    function post(url, data) {
-        return $.ajax({
+    function pay(orderId) {
+        $.ajax({
             method: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            url: url,
-            data: JSON.stringify(data)
-        });
-    }
-
-    async function pay(orderId) {
-        console.log("paying");
-        try {
-            const res = await post('/pay', { orderId: orderId })
-            console.log(res);
-            if (res.status === 200){
-                console.log(res);
-                $('#payment-' + orderId).append('<p>' + response.responseText + '</p>');
-            }
-            else {
-                $('#payment-' + orderId).append('<p>Payment failed. Please try again.</p>');
-            }
-        } catch(err) {
-            $('#payment-' + orderId).append('<p>Payment failed. Please try again.</p>');
-        }
+            url: "/pay",
+            data: JSON.stringify({ orderId: orderId })
+        })
+            .done(function (response) {
+                const p = document.createElement('p');
+                p.innerHTML = 'Your Payment is processed right away.';
+                const elementId = '#payment-' + orderId;
+                console.log(elementId);
+                console.log(document.getElementById(elementId))
+                document.getElementById(elementId).appendChild(p);
+            })
+            .fail(function () {
+                $('#payment-' + orderId).append('<p>Payment failed</p>');
+            });
     }
 
     $("#form").submit(function (event) {

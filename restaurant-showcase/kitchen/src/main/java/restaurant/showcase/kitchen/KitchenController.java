@@ -20,7 +20,7 @@ public class KitchenController {
         }
 
         String response = String.format("The %s for %s is ready!", orderRO.getMeal(), orderRO.getCustomerName());
-        log.info("{} {}", orderRO.getOrderId(), response);
+        log.info("[{}] {}", orderRO.getOrderId(), response);
         return response;
     }
 }
