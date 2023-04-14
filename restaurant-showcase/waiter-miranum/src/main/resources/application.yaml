@@ -2,12 +2,12 @@ server:
   port: 8883
 application:
   rest:
-    kitchen: ${HOST}:8881
-    payment: ${HOST}:8882
+    kitchen: "localhost:8881"
+    payment: "localhost:8882"
 zeebe:
   client:
     broker:
-      gateway-address: ${HOST}:26500
+      gateway-address: "localhost:26500"
     security:
       plaintext: true
 

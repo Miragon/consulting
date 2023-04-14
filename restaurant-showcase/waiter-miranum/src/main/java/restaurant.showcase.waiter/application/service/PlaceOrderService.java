@@ -1,17 +1,15 @@
 package restaurant.showcase.waiter.application.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderInCommand;
 import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderUseCase;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutCommand;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderPort;
+import restaurant.showcase.waiter.domain.Order;
 
-import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
 @RequiredArgsConstructor
 public class PlaceOrderService implements PlaceOrderUseCase {
 
@@ -20,19 +18,19 @@ public class PlaceOrderService implements PlaceOrderUseCase {
 
     @Override
     public String placeOrder(PlaceOrderInCommand placeOrderInCommand) {
-        final String orderId = String.format("order-%s-%s", placeOrderInCommand.getCustomerName(), LocalDateTime.now());
-        var variables = variables(orderId, placeOrderInCommand);
+        var order = new Order(placeOrderInCommand);
+        var variables = variables(order);
         var placeOrderOutCommand = new PlaceOrderOutCommand(PROCESS_ID, variables);
         placeOrderPort.placeOrder(placeOrderOutCommand);
-        return orderId;
+        return order.getOrderId();
     }
 
-    private Map<String, Object> variables(String orderId, PlaceOrderInCommand placeOrderInCommand) {
+    private Map<String, Object> variables(Order order) {
         Map<String, Object> variables = new HashMap<>();
-        variables.put("orderId", orderId);
-        variables.put("customerName", placeOrderInCommand.getCustomerName());
-        variables.put("meal", placeOrderInCommand.getFood().getName());
-        variables.put("diningOption", placeOrderInCommand.getDiningOption().getName());
+        variables.put("orderId", order.getOrderId());
+        variables.put("customerName", order.getCustomerName());
+        variables.put("meal", order.getFood().getName());
+        variables.put("diningOption", order.getDiningOption().getName());
         return variables;
     }
 }

@@ -8,6 +8,7 @@ import restaurant.showcase.waiter.application.port.in.prepareMeal.PrepareMealInC
 import restaurant.showcase.waiter.application.port.in.prepareMeal.PrepareMealUseCase;
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOutCommand;
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealPort;
+import restaurant.showcase.waiter.domain.Order;
 
 @Service
 @RequiredArgsConstructor
@@ -19,19 +20,20 @@ public class PrepareMealService implements PrepareMealUseCase {
 
     @Override
     public void prepareMeal(PrepareMealInCommand prepareMealInCommand) {
+        var order = new Order(prepareMealInCommand);
         log.info("[{}] Telling Kitchen to prepare {}.",
-                prepareMealInCommand.getOrderId(),
-                prepareMealInCommand.getFood().getName());
-        String response = prepareMealPort.prepareMeal(map(prepareMealInCommand));
-        websocketNotificationListener.notify(prepareMealInCommand.getOrderId(), response);
+                order.getOrderId(),
+                order.getFood().getName());
+        String response = prepareMealPort.prepareMeal(map(order));
+        websocketNotificationListener.notify(order.getOrderId(), response);
     }
 
-    private PrepareMealOutCommand map(PrepareMealInCommand prepareMealInCommand) {
+    private PrepareMealOutCommand map(Order order) {
         return new PrepareMealOutCommand(
-                prepareMealInCommand.getOrderId(),
-                prepareMealInCommand.getCustomerName(),
-                prepareMealInCommand.getFood().getName(),
-                prepareMealInCommand.getDiningOption().getName()
+                order.getOrderId(),
+                order.getCustomerName(),
+                order.getFood().getName(),
+                order.getDiningOption().getName()
         );
     }
 }

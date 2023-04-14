@@ -26,13 +26,6 @@
     <bpmn:serviceTask id="Activity_1sb89lv" name="Ready to take away">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="ready" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883/ready" target="url" />
-        </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0j7v5tj</bpmn:incoming>
@@ -47,13 +40,6 @@
     <bpmn:serviceTask id="Activity_031x8lx" name="Hand over Check">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="ready" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883/ready" target="url" />
-        </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0cl7z0i</bpmn:incoming>
@@ -62,13 +48,6 @@
     <bpmn:serviceTask id="Activity_08ghj5b" name="Serve Meal">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="serveMeal" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883/serve" target="url" />
-        </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0h910gp</bpmn:incoming>
@@ -77,13 +56,6 @@
     <bpmn:serviceTask id="Activity_16sondf" name="Issue Check">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="issueCheck" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8882/payment" target="url" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-        </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0gojtbz</bpmn:incoming>
@@ -124,13 +96,6 @@
     <bpmn:serviceTask id="Activity_1sfqybu" name="Prepare Meal">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="prepareMeal" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8881/order" target="url" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-        </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0pxapvn</bpmn:incoming>
@@ -140,13 +105,6 @@
       <bpmn:extensionElements>
         <zeebe:taskHeaders />
         <zeebe:taskDefinition type="prepareMeal" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8881/order" target="url" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-        </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_16o4fj0</bpmn:incoming>
       <bpmn:outgoing>Flow_18esiyb</bpmn:outgoing>
@@ -164,13 +122,6 @@
       <bpmn:serviceTask id="Activity_1jxq2n0" name="Reassure Guest">
         <bpmn:extensionElements>
           <zeebe:taskDefinition type="calmCustomer" />
-          <zeebe:ioMapping>
-            <zeebe:input source="noAuth" target="authentication.type" />
-            <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-            <zeebe:input source="post" target="method" />
-            <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-            <zeebe:input source="http://192.168.1.107:8883/calm" target="url" />
-          </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
         <bpmn:incoming>Flow_0lsgm57</bpmn:incoming>
@@ -200,13 +151,6 @@
     <bpmn:serviceTask id="Activity_0mbtt7a" name="Issue Check">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="issueCheck" />
-        <zeebe:ioMapping>
-          <zeebe:input source="noAuth" target="authentication.type" />
-          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
-          <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8882/payment" target="url" />
-          <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-        </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0w7ytm0</bpmn:incoming>
