@@ -43,6 +43,7 @@
             <version>2.3.4</version>
         </dependency>
 
+        <!--Miranum-->
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>worker-api</artifactId>
@@ -52,7 +53,16 @@
             <groupId>io.miragon.miranum</groupId>
             <artifactId>process-api</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>worker-adapter-c8</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>process-adapter-c8</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

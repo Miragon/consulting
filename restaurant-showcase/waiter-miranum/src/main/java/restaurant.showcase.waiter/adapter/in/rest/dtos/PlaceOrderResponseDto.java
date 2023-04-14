@@ -9,4 +9,5 @@ import lombok.NoArgsConstructor;
 @Getter
 public class PlaceOrderResponseDto {
     private String orderId;
+    private String message;
 }
