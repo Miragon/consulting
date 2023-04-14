@@ -10,9 +10,9 @@ import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOu
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealPort;
 import restaurant.showcase.waiter.domain.Order;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class PrepareMealService implements PrepareMealUseCase {
 
     private final PrepareMealPort prepareMealPort;

@@ -2,8 +2,8 @@ server:
   port: 8883
 application:
   rest:
-    kitchen: "localhost:8881"
-    payment: "localhost:8882"
+    kitchen: "http://localhost:8881"
+    payment: "http://localhost:8882"
 zeebe:
   client:
     broker:

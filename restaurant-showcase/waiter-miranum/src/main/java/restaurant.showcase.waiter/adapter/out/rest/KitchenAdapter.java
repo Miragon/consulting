@@ -1,5 +1,8 @@
 package restaurant.showcase.waiter.adapter.out.rest;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
@@ -11,15 +14,24 @@ import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOu
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealPort;
 
 import java.time.Duration;
+import java.util.Map;
 
 @Service
 @AllArgsConstructor
 public class KitchenAdapter implements PrepareMealPort {
 
     private final WebClient kitchenApiClient;
+    private final ObjectMapper objectMapper;
 
     @Override
     public String prepareMeal(PrepareMealOutCommand command) {
+        String body;
+        try {
+            body = objectMapper.writeValueAsString(command);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
         return kitchenApiClient.post()
                 .uri("/order")
                 .httpRequest(httpRequest -> {
@@ -28,7 +40,7 @@ public class KitchenAdapter implements PrepareMealPort {
                 })
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.TEXT_PLAIN)
-                .body(BodyInserters.fromProducer(Mono.just(command), PrepareMealOutCommand.class))
+                .body(Mono.just(body), String.class)
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
