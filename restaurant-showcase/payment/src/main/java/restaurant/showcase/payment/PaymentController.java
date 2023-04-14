@@ -15,12 +15,12 @@ public class PaymentController {
     @RequestMapping(value = "/payment", method = RequestMethod.POST)
     public String payment(@RequestBody OrderRO orderRO) throws InterruptedException {
         for (int i = 0; i < 5; i++) {
-            log.info("{} We're processing the payment for {}'s {}... {}%", orderRO.getOrderId(), orderRO.getCustomerName(), orderRO.getMeal(), (i+1)*20);
+            log.info("[{}] We're processing the payment for {}'s {}... {}%", orderRO.getOrderId(), orderRO.getCustomerName(), orderRO.getMeal(), (i+1)*20);
             Thread.sleep(ONE_SECOND);
         }
 
         String response = String.format("Payment for %s's %s is done!", orderRO.getCustomerName(), orderRO.getMeal());
-        log.info("{} {}", orderRO.getOrderId(), response);
+        log.info("[{}] {}", orderRO.getOrderId(), response);
         return response;
     }
 }

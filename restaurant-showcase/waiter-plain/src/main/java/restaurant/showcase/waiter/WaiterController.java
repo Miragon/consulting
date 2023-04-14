@@ -1,6 +1,6 @@
 package restaurant.showcase.waiter;
 
-import io.camunda.zeebe.spring.client.lifecycle.ZeebeClientLifecycle;
+import io.camunda.zeebe.client.ZeebeClient;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class WaiterController {
 
-    private final ZeebeClientLifecycle zeebeClient;
+    private final ZeebeClient zeebeClient;
     private final WebsocketNotificationListener websocketNotificationListener;
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)

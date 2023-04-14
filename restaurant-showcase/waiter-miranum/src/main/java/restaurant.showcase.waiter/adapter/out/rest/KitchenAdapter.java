@@ -1,24 +1,21 @@
 package restaurant.showcase.waiter.adapter.out.rest;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 import reactor.netty.http.client.HttpClientRequest;
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOutCommand;
-import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealPort;
+import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOutPort;
 
 import java.time.Duration;
-import java.util.Map;
 
 @Service
 @AllArgsConstructor
-public class KitchenAdapter implements PrepareMealPort {
+public class KitchenAdapter implements PrepareMealOutPort {
 
     private final WebClient kitchenApiClient;
     private final ObjectMapper objectMapper;
