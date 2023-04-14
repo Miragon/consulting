@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.adapter.out.websocket;
+package restaurant.showcase.waiter.adapter.out.websocket.config;
 
 import lombok.AllArgsConstructor;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;

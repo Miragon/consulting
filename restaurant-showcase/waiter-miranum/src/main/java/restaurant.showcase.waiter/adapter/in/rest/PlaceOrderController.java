@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import restaurant.showcase.waiter.adapter.in.rest.dtos.PlaceOrderRequestDto;
 import restaurant.showcase.waiter.adapter.in.rest.dtos.PlaceOrderResponseDto;
-import restaurant.showcase.waiter.application.port.in.PlaceOrderInCommand;
-import restaurant.showcase.waiter.application.port.in.PlaceOrderUseCase;
+import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderInCommand;
+import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderUseCase;
 
 @RestController
 @RequestMapping("/order")

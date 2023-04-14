@@ -27,10 +27,8 @@ services:
       - ZEEBE_BROKER_DATA_DISKUSAGEREPLICATIONWATERMARK=0.999
       - "JAVA_TOOL_OPTIONS=-Xms512m -Xmx512m"
     restart: always
-    extra_hosts:
-      - "${HOST}:host-gateway" #access hosts localhost from within the container
-    volumes:
-      - .data/zeebe:/usr/local/zeebe/data
+    #volumes:
+    #  - .data/zeebe:/usr/local/zeebe/data
     networks:
       - camunda-platform
     depends_on:
@@ -95,8 +93,8 @@ services:
       test: [ "CMD-SHELL", "curl -f http://localhost:9200/_cat/health | grep -q green" ]
       interval: 5s
       retries: 30
-    volumes:
-      - .data/elastic:/usr/share/elasticsearch/data
+    #volumes:
+    #  - .data/elastic:/usr/share/elasticsearch/data
     networks:
       - camunda-platform
 

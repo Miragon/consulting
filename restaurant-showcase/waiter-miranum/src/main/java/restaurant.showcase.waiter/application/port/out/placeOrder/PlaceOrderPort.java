@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.application.port.out;
+package restaurant.showcase.waiter.application.port.out.placeOrder;
 
 public interface PlaceOrderPort {
 

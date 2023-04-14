@@ -52,7 +52,7 @@
             <zeebe:input source="20" target="connectionTimeoutInSeconds" />
             <zeebe:input source="post" target="method" />
             <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-            <zeebe:input source="http://192.168.1.107:8883/calm" target="url" />
+            <zeebe:input source="http://host.docker.internal:8883/calm" target="url" />
           </zeebe:ioMapping>
           <zeebe:taskHeaders />
         </bpmn:extensionElements>
@@ -85,8 +85,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8881/order" target="url" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
+          <zeebe:input source="http://host.docker.internal:8881/order" target="url" />
         </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0sxl6rc</bpmn:incoming>
@@ -99,8 +99,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8882/payment" target="url" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
+          <zeebe:input source="http://host.docker.internal:8882/payment" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -114,8 +114,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8881/order" target="url" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
+          <zeebe:input source="http://host.docker.internal:8881/order" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -132,7 +132,7 @@
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883/serve" target="url" />
+          <zeebe:input source="http://host.docker.internal:8883/serve" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -147,7 +147,7 @@
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883/ready" target="url" />
+          <zeebe:input source="http://host.docker.internal:8883/ready" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -168,7 +168,7 @@
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
-          <zeebe:input source="http://192.168.1.107:8883/ready" target="url" />
+          <zeebe:input source="http://host.docker.internal:8883/ready" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -182,8 +182,8 @@
           <zeebe:input source="noAuth" target="authentication.type" />
           <zeebe:input source="20" target="connectionTimeoutInSeconds" />
           <zeebe:input source="post" target="method" />
-          <zeebe:input source="http://192.168.1.107:8882/payment" target="url" />
           <zeebe:input source="={&#10;  orderId: orderId,&#10;  customerName: customerName,&#10;  meal: meal,&#10;  diningOption: diningOption&#10;}" target="body" />
+          <zeebe:input source="http://host.docker.internal:8882/payment" target="url" />
         </zeebe:ioMapping>
         <zeebe:taskHeaders />
       </bpmn:extensionElements>
@@ -216,44 +216,6 @@
       <bpmndi:BPMNShape id="Participant_0kb2svp_di" bpmnElement="Participant_0kb2svp" isHorizontal="true">
         <dc:Bounds x="160" y="180" width="1140" height="580" />
         <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_0d1axje" bpmnElement="Activity_1sb89lv">
-        <dc:Bounds x="830" y="280" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_07a6od3_di" bpmnElement="TakeAwayDone">
-        <dc:Bounds x="992" y="302" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="970" y="345" width="81" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_00vj46z_di" bpmnElement="DineInDone">
-        <dc:Bounds x="1212" y="522" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1199" y="565" width="63" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_00zrhlc" bpmnElement="Activity_031x8lx">
-        <dc:Bounds x="1070" y="500" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0sfeeu0_di" bpmnElement="ServeMealIn">
-        <dc:Bounds x="670" y="500" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1u60zff_di" bpmnElement="IssueCheckIn">
-        <dc:Bounds x="930" y="500" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_129tfoc_di" bpmnElement="DineAwayParallelGatewayClose">
-        <dc:Bounds x="725" y="295" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1uvkura_di" bpmnElement="DineAwayParallelGateway">
-        <dc:Bounds x="465" y="295" width="50" height="50" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_06h94rv_di" bpmnElement="ReadyToPayMessage">
-        <dc:Bounds x="812" y="522" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="798" y="565" width="65" height="14" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0ktr1r7_di" bpmnElement="Activity_1j8htk1" isExpanded="true">
         <dc:Bounds x="210" y="610" width="348" height="130" />
@@ -302,6 +264,44 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1yfumpq_di" bpmnElement="PrepareMealIn">
         <dc:Bounds x="490" y="500" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0sfeeu0_di" bpmnElement="ServeMealIn">
+        <dc:Bounds x="670" y="500" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_00zrhlc" bpmnElement="Activity_031x8lx">
+        <dc:Bounds x="1070" y="500" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00vj46z_di" bpmnElement="DineInDone">
+        <dc:Bounds x="1212" y="522" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1199" y="565" width="63" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_07a6od3_di" bpmnElement="TakeAwayDone">
+        <dc:Bounds x="992" y="302" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="970" y="345" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0d1axje" bpmnElement="Activity_1sb89lv">
+        <dc:Bounds x="830" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1u60zff_di" bpmnElement="IssueCheckIn">
+        <dc:Bounds x="930" y="500" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_129tfoc_di" bpmnElement="DineAwayParallelGatewayClose">
+        <dc:Bounds x="725" y="295" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1uvkura_di" bpmnElement="DineAwayParallelGateway">
+        <dc:Bounds x="465" y="295" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06h94rv_di" bpmnElement="ReadyToPayMessage">
+        <dc:Bounds x="812" y="522" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="798" y="565" width="65" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1twq54x_di" bpmnElement="Flow_1twq54x">
         <di:waypoint x="590" y="540" />
@@ -370,16 +370,16 @@
         <di:waypoint x="1170" y="540" />
         <di:waypoint x="1212" y="540" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="BPMNShape_1wm4b90" bpmnElement="Participant_0xwyf1r" isHorizontal="true" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
-        <dc:Bounds x="160" y="790" width="1140" height="60" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_1677qix_di" bpmnElement="Participant_1iz3yd2" isHorizontal="true" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <dc:Bounds x="340" y="90" width="300" height="60" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_01i3yep_di" bpmnElement="Participant_1v20ls9" isHorizontal="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
         <dc:Bounds x="670" y="90" width="320" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1wm4b90" bpmnElement="Participant_0xwyf1r" isHorizontal="true" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="160" y="790" width="1140" height="60" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1qicgf5_di" bpmnElement="Flow_1qicgf5">

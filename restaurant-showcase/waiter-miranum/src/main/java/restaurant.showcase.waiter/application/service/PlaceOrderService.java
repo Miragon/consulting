@@ -1,19 +1,18 @@
 package restaurant.showcase.waiter.application.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import restaurant.showcase.waiter.application.port.in.PlaceOrderInCommand;
-import restaurant.showcase.waiter.application.port.in.PlaceOrderUseCase;
-import restaurant.showcase.waiter.application.port.out.PlaceOrderOutCommand;
-import restaurant.showcase.waiter.application.port.out.PlaceOrderPort;
+import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderInCommand;
+import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderUseCase;
+import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutCommand;
+import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderPort;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Map;
 
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class PlaceOrderService implements PlaceOrderUseCase {
 
     private final PlaceOrderPort placeOrderPort;
@@ -22,9 +21,18 @@ public class PlaceOrderService implements PlaceOrderUseCase {
     @Override
     public String placeOrder(PlaceOrderInCommand placeOrderInCommand) {
         final String orderId = String.format("order-%s-%s", placeOrderInCommand.getCustomerName(), LocalDateTime.now());
-        Map<String, Object> variables = new ObjectMapper().convertValue(placeOrderInCommand, new TypeReference<>() {});
+        var variables = variables(orderId, placeOrderInCommand);
         var placeOrderOutCommand = new PlaceOrderOutCommand(PROCESS_ID, variables);
         placeOrderPort.placeOrder(placeOrderOutCommand);
         return orderId;
+    }
+
+    private Map<String, Object> variables(String orderId, PlaceOrderInCommand placeOrderInCommand) {
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("orderId", orderId);
+        variables.put("customerName", placeOrderInCommand.getCustomerName());
+        variables.put("meal", placeOrderInCommand.getFood().getName());
+        variables.put("diningOption", placeOrderInCommand.getDiningOption().getName());
+        return variables;
     }
 }
