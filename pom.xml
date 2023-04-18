@@ -15,5 +15,6 @@
         <module>process-example</module>
         <module>schema-client-example</module>
         <module>customer-onboarding-showcase</module>
+        <module>forms-flow-showcase/fit-connect-example</module>
     </modules>
 </project>

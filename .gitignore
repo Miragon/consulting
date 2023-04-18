@@ -400,3 +400,4 @@ gradle-app.setting
 forms-flow-showcase/forms-flow-ai/docker-compose/postgres/
 forms-flow-showcase/forms-flow-ai/docker-compose/mongodb/
 **/credentials.properties
+**/.env
