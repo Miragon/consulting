@@ -42,7 +42,8 @@ public class OnlineServiceApplication {
         var publicKey = RSAKey.parse(publicKeyJsonString);
         validateRSAKey(publicKey, false);
 
-        var data = "{\"firstname\":\"test_firstname\", \"lastname\":\"test_lastname\", \"age\": 40}";
+        var resource = OnlineServiceApplication.class.getClassLoader().getResource("data.json");
+        String data = new String(resource.openStream().readAllBytes());
 
         // Create submission
         var createSubmission = new CreateSubmission();
