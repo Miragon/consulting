@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderInCommand;
 import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderUseCase;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutCommand;
-import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderPort;
+import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutPort;
 import restaurant.showcase.waiter.domain.Order;
 
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class PlaceOrderService implements PlaceOrderUseCase {
 
-    private final PlaceOrderPort placeOrderPort;
+    private final PlaceOrderOutPort placeOrderPort;
     private final static String PROCESS_ID = "RestaurantMiranum";
 
     @Override

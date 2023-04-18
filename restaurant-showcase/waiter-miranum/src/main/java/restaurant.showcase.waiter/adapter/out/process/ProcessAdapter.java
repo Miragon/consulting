@@ -4,10 +4,10 @@ import io.miragon.miranum.connect.process.api.ProcessApi;
 import io.miragon.miranum.connect.process.api.StartProcessCommand;
 import lombok.AllArgsConstructor;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutCommand;
-import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderPort;
+import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutPort;
 
 @AllArgsConstructor
-public class ProcessAdapter implements PlaceOrderPort {
+public class ProcessAdapter implements PlaceOrderOutPort {
 
     private final ProcessApi processApi;
 
