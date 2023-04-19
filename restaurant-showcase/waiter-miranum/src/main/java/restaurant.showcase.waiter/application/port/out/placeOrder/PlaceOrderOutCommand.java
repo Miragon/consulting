@@ -3,6 +3,7 @@ package restaurant.showcase.waiter.application.port.out.placeOrder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import restaurant.showcase.waiter.domain.Order;
 
 import java.util.Map;
 
@@ -11,6 +12,5 @@ import java.util.Map;
 @Getter
 public class PlaceOrderOutCommand {
 
-    private String processKey;
-    private Map<String, Object> variables;
+    private Order order;
 }

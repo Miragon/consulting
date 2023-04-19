@@ -1,5 +1,5 @@
 package restaurant.showcase.waiter.application.port.out.notifyCustomer;
 
-public interface PlaceOrderPort {
+public interface NotifyCustomerOutPort {
     void notifyCustomer(NotifyCustomerOutCommand notifyCustomerOutCommand);
 }

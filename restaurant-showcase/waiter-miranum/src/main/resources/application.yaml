@@ -10,4 +10,8 @@ zeebe:
       gateway-address: "localhost:26500"
     security:
       plaintext: true
-
+spring:
+  kafka:
+    bootstrap-servers: "localhost:9092"
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
