@@ -6,7 +6,7 @@
     <bpmn:participant id="Participant_1bcul3c" name="Kitchen&#10;External Service" />
     <bpmn:participant id="Participant_1out22x" name="Payment&#10;External Service" />
     <bpmn:participant id="Participant_1uascaf" name="Digital Waiter Service" />
-    <bpmn:participant id="Participant_0qn2kv8" name="Customer Satisfaction Survey" processRef="Process_0xb9jx2" />
+    <bpmn:participant id="Participant_0qn2kv8" name="Customer Satisfaction Survey" processRef="Process_Survey" />
     <bpmn:participant id="Participant_0l64qf8" name="Kafka" />
     <bpmn:participant id="Participant_0zwsji3" name="Kafka2Camunda Proxy" />
     <bpmn:messageFlow id="Flow_1dsduqv" sourceRef="Participant_1uascaf" targetRef="Participant_1bcul3c" />
@@ -163,7 +163,7 @@
       <bpmn:outgoing>Flow_06ln3x1</bpmn:outgoing>
     </bpmn:serviceTask>
   </bpmn:process>
-  <bpmn:process id="Process_0xb9jx2" isExecutable="false">
+  <bpmn:process id="Process_Survey" isExecutable="true">
     <bpmn:startEvent id="Event_1y11hgf">
       <bpmn:outgoing>Flow_0prepmc</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_04m2pz7" messageRef="Message_3sbilh9" />
@@ -350,10 +350,6 @@
         <dc:Bounds x="160" y="700" width="1140" height="60" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Participant_1k7md56_di" bpmnElement="Participant_0l64qf8" isHorizontal="true" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
-        <dc:Bounds x="1360" y="700" width="790" height="60" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_0qn2kv8_di" bpmnElement="Participant_0qn2kv8" isHorizontal="true">
         <dc:Bounds x="1570" y="320" width="370" height="230" />
         <bpmndi:BPMNLabel />
@@ -376,6 +372,10 @@
         <di:waypoint x="1830" y="420" />
         <di:waypoint x="1882" y="420" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_1k7md56_di" bpmnElement="Participant_0l64qf8" isHorizontal="true" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
+        <dc:Bounds x="1360" y="700" width="790" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_0n4iquo_di" bpmnElement="Participant_0zwsji3" isHorizontal="true" bioc:stroke="#0d4372" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#0d4372">
         <dc:Bounds x="1605" y="600" width="300" height="60" />
         <bpmndi:BPMNLabel />
