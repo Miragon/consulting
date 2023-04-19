@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.adapter.out.message;
+package restaurant.showcase.waiter.adapter.out.processMessage;
 
 import io.miragon.miranum.connect.message.api.CorrelateMessageCommand;
 import io.miragon.miranum.connect.message.api.MessageApi;
@@ -12,10 +12,10 @@ import restaurant.showcase.waiter.application.port.out.payMeal.PayMealOutPort;
 public class MessageAdapter implements PayMealOutPort {
 
     private final MessageApi messageApi;
-    private static final String MESSAGE_KEY = "ReadyToPay";
+    private static final String PAY_MEAL_MESSAGE_KEY = "ReadyToPay";
 
     @Override
     public void payMeal(PayMealOutCommand placeOrderOutCommand) {
-        messageApi.correlateMessage(new CorrelateMessageCommand(MESSAGE_KEY, placeOrderOutCommand.getOrderId()));
+        messageApi.correlateMessage(new CorrelateMessageCommand(PAY_MEAL_MESSAGE_KEY, placeOrderOutCommand.getOrderId()));
     }
 }

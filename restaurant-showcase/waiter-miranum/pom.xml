@@ -47,11 +47,10 @@
             <version>2.3.4</version>
         </dependency>
 
-        <!--Kafka-->
+        <!--Kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
-            <version>3.0.5</version>
         </dependency>
 
         <!--Miranum-->

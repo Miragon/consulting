@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.adapter.out.process;
+package restaurant.showcase.waiter.adapter.out.processStart;
 
 import io.miragon.miranum.connect.process.api.ProcessApi;
 import io.miragon.miranum.connect.process.api.StartProcessCommand;
@@ -17,11 +17,11 @@ public class ProcessAdapter implements PlaceOrderOutPort {
 
     private final ProcessApi processApi;
 
-    private final static String PROCESS_ID = "RestaurantMiranum";
+    private final static String PLACE_ORDER_PROCESS_ID = "RestaurantMiranum";
 
     @Override
     public void placeOrder(PlaceOrderOutCommand placeOrderOutCommand) {
-        var startProcessCommand = new StartProcessCommand(PROCESS_ID, this.variables(placeOrderOutCommand.getOrder()));
+        var startProcessCommand = new StartProcessCommand(PLACE_ORDER_PROCESS_ID, this.variables(placeOrderOutCommand.getOrder()));
         processApi.startProcess(startProcessCommand);
     }
 

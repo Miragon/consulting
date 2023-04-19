@@ -6,6 +6,6 @@ import restaurant.showcase.waiter.domain.Order;
 
 @AllArgsConstructor
 @Getter
-public class MealServedEvent {
+public class MealServedEvent extends DomainEvent {
     private final Order order;
 }

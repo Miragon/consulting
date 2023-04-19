@@ -9,7 +9,7 @@ import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCust
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutPort;
 import restaurant.showcase.waiter.domain.DiningOption;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.HandedCheckEvent;
+import restaurant.showcase.waiter.domain.events.CheckHandedEvent;
 
 @Service
 @AllArgsConstructor
@@ -28,6 +28,6 @@ public class HandOverCheckService implements HandOverCheckUseCase {
             message = String.format("We finished your %s and received your payment, %s. Thanks for ordering at our place!", order.getFood().getName(), order.getCustomerName());
         }
         notifyCustomerOutPort.notifyCustomer(new NotifyCustomerOutCommand(order.getOrderId(), message));
-        applicationEventPublisher.publishEvent(new HandedCheckEvent(order));
+        applicationEventPublisher.publishEvent(new CheckHandedEvent(order));
     }
 }
