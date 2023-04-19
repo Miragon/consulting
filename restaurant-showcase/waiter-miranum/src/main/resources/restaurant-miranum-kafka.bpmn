@@ -171,15 +171,12 @@
     <bpmn:endEvent id="Event_1ceruex">
       <bpmn:incoming>Flow_0asbbb8</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sendTask id="Activity_1ejus7a" name="Send Survey to Customer">
-      <bpmn:extensionElements>
-        <zeebe:taskDefinition type="sendMail" />
-      </bpmn:extensionElements>
-      <bpmn:incoming>Flow_0prepmc</bpmn:incoming>
-      <bpmn:outgoing>Flow_0asbbb8</bpmn:outgoing>
-    </bpmn:sendTask>
     <bpmn:sequenceFlow id="Flow_0prepmc" sourceRef="Event_1y11hgf" targetRef="Activity_1ejus7a" />
     <bpmn:sequenceFlow id="Flow_0asbbb8" sourceRef="Activity_1ejus7a" targetRef="Event_1ceruex" />
+    <bpmn:userTask id="Activity_1ejus7a" name="Call Customer">
+      <bpmn:incoming>Flow_0prepmc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0asbbb8</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmn:message id="Message_3sbilh9" name="orderPaymentHandled" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -367,7 +364,7 @@
       <bpmndi:BPMNShape id="Event_1ceruex_di" bpmnElement="Event_1ceruex">
         <dc:Bounds x="1882" y="402" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_03rzp1f_di" bpmnElement="Activity_1ejus7a">
+      <bpmndi:BPMNShape id="Activity_1qqp7cf_di" bpmnElement="Activity_1ejus7a">
         <dc:Bounds x="1730" y="380" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
