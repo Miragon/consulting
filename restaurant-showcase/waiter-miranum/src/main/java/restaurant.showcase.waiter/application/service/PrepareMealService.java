@@ -17,7 +17,6 @@ import restaurant.showcase.waiter.domain.events.MealPreparedEvent;
 public class PrepareMealService implements PrepareMealUseCase {
 
     private final PrepareMealOutPort prepareMealPort;
-
     private final ApplicationEventPublisher applicationEventPublisher;
 
     @Override

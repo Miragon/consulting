@@ -12,8 +12,8 @@ import restaurant.showcase.waiter.domain.events.MealPayedEvent;
 @AllArgsConstructor
 @Service
 public class PayMealService implements PayMealUseCase {
-    private final PayMealOutPort payMealOutPort;
 
+    private final PayMealOutPort payMealOutPort;
     private final ApplicationEventPublisher applicationEventPublisher;
 
     @Override
