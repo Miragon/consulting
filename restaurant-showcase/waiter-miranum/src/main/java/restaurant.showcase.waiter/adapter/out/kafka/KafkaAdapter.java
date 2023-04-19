@@ -22,7 +22,6 @@ public class KafkaAdapter {
     public void onDomainEvent(DomainEvent domainEvent) {
         KafkaTopic kafkaTopic = KafkaTopic.fromClassName(domainEvent.getClass());
         kafkaTemplate.send(kafkaTopic.getTopicName(), domainEvent.convertToMap());
-        log.debug("Handed check event sent to kafka");
+        log.info("{} sent to kafka", domainEvent.getClass().getSimpleName());
     }
-
 }
