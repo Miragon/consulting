@@ -3,6 +3,7 @@ package restaurant.showcase.waiter.domain;
 import lombok.Getter;
 import restaurant.showcase.waiter.application.port.in.handOverCheck.HandOverCheckInCommand;
 import restaurant.showcase.waiter.application.port.in.issueCheck.IssueCheckInCommand;
+import restaurant.showcase.waiter.application.port.in.payMeal.PayMealInCommand;
 import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderInCommand;
 import restaurant.showcase.waiter.application.port.in.prepareMeal.PrepareMealInCommand;
 import restaurant.showcase.waiter.application.port.in.reassureCustomer.ReassureCustomerInCommand;

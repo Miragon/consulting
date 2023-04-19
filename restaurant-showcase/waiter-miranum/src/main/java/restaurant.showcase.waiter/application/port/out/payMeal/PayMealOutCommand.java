@@ -1,16 +1,12 @@
 package restaurant.showcase.waiter.application.port.out.payMeal;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-import java.util.Map;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public class PayMealOutCommand {
+    private final String orderId;
 
-    private String processKey;
-    private Map<String, Object> variables;
 }

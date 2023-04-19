@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import restaurant.showcase.waiter.application.port.in.payMeal.PayMealInCommand;
 import restaurant.showcase.waiter.application.port.in.payMeal.PayMealUseCase;
+import restaurant.showcase.waiter.application.port.out.payMeal.PayMealOutCommand;
 import restaurant.showcase.waiter.application.port.out.payMeal.PayMealOutPort;
 
 @AllArgsConstructor
@@ -13,6 +14,6 @@ public class PayMealService implements PayMealUseCase {
 
     @Override
     public void payMeal(PayMealInCommand payMealInCommand) {
-        this.payMealOutPort.placeOrder();
+        this.payMealOutPort.payMeal(new PayMealOutCommand(payMealInCommand.getOrderId()));
     }
 }

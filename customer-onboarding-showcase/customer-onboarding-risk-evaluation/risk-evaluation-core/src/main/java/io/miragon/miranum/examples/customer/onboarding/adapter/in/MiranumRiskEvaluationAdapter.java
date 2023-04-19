@@ -18,7 +18,7 @@ public class MiranumRiskEvaluationAdapter {
             id = "evaluate-risk",
             type = "evaluateRisk",
             appliesTo = {BPMNElementType.BPMN_SERVICE_TASK},
-            version = 1)
+            version = "1")
     public Risk evaluateRisk(EvaluateRiskCommand evaluateRiskCommand) {
         return evaluateRiskUseCase.evaluateRisk(evaluateRiskCommand);
     }
