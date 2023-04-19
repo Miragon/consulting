@@ -3,7 +3,6 @@ package restaurant.showcase.waiter.application.service;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import restaurant.showcase.waiter.adapter.out.websocket.WebsocketNotificator;
 import restaurant.showcase.waiter.application.port.in.reassureCustomer.ReassureCustomerInCommand;
 import restaurant.showcase.waiter.application.port.in.reassureCustomer.ReassureCustomerUseCase;
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutCommand;

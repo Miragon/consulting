@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.adapter.out.processStart;
+package restaurant.showcase.waiter.adapter.out.camunda;
 
 import io.miragon.miranum.connect.process.api.ProcessApi;
 import io.miragon.miranum.connect.process.api.StartProcessCommand;

@@ -16,7 +16,7 @@ public enum KafkaTopic {
     CHECK_HANDED("check-handed", CheckHandedEvent.class);
 
     private final String topicName;
-    private final Class<? extends DomainEvent> className;
+    private final Class<? extends OrderDomainEvent> className;
 
     public static KafkaTopic fromClassName(Class<?> className) {
         for (KafkaTopic topic : KafkaTopic.values()) {

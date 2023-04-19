@@ -1,4 +1,4 @@
-package restaurant.showcase.waiter.adapter.out.processMessage;
+package restaurant.showcase.waiter.adapter.out.camunda;
 
 import io.miragon.miranum.connect.message.api.CorrelateMessageCommand;
 import io.miragon.miranum.connect.message.api.MessageApi;

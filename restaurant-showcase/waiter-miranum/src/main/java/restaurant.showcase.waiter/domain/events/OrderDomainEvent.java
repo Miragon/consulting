@@ -4,11 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.HashMap;
 
-public abstract class DomainEvent {
-
+public abstract class OrderDomainEvent {
     ObjectMapper oMapper = new ObjectMapper();
 
-    public HashMap<String, Object> convertToMap() {
-        return oMapper.convertValue(this, HashMap.class);
-    }
+    public abstract HashMap<String, Object> convertValuesToMap();
 }

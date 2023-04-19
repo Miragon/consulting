@@ -2,8 +2,8 @@ server:
   port: 8883
 
 application:
-  broker:
-    group-id: waiter-miranum
+  kafka:
+    enabled: true
   rest:
     kitchen: http://localhost:8881
     payment: http://localhost:8882
