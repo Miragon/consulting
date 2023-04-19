@@ -5,12 +5,12 @@ application:
   broker:
     group-id: waiter-miranum
   rest:
-    kitchen: "http://localhost:8881"
-    payment: "http://localhost:8882"
+    kitchen: http://localhost:8881
+    payment: http://localhost:8882
 
 zeebe.client:
   broker:
-    gateway-address: "localhost:26500"
+    gateway-address: localhost:26500
   security:
     plaintext: true
 
