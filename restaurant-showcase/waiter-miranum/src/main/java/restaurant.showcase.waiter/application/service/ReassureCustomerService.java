@@ -17,6 +17,7 @@ public class ReassureCustomerService implements ReassureCustomerUseCase {
 
     private final NotifyCustomerOutPort notifyCustomerOutPort;
     private final ApplicationEventPublisher applicationEventPublisher;
+
     @Override
     public void reassureCustomer(ReassureCustomerInCommand reassureCustomerCommand) {
         var order = new Order(reassureCustomerCommand);

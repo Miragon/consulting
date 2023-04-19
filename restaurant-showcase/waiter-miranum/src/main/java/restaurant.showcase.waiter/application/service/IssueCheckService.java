@@ -17,7 +17,6 @@ import restaurant.showcase.waiter.domain.events.CheckIssuedEvent;
 public class IssueCheckService implements IssueCheckUseCase {
 
     private final IssueCheckOutPort issueCheckPort;
-
     private final ApplicationEventPublisher applicationEventPublisher;
 
     @Override

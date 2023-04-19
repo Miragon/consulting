@@ -10,15 +10,11 @@ import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutP
 import restaurant.showcase.waiter.domain.Order;
 import restaurant.showcase.waiter.domain.events.OrderPlacedEvent;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Service
 @RequiredArgsConstructor
 public class PlaceOrderService implements PlaceOrderUseCase {
 
     private final PlaceOrderOutPort placeOrderPort;
-
     private final ApplicationEventPublisher applicationEventPublisher;
 
     @Override
