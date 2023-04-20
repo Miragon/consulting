@@ -10,7 +10,6 @@ import restaurant.showcase.waiter.application.port.in.serveMeal.ServeMealInComma
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Map;
 
 @Getter
 public class Order {
@@ -20,7 +19,7 @@ public class Order {
     private final DiningOption diningOption;
 
     public Order(PlaceOrderInCommand placeOrderInCommand){
-        this.orderId = String.format("order-%s-%s", placeOrderInCommand.getCustomerName(), LocalDateTime.now());
+        this.orderId = String.format("order-%s-%s", placeOrderInCommand.getCustomerName().toLowerCase().replaceAll("\\s", ""), LocalDateTime.now());
         this.customerName = placeOrderInCommand.getCustomerName();
         this.food = Food.fromString(placeOrderInCommand.getMeal());
         this.diningOption = DiningOption.fromString(placeOrderInCommand.getDiningOption());
