@@ -12,6 +12,7 @@
 
     <modules>
         <module>pizza-order-showcase</module>
+        <module>restaurant-showcase</module>
         <module>process-example</module>
         <module>schema-client-example</module>
         <module>customer-onboarding-showcase</module>

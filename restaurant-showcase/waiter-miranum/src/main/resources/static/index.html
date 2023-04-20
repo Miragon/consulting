@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant</title>
+
+    <link rel="shortcut icon" href="#">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous" />
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        #main {
+            display: flex;
+            flex-direction: column;
+            padding-top: 2rem;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        #form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem
+        }
+        .form-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .responseMessage {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .form-label {
+            width: 200px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container" id="main">
+    <div class="text-center">
+        <h1 class="display-4">&#x1F355;&#x1F354; Welcome &#x1F354;&#x1F355;</h1>
+        <p>I'm James, your digital waiter for today. Please tell me your name and what you would like to order.</p>
+    </div>
+    <div class="row justify-content-center my-5">
+        <div class="col-lg-6">
+            <form action="" id="form">
+
+                <div class="form-row">
+                    <label for="name" class="form-label">Name:</label>
+                    <input required type="text" id="name" class="form-control" />
+                </div>
+
+                <div class="form-row">
+                    <label for="meal" class="form-label">Meal:</label>
+                    <select required name="meal" id="meal" class="form-select">
+                        <option hidden selected disabled></option>
+                        <option value="pizza-margarita">Pizza Margarita</option>
+                        <option value="pizza-prosciutto">Pizza Prosciutto</option>
+                        <option value="cheeseburger">Cheeseburger</option>
+                        <option value="hamburger">Hamburger</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="diningOption" class="form-label">Dining Option:</label>
+                    <select required name="diningOption" id="diningOption" class="form-select">
+                        <option hidden selected disabled></option>
+                        <option value="dine-in">Dine In</option>
+                        <option value="take-away">Take Away</option>
+                    </select>
+                </div>
+
+                <div id="submit-button" class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit Order</button>
+                </div>
+                <div id="loading-button"  class="text-center">
+                    <button class="btn btn-primary" disabled>
+                        <span class="spinner-grow spinner-grow-sm"></span>
+                        Loading...
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="response"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script>
+    const $loading = $('#loading-button').hide();
+    const $notLoading = $('#submit-button');
+    $(document)
+        .ajaxStart(function () {
+            $loading.show();
+            $notLoading.hide();
+        })
+        .ajaxStop(function () {
+            $notLoading.show();
+            $loading.hide();
+        });
+
+    let stompClient = null;
+    function connect(orderId) {
+        var socket = new SockJS('/restaurant');
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function () {
+            stompClient.subscribe(`/topic/message/${orderId}`, function (greeting) {
+                $('.response').append('<div class="responseMessage"><p>' + greeting.body + '</p></div>');
+            });
+        });
+    }
+
+    function pay(orderId) {
+        $.ajax({
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "/pay",
+            data: JSON.stringify({ orderId: orderId })
+        });
+    }
+
+    $("#form").submit(function (event) {
+        event.preventDefault();
+        const data = { orderId: "set-by-backend", customerName: $("#name").val(), meal: $("#meal").val(), diningOption: $("#diningOption").val() };
+        $.ajax({
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            url: "/order",
+            data: JSON.stringify(data)
+        })
+            .done(function (response) {
+                if (data.diningOption === "take-away") {
+                    $('.response').append(
+                        '<div class="responseMessage" id="payment-' + response.orderId + '">' +
+                        '<p>' + response.message + ' Your Payment is processed right away.</p>' +
+                        '</div>');
+                } else {
+                    $('.response').append(
+                        '<div class="responseMessage" id="payment-' + response.orderId + '">' +
+                            '<p>' + response.message + '</p>' +
+                            '<button onClick="pay(\'' + response.orderId + '\')" /" type="submit" class="btn btn-primary">Pay Now</button>' +
+                        '</div>');
+                }
+                connect(response.orderId);
+            })
+            .fail(function (jqXHR) {
+                $('.response').append('<div class="responseMessage"><p>' + jqXHR.responseText + '</p></div>');
+            });
+    });
+</script>
+
+</body>
+</html>
