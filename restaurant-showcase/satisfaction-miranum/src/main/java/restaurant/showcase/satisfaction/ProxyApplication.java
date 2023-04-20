@@ -1,4 +1,4 @@
-package restaurant.showcase.proxy;
+package restaurant.showcase.satisfaction;
 
 import io.camunda.zeebe.spring.client.EnableZeebeClient;
 import org.springframework.boot.SpringApplication;

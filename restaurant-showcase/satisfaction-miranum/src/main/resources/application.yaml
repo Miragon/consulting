@@ -10,7 +10,9 @@ spring.kafka.consumer:
   value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
   group-id: kafka-to-camunda-proxy
 
-kafka.in.restaurant.topics: >
-  restaurant-order-customer,
-  restaurant-order-meal,
-  restaurant-order-check
+kafka.in.restaurant:
+  topics: >
+    restaurant-order-customer,
+    restaurant-order-meal,
+    restaurant-order-check
+  process.start: CheckHandedEvent
