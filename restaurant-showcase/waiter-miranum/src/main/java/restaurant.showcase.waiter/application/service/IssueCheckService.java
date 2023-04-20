@@ -9,7 +9,7 @@ import restaurant.showcase.waiter.application.port.in.issueCheck.IssueCheckUseCa
 import restaurant.showcase.waiter.application.port.out.issueCheck.IssueCheckOutCommand;
 import restaurant.showcase.waiter.application.port.out.issueCheck.IssueCheckOutPort;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.CheckIssuedEvent;
+import restaurant.showcase.waiter.domain.events.order.CheckIssuedEvent;
 
 @Slf4j
 @Service

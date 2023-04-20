@@ -1,17 +1,15 @@
 package restaurant.showcase.waiter.domain.events;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-import java.util.HashMap;
-
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
-public class MealPayedEvent extends OrderDomainEvent {
+public class MealPayedEvent extends DomainEvent {
     private final String orderId;
 
     @Override
-    public HashMap<String, Object> convertValuesToMap() {
-        return this.oMapper.convertValue(this.orderId, HashMap.class);
+    public String getReferenceKey() {
+        return orderId;
     }
 }

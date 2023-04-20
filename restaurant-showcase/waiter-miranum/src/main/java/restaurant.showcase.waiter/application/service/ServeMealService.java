@@ -8,7 +8,7 @@ import restaurant.showcase.waiter.application.port.in.serveMeal.ServeMealUseCase
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutCommand;
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutPort;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.MealServedEvent;
+import restaurant.showcase.waiter.domain.events.order.MealServedEvent;
 
 @Service
 @AllArgsConstructor

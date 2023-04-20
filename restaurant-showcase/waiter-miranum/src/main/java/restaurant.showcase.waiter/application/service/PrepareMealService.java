@@ -9,7 +9,7 @@ import restaurant.showcase.waiter.application.port.in.prepareMeal.PrepareMealUse
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOutCommand;
 import restaurant.showcase.waiter.application.port.out.prepareMeal.PrepareMealOutPort;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.MealPreparedEvent;
+import restaurant.showcase.waiter.domain.events.order.MealPreparedEvent;
 
 @Slf4j
 @Service

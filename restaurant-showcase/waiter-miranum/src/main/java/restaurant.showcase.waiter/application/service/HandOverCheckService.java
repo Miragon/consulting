@@ -9,7 +9,7 @@ import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCust
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutPort;
 import restaurant.showcase.waiter.domain.DiningOption;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.CheckHandedEvent;
+import restaurant.showcase.waiter.domain.events.order.CheckHandedEvent;
 
 @Service
 @AllArgsConstructor

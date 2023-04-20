@@ -8,7 +8,7 @@ import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderUseCa
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutCommand;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutPort;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.OrderPlacedEvent;
+import restaurant.showcase.waiter.domain.events.order.OrderPlacedEvent;
 
 @Service
 @RequiredArgsConstructor

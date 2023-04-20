@@ -8,7 +8,7 @@ import restaurant.showcase.waiter.application.port.in.reassureCustomer.ReassureC
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutCommand;
 import restaurant.showcase.waiter.application.port.out.notifyCustomer.NotifyCustomerOutPort;
 import restaurant.showcase.waiter.domain.Order;
-import restaurant.showcase.waiter.domain.events.CustomerReassuredEvent;
+import restaurant.showcase.waiter.domain.events.order.CustomerReassuredEvent;
 
 @Service
 @AllArgsConstructor

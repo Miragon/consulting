@@ -8,5 +8,5 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 @Getter
 public class OrderHandledInCommand {
-    private final HashMap<String, Object> variables;
+    private final String orderId;
 }

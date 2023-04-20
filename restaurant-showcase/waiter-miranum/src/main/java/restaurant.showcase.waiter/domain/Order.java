@@ -9,6 +9,8 @@ import restaurant.showcase.waiter.application.port.in.reassureCustomer.ReassureC
 import restaurant.showcase.waiter.application.port.in.serveMeal.ServeMealInCommand;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 public class Order {
@@ -57,5 +59,14 @@ public class Order {
         this.customerName = handOverCheckInCommand.getCustomerName();
         this.food = Food.fromString(handOverCheckInCommand.getMeal());
         this.diningOption = DiningOption.fromString(handOverCheckInCommand.getDiningOption());
+    }
+
+    public HashMap<String, Object> asHashMap() {
+        HashMap<String, Object> variables = new HashMap<>();
+        variables.put("orderId", orderId);
+        variables.put("customerName", customerName);
+        variables.put("meal", food.getName());
+        variables.put("diningOption", diningOption.getName());
+        return variables;
     }
 }

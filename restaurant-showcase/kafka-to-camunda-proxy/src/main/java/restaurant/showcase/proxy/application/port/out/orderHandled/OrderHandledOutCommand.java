@@ -10,5 +10,4 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class OrderHandledOutCommand {
     private final String correlationKey;
-    private final HashMap<String, Object> variables;
 }
