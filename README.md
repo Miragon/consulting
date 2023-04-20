@@ -5,5 +5,6 @@ The following ones are contained in this repository:
 * [Schema Client example](./schema-client-example) 
 * [Process Example](./process-example) 
 * [Customer Onboarding Showcase](./customer-onboarding-showcase)
+* [Restaurant Showcase](./restaurant-showcase)
 
 More information can be found in [our documentation](https://miranum.com). 

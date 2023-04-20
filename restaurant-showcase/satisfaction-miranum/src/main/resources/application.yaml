@@ -1,0 +1,18 @@
+zeebe.client:
+  broker:
+    gateway-address: localhost:26500
+  security:
+    plaintext: true
+
+spring.kafka.consumer:
+  bootstrap-servers: localhost:9092
+  key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+  group-id: kafka-to-camunda-proxy
+
+kafka.in.restaurant:
+  topics: >
+    restaurant-order-customer,
+    restaurant-order-meal,
+    restaurant-order-check
+  process.start: CheckHandedEvent

@@ -1,0 +1,20 @@
+server:
+  port: 8883
+
+application:
+  kafka:
+    enabled: true
+  rest:
+    kitchen: http://localhost:8881
+    payment: http://localhost:8882
+
+zeebe.client:
+  broker:
+    gateway-address: localhost:26500
+  security:
+    plaintext: true
+
+spring.kafka.producer:
+  bootstrap-servers: localhost:9092
+  key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
