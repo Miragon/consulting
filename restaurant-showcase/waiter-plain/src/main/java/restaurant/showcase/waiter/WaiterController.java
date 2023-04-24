@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import restaurant.showcase.waiter.model.OrderRO;
-import restaurant.showcase.waiter.model.OrderResponseRO;
-import restaurant.showcase.waiter.model.PayRO;
-import restaurant.showcase.waiter.model.PayResponseRO;
+import restaurant.showcase.waiter.model.OrderRequestDto;
+import restaurant.showcase.waiter.model.OrderResponseDto;
+import restaurant.showcase.waiter.model.PayRequestDto;
+import restaurant.showcase.waiter.model.PayResponseDto;
 import restaurant.showcase.waiter.websocket.WebsocketNotificationListener;
 
 import java.time.LocalDateTime;
@@ -27,15 +27,15 @@ public class WaiterController {
     private final WebsocketNotificationListener websocketNotificationListener;
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
-    public ResponseEntity<OrderResponseRO> handleOrder(@RequestBody OrderRO orderRO){
-        String orderId = String.format("order-%s-%s", orderRO.getCustomerName(), LocalDateTime.now());
-        log.info("[{}] {} ordered a {} to {}.", orderId, orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption());
+    public ResponseEntity<OrderResponseDto> handleOrder(@RequestBody OrderRequestDto orderRequestDto){
+        String orderId = String.format("order-%s-%s", orderRequestDto.getCustomerName(), LocalDateTime.now());
+        log.info("[{}] {} ordered a {} to {}.", orderId, orderRequestDto.getCustomerName(), orderRequestDto.getMeal(), orderRequestDto.getDiningOption());
 
         Map<String, String> vars = new HashMap<>();
         vars.put("orderId", orderId);
-        vars.put("customerName", orderRO.getCustomerName());
-        vars.put("meal", orderRO.getMeal());
-        vars.put("diningOption", orderRO.getDiningOption());
+        vars.put("customerName", orderRequestDto.getCustomerName());
+        vars.put("meal", orderRequestDto.getMeal());
+        vars.put("diningOption", orderRequestDto.getDiningOption());
 
         zeebeClient.newCreateInstanceCommand()
                 .bpmnProcessId("RestaurantPlain")
@@ -43,48 +43,48 @@ public class WaiterController {
                 .variables(vars)
                 .send();
 
-        return ResponseEntity.ok(new OrderResponseRO(
+        return ResponseEntity.ok(new OrderResponseDto(
                 orderId,
-                String.format("Thanks, %s! We'll prepare your %s to %s!", orderRO.getCustomerName(), orderRO.getMeal(), orderRO.getDiningOption())
+                String.format("Thanks, %s! We'll prepare your %s to %s!", orderRequestDto.getCustomerName(), orderRequestDto.getMeal(), orderRequestDto.getDiningOption())
         ));
     }
 
     @RequestMapping(value = "/pay", method = RequestMethod.POST)
-    public ResponseEntity<PayResponseRO> handlePay(@RequestBody PayRO payRO){
+    public ResponseEntity<PayResponseDto> handlePay(@RequestBody PayRequestDto payRequestDto){
 
         zeebeClient.newPublishMessageCommand()
                 .messageName("ReadyToPay")
-                .correlationKey(payRO.getOrderId())
+                .correlationKey(payRequestDto.getOrderId())
                 .send();
 
         String response = "Payment handled. Thank you.";
-        log.info("[{}] {}", payRO.getOrderId(), response);
-        return ResponseEntity.ok(new PayResponseRO(response));
+        log.info("[{}] {}", payRequestDto.getOrderId(), response);
+        return ResponseEntity.ok(new PayResponseDto(response));
     }
 
     @RequestMapping(value = "/serve", method = RequestMethod.POST)
-    public void serveMeal(@RequestBody OrderRO orderRO) {
-        String response = String.format("Here is your %s, %s!", orderRO.getMeal(), orderRO.getCustomerName());
-        log.info("[{}] {}", orderRO.getOrderId(), response);
-        websocketNotificationListener.notify(orderRO.getOrderId(), response);
+    public void serveMeal(@RequestBody OrderRequestDto orderRequestDto) {
+        String response = String.format("Here is your %s, %s!", orderRequestDto.getMeal(), orderRequestDto.getCustomerName());
+        log.info("[{}] {}", orderRequestDto.getOrderId(), response);
+        websocketNotificationListener.notify(orderRequestDto.getOrderId(), response);
     }
 
     @RequestMapping(value = "/ready", method = RequestMethod.POST)
-    public void payment(@RequestBody OrderRO orderRO) {
+    public void payment(@RequestBody OrderRequestDto orderRequestDto) {
         String response;
-        if (orderRO.getDiningOption().equals("dine-in")) {
-            response = String.format("We received your payment, %s. Thanks for having a %s at our place!", orderRO.getCustomerName(), orderRO.getMeal());
+        if (orderRequestDto.getDiningOption().equals("dine-in")) {
+            response = String.format("We received your payment, %s. Thanks for having a %s at our place!", orderRequestDto.getCustomerName(), orderRequestDto.getMeal());
         } else {
-            response = String.format("We finished your %s and received your payment, %s. Thanks for ordering at our place!", orderRO.getMeal(), orderRO.getCustomerName());
+            response = String.format("We finished your %s and received your payment, %s. Thanks for ordering at our place!", orderRequestDto.getMeal(), orderRequestDto.getCustomerName());
         }
-        log.info("[{}] {}", orderRO.getOrderId(), response);
-        websocketNotificationListener.notify(orderRO.getOrderId(), response);
+        log.info("[{}] {}", orderRequestDto.getOrderId(), response);
+        websocketNotificationListener.notify(orderRequestDto.getOrderId(), response);
     }
 
     @RequestMapping(value = "/calm", method = RequestMethod.POST)
-    public void calm(@RequestBody OrderRO orderRO) {
-        String response = String.format("Jo %s, calm down! I'm with you in a second!", orderRO.getCustomerName());
-        log.info("[{}] {}", orderRO.getOrderId(), response);
-        websocketNotificationListener.notify(orderRO.getOrderId(), response);
+    public void calm(@RequestBody OrderRequestDto orderRequestDto) {
+        String response = String.format("Jo %s, calm down! I'm with you in a second!", orderRequestDto.getCustomerName());
+        log.info("[{}] {}", orderRequestDto.getOrderId(), response);
+        websocketNotificationListener.notify(orderRequestDto.getOrderId(), response);
     }
 }
