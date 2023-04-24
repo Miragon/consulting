@@ -1,7 +1,7 @@
 package restaurant.showcase.waiter.adapter.out.kafka;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.kafka.core.KafkaTemplate;
 import restaurant.showcase.waiter.domain.events.MealPayedEvent;
@@ -9,7 +9,7 @@ import restaurant.showcase.waiter.domain.events.order.OrderDomainEvent;
 
 import java.util.HashMap;
 
-@Log4j2
+@Slf4j
 @AllArgsConstructor
 public class KafkaAdapter {
 

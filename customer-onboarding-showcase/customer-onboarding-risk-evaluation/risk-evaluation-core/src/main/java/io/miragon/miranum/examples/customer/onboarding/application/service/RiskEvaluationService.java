@@ -6,10 +6,10 @@ import io.miragon.miranum.examples.customer.onboarding.domain.Customer;
 import io.miragon.miranum.examples.customer.onboarding.domain.Evaluation;
 import io.miragon.miranum.examples.customer.onboarding.domain.Risk;
 import lombok.AllArgsConstructor;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @AllArgsConstructor
-@Log
 public class RiskEvaluationService implements EvaluateRiskUseCase {
     private final Evaluation evaluation;
 
@@ -24,7 +24,7 @@ public class RiskEvaluationService implements EvaluateRiskUseCase {
                 evaluateRiskCommand.getIncome());
 
         Risk riskLevel= evaluation.makeRiskEvaluation(customer);
-        log.info("Risk level for customer " + customer.getName() + " is " + riskLevel.getRiskLevel());
+        log.info("Risk level for customer {} is {}", customer.getName(), riskLevel.getRiskLevel());
         return riskLevel;
     }
 }

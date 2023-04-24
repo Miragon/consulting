@@ -3,16 +3,12 @@ package restaurant.showcase.waiter.adapter.out.camunda;
 import io.miragon.miranum.connect.process.api.ProcessApi;
 import io.miragon.miranum.connect.process.api.StartProcessCommand;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutCommand;
 import restaurant.showcase.waiter.application.port.out.placeOrder.PlaceOrderOutPort;
-import restaurant.showcase.waiter.domain.Order;
 
-import java.util.HashMap;
-import java.util.Map;
-
-@Log4j2
+@Slf4j
 @Component
 @AllArgsConstructor
 public class ProcessAdapter implements PlaceOrderOutPort {

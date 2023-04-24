@@ -2,20 +2,20 @@ package io.miragon.miranum.examples.waiter.domain;
 
 import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
 @ToString
 @Setter
-@Log
+@Slf4j
 public class Waiter {
 
     public void serveDrinks(List<Drink> drinkList) {
         log.info("Start serving drinks.");
         try {
             for (var drink : drinkList) {
-                log.info(String.format("Serving %s", drink.getName()));
+                log.info("Serving {}", drink.getName());
                 Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
@@ -28,7 +28,7 @@ public class Waiter {
         log.info("Start serving food.");
         try {
             for (var food : foodList) {
-                log.info(String.format("Serving %s", food.getName()));
+                log.info("Serving {}", food.getName());
                 Thread.sleep(1000);
             }
         } catch (InterruptedException e) {
@@ -42,6 +42,6 @@ public class Waiter {
     }
 
     public void reassureGuest(String guestName) {
-        log.info("Reassuring guest " + guestName + "...");
+        log.info("Reassuring guest {} ...", guestName);
     }
 }
