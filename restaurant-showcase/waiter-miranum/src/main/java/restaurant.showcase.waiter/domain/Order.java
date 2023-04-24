@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 @Getter
 public class Order {
+
     private final String orderId;
     private final String customerName;
     private final Food food;

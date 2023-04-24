@@ -8,12 +8,13 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 @Getter
 public enum Food {
+
     HAMBURGER("hamburger"),
     CHEESEBURGER("cheeseburger"),
     PIZZA_MARGARITA("pizza-margarita"),
     PIZZA_PROSCIUTTO("pizza-prosciutto");
 
-    final String name;
+    private final String name;
 
     public static Food fromString(String name) {
         return Arrays.stream(Food.values())
