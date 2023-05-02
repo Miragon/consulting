@@ -1,7 +1,7 @@
 package restaurant.showcase.waiter.adapter.in.rest;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +17,7 @@ import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderInCom
 import restaurant.showcase.waiter.application.port.in.placeOrder.PlaceOrderUseCase;
 
 @RestController
-@Log4j2
+@Slf4j
 @AllArgsConstructor
 public class WaiterController {
 

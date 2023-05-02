@@ -1,11 +1,11 @@
 package io.miragon.miranum.examples.kitchen.domain;
 
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.Random;
 
-@Log
+@Slf4j
 public class Kitchen {
 
     public void makePizza(List<Pizza> pizzaList) {
@@ -13,7 +13,7 @@ public class Kitchen {
         try {
             log.info("Started making pizza...");
             for (var pizza : pizzaList) {
-                log.info(String.format("Preparing pizza %s", pizza.getName()));
+                log.info("Preparing pizza {}.", pizza.getName());
                 var timeToPrepareInSeconds = 1 + Math.abs(random.nextInt()) % 10;
                 Thread.sleep(timeToPrepareInSeconds * 1000);
             }

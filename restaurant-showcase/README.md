@@ -16,9 +16,15 @@ Follow these steps to run the example:
     ```
     docker-compose -f stack/docker-compose.yml up -d
     ```
-2. Deploy the bpmn process to Camunda 8:
-    Open Camunda Modeller and deploy the process model `waiter-plain/src/main/resources/restaurant-plain.bpmn`
-3. Start the applications: `waiter-plain`, `restaurant` and `kitchen`
+2. Start the applications: `waiter-plain`, `payment`, `kitchen` and `satisfaction-miranum`.
+
+The running frontend can be found at:
+- `waiter-plain`: http://localhost:8081
+
+The other running services can be found at:
+- `kitchen`: http://localhost:8881
+- `payment`: http://localhost:8882
+- `satisfaction-miranum`: http://localhost:8080
 
 ### 1.2 Problems
 In production the waiter team is facing the following issues:
@@ -36,7 +42,7 @@ The new architecture is based on the following principles:
 ![Restaurant Plain](./img/restaurant-miranum-bpmn.png)
 
 ### 2.1 Run
-Shut down `waiter-plain` and start `waiter-miranum`.
+Just shutdown the `waiter-plain` and start the `waiter-miranum` instead.
 
 ### 2.2 Further Improvements
 After the refactoring, the restaurant was so successful, that they had more resources.

@@ -33,7 +33,6 @@
             <groupId>io.miragon.miranum</groupId>
             <artifactId>process-api</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

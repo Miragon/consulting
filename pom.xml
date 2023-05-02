@@ -16,6 +16,5 @@
         <module>process-example</module>
         <module>schema-client-example</module>
         <module>customer-onboarding-showcase</module>
-        <module>restaurant-showcase/satisfaction-miranum</module>
     </modules>
 </project>

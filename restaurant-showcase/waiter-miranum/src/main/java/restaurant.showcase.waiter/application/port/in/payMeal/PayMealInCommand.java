@@ -5,6 +5,7 @@ import restaurant.showcase.waiter.adapter.in.rest.dtos.PayMealRequestDto;
 
 @Getter
 public class PayMealInCommand {
+
     private final String orderId;
 
     public PayMealInCommand(PayMealRequestDto payMealRequestDto) {

@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class PayResponseRO {
+public class OrderResponseDto {
+    private String orderId;
     private String message;
 }

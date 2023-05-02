@@ -7,6 +7,7 @@ import restaurant.showcase.waiter.domain.Order;
 @RequiredArgsConstructor
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class PrepareMealOutCommand {
+
     private final String orderId;
     private final String customerName;
     private final String meal;
