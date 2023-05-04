@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
         <artifactId>notification</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -22,14 +22,14 @@
         <dependency>
             <groupId>io.miragon.miranum.consulting</groupId>
             <artifactId>notification-core</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!--Miranum-->
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>worker-adapter-c7</artifactId>
-            <version>${project.version}</version>
+            <version>${miranum.version}</version>
         </dependency>
 
         <!--Camunda-->

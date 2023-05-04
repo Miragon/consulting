@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
         <artifactId>customer-onboarding-risk-evaluation</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>io.miragon.miranum.consulting</groupId>
             <artifactId>risk-evaluation-core</artifactId>
-            <version>${project.version}</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!--Miranum-->

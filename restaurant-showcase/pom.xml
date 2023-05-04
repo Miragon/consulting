@@ -5,7 +5,7 @@
 
     <groupId>io.miragon.miranum.consulting</groupId>
     <artifactId>restaurant-showcase</artifactId>
-    <name>restaurant-showcase</name>
+    <name>Restaurant Showcase</name>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
