@@ -20,9 +20,9 @@
         </dependency>
 
         <dependency>
-            <groupId>io.miragon.miranum</groupId>
+            <groupId>io.miragon.miranum.consulting</groupId>
             <artifactId>process-example-core</artifactId>
-            <version>${miranum.version}</version>
+            <version>1.0.0</version>
         </dependency>
 
         <!--Miranum-->

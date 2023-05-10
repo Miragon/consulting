@@ -20,7 +20,7 @@
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.26</lombok.version>
         <cloudStreamKafka.version>4.0.2</cloudStreamKafka.version>
-        <miranum.version>0.1.0-SNAPSHOT</miranum.version>
+        <miranum.version>0.1.0</miranum.version>
     </properties>
 
     <modules>
