@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
         <artifactId>waiter</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>
@@ -27,12 +27,12 @@
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>worker-api</artifactId>
-            <version>${project.version}</version>
+            <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>process-api</artifactId>
-            <version>${project.version}</version>
+            <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

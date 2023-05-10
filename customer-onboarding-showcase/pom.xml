@@ -5,16 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.miragon.miranum.consulting</groupId>
     <artifactId>customer-onboarding-showcase</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <name>customer-onboarding-showcase</name>
+    <version>1.0.0</version>
+    <name>Customer Onboarding Showcase</name>
     <packaging>pom</packaging>
-
-    <parent>
-        <groupId>io.miragon.miranum.consulting</groupId>
-        <artifactId>miranum-consulting</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
-    </parent>
-
 
     <properties>
         <maven.compiler.target>17</maven.compiler.target>
@@ -26,7 +19,7 @@
         <camunda8.version>8.1.4</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.26</lombok.version>
-        <miranum.version>0.1.0-SNAPSHOT</miranum.version>
+        <miranum.version>0.1.0</miranum.version>
     </properties>
 
     <modules>

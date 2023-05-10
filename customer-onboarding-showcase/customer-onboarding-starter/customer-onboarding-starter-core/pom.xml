@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.miragon.miranum.consulting</groupId>
         <artifactId>customer-onboarding-showcase</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>customer-onboarding-starter-core</artifactId>
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>io.miragon.miranum</groupId>
             <artifactId>process-api</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
+            <version>${miranum.version}</version>
         </dependency>
     </dependencies>
 

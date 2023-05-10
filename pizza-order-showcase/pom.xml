@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.miragon.miranum.consulting</groupId>
     <artifactId>pizza-order-showcase</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
-    <name>pizza-order-showcase</name>
+    <version>1.0.0</version>
+    <name>Pizza Order Showcase</name>
     <packaging>pom</packaging>
 
     <properties>
@@ -19,6 +19,7 @@
         <camunda8.version>8.1.4</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.26</lombok.version>
+        <miranum.version>0.1.0</miranum.version>
     </properties>
 
     <modules>
