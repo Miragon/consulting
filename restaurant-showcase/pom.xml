@@ -16,7 +16,7 @@
         <java.version>17</java.version>
         <spring.boot.version>2.7.8</spring.boot.version>
         <camunda7.version>7.18.0</camunda7.version>
-        <camunda8.version>8.2.0</camunda8.version>
+        <camunda8.version>8.2.1</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.28</lombok.version>
         <cloudStreamKafka.version>4.0.2</cloudStreamKafka.version>
