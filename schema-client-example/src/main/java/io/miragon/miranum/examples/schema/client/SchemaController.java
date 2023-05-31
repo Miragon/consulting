@@ -18,6 +18,6 @@ public class SchemaController {
 
     @GetMapping("/{ref}")
     public ResponseEntity<JsonNode> getSchema(@PathVariable final String ref) {
-        return ResponseEntity.ok(this.jsonApi.getSchema(ref).getSchema());
+        return ResponseEntity.ok(this.jsonApi.buildSchema(ref).getSchema());
     }
 }
