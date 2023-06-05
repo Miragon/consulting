@@ -15,6 +15,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.UUID;
 
@@ -22,7 +23,7 @@ import java.util.UUID;
 @Log
 public class OnlineServiceApplication {
 
-    public static void main(String[] args) throws ParseException, JOSEException, JsonProcessingException {
+    public static void main(String[] args) throws ParseException, JOSEException, IOException {
         ConfigurableApplicationContext context = SpringApplication.run(OnlineServiceApplication.class, args);
 
         var destinationIdStr = context.getEnvironment().getProperty("fitconnect.sender.destination-id");
