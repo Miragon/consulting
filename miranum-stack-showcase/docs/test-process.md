@@ -120,6 +120,8 @@ You can display the report with the [Live Preview Plugin](https://marketplace.vi
     * Change the port to 4000
 3. Open the generated `report.html` and click on the preview icon ![live-preview-icon](../images/live-preview-icon.png) in the top right corner.
 
+<img src="../images/test-coverage.png" alt="Test Coverage" width=600>
+
 ## What's next?
 
 Once we are confident that our process is working as intended, the [next step](./setup-miranum-platform.md) is to set up the **Miranum Platform**.
