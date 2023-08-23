@@ -3,6 +3,8 @@
 If you followed the steps on [how to set up the development environment](setup-project.md#2-install-vs-code-plugins) you have VS Code with the **Miranum IDE** as a plugin installed.
 If not, please do so now.
 
+<img src="../images/process.png" alt="Process" width=600>
+
 ## 1. Generate the Artifacts
 
 At first, we have to remove the existing resource folder under [`order-example/order-example-camunda7/src/main/resources`](../order-example/order-example-camunda7/src/main/resources)
