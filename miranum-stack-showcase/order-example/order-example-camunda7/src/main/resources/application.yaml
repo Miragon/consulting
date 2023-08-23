@@ -1,0 +1,16 @@
+# Camunda Platform 7
+camunda:
+  bpm:
+    client:
+      base-url: http://localhost:8090/engine-rest
+  autoDeploy:
+    enabled: false
+  disable-backoff-strategy: true
+
+miranum:
+  c7:
+    auth.server.url: http://keycloak:9090/auth/realms/miranum/protocol/openid-connect/token
+    client:
+      id: miranum-worker
+      secret: s3creT
+

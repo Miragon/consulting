@@ -16,5 +16,6 @@
         <module>process-example</module>
         <module>schema-client-example</module>
         <module>customer-onboarding-showcase</module>
+        <module>miranum-stack-showcase</module>
     </modules>
 </project>

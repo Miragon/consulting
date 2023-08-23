@@ -1,0 +1,239 @@
+{
+    "key": "orderForm",
+    "schema": {
+        "type": "object",
+        "x-display": "",
+        "allOf": [
+            {
+                "title": "Abschnitt",
+                "description": "",
+                "type": "object",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [
+                    {
+                        "containerType": "group",
+                        "title": "Customer Information",
+                        "description": "",
+                        "key": "ab40a82b-85e1-43cd-809e-8775643eb885",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "customerName": {
+                                "fieldType": "text",
+                                "title": "Customer Name",
+                                "type": "string",
+                                "key": "customerName",
+                                "default": "John Doe",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "customerEmail": {
+                                "fieldType": "text",
+                                "title": "Customer Email",
+                                "type": "string",
+                                "key": "customerEmail",
+                                "default": "john.doe@gmail.com",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "customerAddress": {
+                                "key": "customerAddress",
+                                "fieldType": "object",
+                                "title": "Customer Address",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "properties": {
+                                    "street": {
+                                        "fieldType": "text",
+                                        "title": "Street",
+                                        "type": "string",
+                                        "key": "street",
+                                        "default": "Main Street 1",
+                                        "x-options": {
+                                            "fieldColProps": {
+                                                "cols": 12,
+                                                "sm": 12,
+                                                "messages": {}
+                                            }
+                                        },
+                                        "x-props": {
+                                            "outlined": true,
+                                            "dense": true
+                                        },
+                                        "x-rules": []
+                                    },
+                                    "zipCode": {
+                                        "fieldType": "text",
+                                        "title": "Zip Code",
+                                        "type": "string",
+                                        "key": "zipCode",
+                                        "default": "10117",
+                                        "x-options": {
+                                            "fieldColProps": {
+                                                "cols": 12,
+                                                "sm": 12,
+                                                "messages": {}
+                                            }
+                                        },
+                                        "x-props": {
+                                            "outlined": true,
+                                            "dense": true
+                                        },
+                                        "x-rules": []
+                                    },
+                                    "city": {
+                                        "fieldType": "text",
+                                        "title": "City",
+                                        "type": "string",
+                                        "key": "city",
+                                        "description": "",
+                                        "default": "Berlin",
+                                        "x-options": {
+                                            "fieldColProps": {
+                                                "cols": 12,
+                                                "sm": 12,
+                                                "messages": {}
+                                            }
+                                        },
+                                        "x-props": {
+                                            "outlined": true,
+                                            "dense": true
+                                        },
+                                        "x-rules": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "containerType": "group",
+                        "title": "Items Information",
+                        "description": "",
+                        "key": "880c6d79-cd03-470e-9134-9fb1ac27356f",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "items": {
+                                "key": "items",
+                                "fieldType": "arrayObject",
+                                "title": "Items",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "fieldType": "text",
+                                            "title": "Name",
+                                            "type": "string",
+                                            "key": "name",
+                                            "default": "MacBook",
+                                            "x-options": {
+                                                "fieldColProps": {
+                                                    "cols": 12,
+                                                    "sm": 12,
+                                                    "messages": {}
+                                                }
+                                            },
+                                            "x-props": {
+                                                "outlined": true,
+                                                "dense": true
+                                            },
+                                            "x-rules": []
+                                        },
+                                        "quantity": {
+                                            "fieldType": "integer",
+                                            "title": "Quantity",
+                                            "type": "integer",
+                                            "key": "quantity",
+                                            "default": 7,
+                                            "x-options": {
+                                                "fieldColProps": {
+                                                    "cols": 12,
+                                                    "sm": 12,
+                                                    "messages": {}
+                                                }
+                                            },
+                                            "x-props": {
+                                                "outlined": true,
+                                                "dense": true
+                                            },
+                                            "x-rules": []
+                                        },
+                                        "price": {
+                                            "fieldType": "number",
+                                            "title": "Price",
+                                            "type": "number",
+                                            "key": "price",
+                                            "default": 2700,
+                                            "x-options": {
+                                                "fieldColProps": {
+                                                    "cols": 12,
+                                                    "sm": 12,
+                                                    "messages": {}
+                                                }
+                                            },
+                                            "x-props": {
+                                                "outlined": true,
+                                                "dense": true
+                                            },
+                                            "x-rules": []
+                                        }
+                                    }
+                                },
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": false
+                                }
+                            }
+                        }
+                    }
+                ],
+                "key": "36a811e0-ae1c-46b4-a3ce-c58ea5ac34a6"
+            }
+        ]
+    }
+}

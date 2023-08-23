@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>order-example-core</artifactId>
+    <name>order-example-core</name>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>io.miragon.miranum.consulting</groupId>
+        <artifactId>order-example</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- MIRANUM API DEPENDENCIES -->
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>worker-api</artifactId>
+            <version>${miranum.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>element-template-api</artifactId>
+            <version>${miranum.version}</version>
+        </dependency>
+        <!-- MIRANUM API DEPENDENCIES -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>io.miragon.miranum</groupId>
+                <artifactId>element-templates-generator-maven-plugin</artifactId>
+                <configuration>
+                    <targetPlatforms>camunda7</targetPlatforms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

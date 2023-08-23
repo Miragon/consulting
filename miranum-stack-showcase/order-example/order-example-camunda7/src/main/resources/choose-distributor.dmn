@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="choose-distributor_536b3271-654e-495b-9d47-f8875f0121d0" name="Choose Distributor" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.2.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
+  <decision id="choose-distributor" name="Choose Distributor">
+    <decisionTable id="DecisionTable_1shndzu" hitPolicy="FIRST">
+      <input id="Input_1" label="Value of Items">
+        <inputExpression id="InputExpression_1" typeRef="double">
+          <text>valueOfItems</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Distributor" name="distributor" typeRef="string" />
+      <rule id="DecisionRule_02o2x56">
+        <inputEntry id="UnaryTests_0focy4v">
+          <text>&lt; 100</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1earxx0">
+          <text>"FedEx"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nd229z">
+        <inputEntry id="UnaryTests_1hswx85">
+          <text>&lt; 500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nxgmsy">
+          <text>"UPS"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0d35pq9">
+        <inputEntry id="UnaryTests_03penu9">
+          <text>&lt; 1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lh0h5g">
+          <text>"DPD"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g4pbvb">
+        <inputEntry id="UnaryTests_1yk7b7x">
+          <text>&gt;= 1000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10j0ojo">
+          <text>"DHL"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="choose-distributor">
+        <dc:Bounds height="80" width="180" x="210" y="220" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
