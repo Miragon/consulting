@@ -1,58 +1,27 @@
 # Setup **Miranum Platform**
 
-Clone the [GitHub Repository](https://github.com/Miragon/miranum-platform).
+Read this [README](../platform-stack/README.md) on how to set up **Miranum Platform**.
 
-```shell
-git clone https://github.com/Miragon/miranum-platform.git
-```
-
-If you want to use the version which we used for the showcase
-
-```shell
-git checkout b61b3b3599f0979850d39f27d74cf0046c348fc8
-```
-
-## Start Docker Compose
-
-> Note: It is often the case that the `Keycloak` container fails at the first time. If this is the case, restart docker compose.
-
-If the Container is up and running, you can confirm it by opening your browser and visit `localhost:8081`.
-You can use the following credentials for login:
-
-```text
-user: alex
-password: test
-```
-
-### ... with Command Line
-
-```shell
-cd miranum-platform/platform-stack
-docker compose --profile engine up
-```
-
-### ... with VS Code
+## **(Optional)** Working with Docker in VS Code
 
 1. Install the [Docker Plugin](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-2. Open the repository in VS Code as a separate workspace (`File > Add Folder to Workspace...`)
-3. Open the *Command Palette* (`View > Command Palette`)
-4. Enter `Docker: Compose Up - Select Services`
-5. Select `miranum-platform` from the displayed list
-6. Select `Profiles`
-7. Select `engine` (if not already selected) and click on `OK`
-8. Switch to the `Docker View` to manage the container
+2. Open the *Command Palette* (`View > Command Palette`)
+3. Enter `Docker: Compose Up - Select Services`
+4. Select `miranum-stack-showcase` from the displayed list
+5. Select `Profiles`
+6. Select `engine` (if not already selected) and click on `OK`
+7. Switch to the `Docker View` to manage the container
 
     <img src="../images/docker-view-icon.png" alt="docker-view-icon" width=300>
 
-#### Best Practice
+### Best Practice
 
 If you need to run Docker Compose frequently, we recommend overriding the default `docker compose` command or adding custom tasks.
 
-##### Add Custom Tasks
+#### Add Custom Tasks
 
-1. Create a `.vscode` folder inside the `miranum-platform` folder
-2. Add `tasks.json` to the folder
-3. Paste the following JSON into that file:
+1. Add [`tasks.json`](../.vscode/tasks.json) to the `.vscode` folder
+2. Paste the following JSON into that file:
 
     ```json
     {
@@ -91,12 +60,12 @@ If you need to run Docker Compose frequently, we recommend overriding the defaul
     }
     ```
 
-4. Open the *Command Palette* (`View > Command Palette`)
-5. Enter `Tasks: Run Task`
-6. Enter `docker-compose`
-7. Select the task you want to run
+3. Open the *Command Palette* (`View > Command Palette`)
+4. Enter `Tasks: Run Task`
+5. Enter `docker-compose`
+6. Select the task you want to run
 
-##### Override Default Command
+#### Override Default Command
 
 1. Save your current Workspace (`File > Save Workspace As...`)
 2. Open the Workspace Settings

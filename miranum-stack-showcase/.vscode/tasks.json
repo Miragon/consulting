@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run docker-compose up",
+      "type": "docker-compose",
+      "dockerCompose": {
+        "up": {
+          "detached": true,
+          "profiles": [
+            "engine"
+          ]
+        },
+        "files": [
+          "${workspaceFolder}/platform-stack/docker-compose.yml"
+        ]
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Run docker-compose down",
+      "type": "docker-compose",
+      "dockerCompose": {
+        "down": {
+          "customOptions": "--remove-orphans"
+        },
+        "files": [
+          "${workspaceFolder}/platform-stack/docker-compose.yml"
+        ]
+      },
+      "problemMatcher": []
+    }
+  ]
+}
