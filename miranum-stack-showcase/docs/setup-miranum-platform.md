@@ -1,6 +1,14 @@
 # Setup **Miranum Platform**
 
-Read this [README](../platform-stack/README.md) on how to set up **Miranum Platform**.
+For the development of this Showcase, we copied the `platform-stack` folder from our [Miranum Platform Repository](https://github.com/Miragon/miranum-platform)
+
+```shell
+git clone https://github.com/Miragon/miranum-platform.git
+cd miranum-platform
+git checkout 39a3342037628f36e3b252697d55a01da68f069f
+```
+
+If you copied it, you can read the [README](../platform-stack/README.md) on how to set up **Miranum Platform**.
 
 ## **(Optional)** Working with Docker in VS Code
 
@@ -16,11 +24,11 @@ Read this [README](../platform-stack/README.md) on how to set up **Miranum Platf
 
 ### Best Practice
 
-If you need to run Docker Compose frequently, we recommend overriding the default `docker compose` command or adding custom tasks.
+If you need to run `docker compose` frequently, we recommend overriding the default command or adding custom tasks.
 
 #### Add Custom Tasks
 
-1. Add [`tasks.json`](../.vscode/tasks.json) to the `.vscode` folder
+1. Add [tasks.json](../.vscode/tasks.json) to the `.vscode` folder
 2. Paste the following JSON into that file:
 
     ```json
@@ -38,7 +46,7 @@ If you need to run Docker Compose frequently, we recommend overriding the defaul
                         ]
                     },
                     "files": [
-                        "${workspaceFolder}/platform-stack/docker-compose.yml",
+                        "${workspaceFolder}/platform-stack/docker-compose.yml"
                     ]
                 },
                 "problemMatcher": []
@@ -51,7 +59,7 @@ If you need to run Docker Compose frequently, we recommend overriding the defaul
                         "customOptions": "--remove-orphans"
                     },
                     "files": [
-                        "${workspaceFolder}/platform-stack/docker-compose.yml",
+                        "${workspaceFolder}/platform-stack/docker-compose.yml"
                     ]
                 },
                 "problemMatcher": []
@@ -97,6 +105,17 @@ If you need to run Docker Compose frequently, we recommend overriding the defaul
 4. Right-Click on `/platform-stack/docker-compose.yml` and select `Compose Up`
 
 > Note: If you don't want to get asked for the profile every time you can replace `${profileList}` form the JSON above with `engine`.
+
+#### Add *Miranum Platform Repository* to the Workspace
+
+Instead of copying the `platform-stack` folder you can also add the repository to your workspace (`File > Add Folder to Workspace...`).
+If you prefer this, you have to pay attention to the following:
+
+* After adding `miranum-platform` to your workspace save it (`File > Save Workspace As...`)
+* [tasks.json](#add-custom-tasks) must be placed into the `miranum-platform/.vscode` folder
+* Add the [settings](#override-default-command) to your **Workspace Settings** instead of the *Folder Settings*
+  * Open the *Command Palette* (`View > Command Palette`)
+  * Enter `Preferences: Open Workspace Settings (JSON)`
 
 ## What's next?
 

@@ -6,7 +6,7 @@ For local development, you can use the following tools:
 - **DB**: [PostgreSQL](https://www.postgresql.org/)
 - **Minio**: [Minio](https://min.io/)
 
-IMPORTANT NOTE: You must have keycloak configured in your hosts-file to run the sack locally!
+IMPORTANT NOTE: You must have keycloak configured in your hosts-file to run the stack locally!
 On Mac/Linux it is located in `/etc/hosts` on Win `C:\Windows\System32\drivers\etc\hosts`:
 ```bash
 127.0.0.1 localhost keycloak
