@@ -25,38 +25,38 @@ If you need to run Docker Compose frequently, we recommend overriding the defaul
 
     ```json
     {
-    "version": "2.0.0",
-    "tasks": [
-        {
-        "label": "Run docker-compose up",
-        "type": "docker-compose",
-        "dockerCompose": {
-            "up": {
-            "detached": true,
-            "profiles": [
-                "engine"
-            ]
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Run docker-compose up",
+                "type": "docker-compose",
+                "dockerCompose": {
+                    "up": {
+                        "detached": true,
+                        "profiles": [
+                            "engine"
+                        ]
+                    },
+                    "files": [
+                        "${workspaceFolder}/platform-stack/docker-compose.yml",
+                    ]
+                },
+                "problemMatcher": []
             },
-            "files": [
-            "${workspaceFolder}/platform-stack/docker-compose.yml",
-            ]
-        },
-        "problemMatcher": []
-        },
-        {
-        "label": "Run docker-compose down",
-        "type": "docker-compose",
-        "dockerCompose": {
-            "down": {
-            "customOptions": "--remove-orphans"
-            },
-            "files": [
-            "${workspaceFolder}/platform-stack/docker-compose.yml",
-            ]
-        },
-        "problemMatcher": []
-        }
-    ]
+            {
+                "label": "Run docker-compose down",
+                "type": "docker-compose",
+                "dockerCompose": {
+                    "down": {
+                        "customOptions": "--remove-orphans"
+                    },
+                    "files": [
+                        "${workspaceFolder}/platform-stack/docker-compose.yml",
+                    ]
+                },
+                "problemMatcher": []
+            }
+        ]
     }
     ```
 
@@ -68,10 +68,9 @@ If you need to run Docker Compose frequently, we recommend overriding the defaul
 #### Override Default Command
 
 1. Save your current Workspace (`File > Save Workspace As...`)
-2. Open the Workspace Settings
+2. Open the [*Folder Settings*](../.vscode/settings.json)
     * Open the *Command Palette* (`View > Command Palette`)
-    * Enter `Preferences: Open Workspace Settings`
-    * Click on the icon ![Open Workspace Settings Icon](../images/open-workspace-settings-icon.png) on the top right corner
+    * Enter `Preferences: Open Folder Settings (JSON)`
 3. Add the following:
 
     ```json

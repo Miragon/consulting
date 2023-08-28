@@ -1,3 +1,16 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic"
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "docker.commands.composeUp": [
+            {
+                    "label": "Compose Up",
+                    "template": "docker compose ${configurationFile} ${profileList} up ${detached}"
+            }
+    ],
+    "docker.commands.composeDown": [
+            {
+                    "label": "Compose Down",
+                    "template": "docker compose ${configurationFile} down --remove-orphans"
+            }
+    ]
 }
