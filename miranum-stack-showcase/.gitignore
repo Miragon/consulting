@@ -1,4 +1,2 @@
-platform-stack/data
-
-platform-stack/**/*.meta
-platform-stack/**/.tracker.bin
+/platform-stack/data/
+/platform-stack/minio/
