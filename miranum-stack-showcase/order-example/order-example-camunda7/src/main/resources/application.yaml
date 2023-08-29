@@ -2,10 +2,13 @@
 camunda:
   bpm:
     client:
-      base-url: ${CAMUNDA_BASE_URL:http://localhost:8090/engine-rest}
-  autoDeploy:
-    enabled: false
-  disable-backoff-strategy: true
+      base-url: ${CAMUNDA_BASE_URL}
+      basic-auth:
+        username: ${CAMUNDA_USERNAME}
+        password: ${CAMUNDA_PASSWORD}
+    autoDeploy:
+      enabled: false
+    disable-backoff-strategy: true
 
 miranum:
   c7:

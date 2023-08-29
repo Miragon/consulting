@@ -22,8 +22,8 @@ services:
       context: ../order-example/order-example-camunda7
     environment:
       - CAMUNDA_BASE_URL=http://engine:8090/engine-rest
-      - CAMUNDA_USERNAME=demo
-      - CAMUNDA_PASSWORD=demo
+      - CAMUNDA_USERNAME=alex
+      - CAMUNDA_PASSWORD=test
     restart: unless-stopped
     networks:
       - internal
@@ -34,7 +34,6 @@ services:
     depends_on:
       engine:
         condition: service_started
-
 
   engine:
     image: miragon/miranum-platform-engine-tasklist-service:0.2.0-SNAPSHOT
