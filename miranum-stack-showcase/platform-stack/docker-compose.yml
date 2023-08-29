@@ -16,6 +16,26 @@ services:
     networks:
       - internal
 
+  order-example-camunda7:
+    container_name: worker
+    build:
+      context: ../order-example/order-example-camunda7
+    environment:
+      - CAMUNDA_BASE_URL=http://engine:8090/engine-rest
+      - CAMUNDA_USERNAME=demo
+      - CAMUNDA_PASSWORD=demo
+    restart: unless-stopped
+    networks:
+      - internal
+    links:
+      - engine
+    profiles:
+      - engine
+    depends_on:
+      engine:
+        condition: service_started
+
+
   engine:
     image: miragon/miranum-platform-engine-tasklist-service:0.2.0-SNAPSHOT
     container_name: engine
