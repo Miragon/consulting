@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+
+  worker:
+    container_name: worker
+    build: ../.
+    restart: unless-stopped
+    profiles:
+      - engine
+    depends_on:
+      engine:
+        condition: service_started
+    network_mode: "host"
