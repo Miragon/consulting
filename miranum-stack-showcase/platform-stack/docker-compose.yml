@@ -20,11 +20,9 @@ services:
     container_name: worker
     build:
       context: ../order-example/order-example-camunda7
-    environment:
-      - CAMUNDA_BASE_URL=http://engine:8090/engine-rest
-      - CAMUNDA_USERNAME=alex
-      - CAMUNDA_PASSWORD=test
     restart: unless-stopped
+    environment:
+      CAMUNDA_BASE_URL: http://engine:8090/engine-rest
     networks:
       - internal
     links:
