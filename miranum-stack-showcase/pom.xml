@@ -79,17 +79,6 @@
                     </includes>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <skip>true</skip>
-                    <docker>
-                        <host>unix:///Users/peterheinemann/.docker/run/docker.sock</host>
-                    </docker>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
