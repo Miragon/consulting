@@ -30,8 +30,10 @@ This Showcase demonstrates our various tools, grouped under the **Miranum** bran
    cd miranum-consulting/miranum-stack-showcase/platform-stack
    docker compose --profile engine up
    ```
+   
+3. Deploy Artifacts (see [here](./docs/deploy-artifacts.md))
 
-3. Open your Browser under `localhost:8081` and login with the following credentials
+4. Open your Browser under `localhost:8081` and login with the following credentials
 
    ```text
    user: alex
