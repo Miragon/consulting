@@ -21,19 +21,26 @@ This Showcase demonstrates our various tools, grouped under the **Miranum** bran
 1. Clone this repository
  
    ```bash
-   git clone git@github.com:Miragon/miranum-consulting.git
+   git clone https://github.com/Miragon/miranum-consulting.git
    ```
-   
-2. Rund docker compose
+
+2. Build Project
 
    ```bash
-   cd miranum-consulting/miranum-stack-showcase/platform-stack
+   cd miranum-consulting/miranum-stack-showcase/
+   mvn clean package
+   ```
+   
+3. Run docker compose
+
+   ```bash
+   cd platform-stack
    docker compose --profile engine up
    ```
    
 3. Deploy Artifacts (see [here](./docs/deploy-artifacts.md))
 
-4. Open your Browser under `localhost:8081` and login with the following credentials
+4. Open your Browser under `localhost:8081` and login with the following credentials:
 
    ```text
    user: alex
@@ -54,7 +61,7 @@ as our IDE.
 5. [Setup **Miranum Platform**](./docs/setup-miranum-platform.md)
 6. [Deploy the Artifacts](./docs/deploy-artifacts.md)
 7. [Run the Application](./docs/run-application.md)
-8. Open your Browser under `localhost:8081` and login with the following credentials
+8. Open your Browser under `localhost:8081` and login with the following credentials:
 
    ```text
    user: alex
