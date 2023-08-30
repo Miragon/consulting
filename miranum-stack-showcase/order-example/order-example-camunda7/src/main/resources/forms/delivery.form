@@ -1,0 +1,246 @@
+{
+    "key": "deliveryForm",
+    "schema": {
+        "type": "object",
+        "x-display": "",
+        "allOf": [
+            {
+                "title": "Abschnitt",
+                "description": "",
+                "type": "object",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [
+                    {
+                        "containerType": "group",
+                        "title": "Customer Information",
+                        "description": "",
+                        "key": "ab40a82b-85e1-43cd-809e-8775643eb885",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "customerName": {
+                                "fieldType": "text",
+                                "title": "Customer Name",
+                                "type": "string",
+                                "key": "customerName",
+                                "default": "",
+                                "readOnly": true,
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "customerEmail": {
+                                "fieldType": "text",
+                                "title": "Customer Email",
+                                "type": "string",
+                                "key": "customerEmail",
+                                "default": "",
+                                "readOnly": true,
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "customerAddress": {
+                                "key": "customerAddress",
+                                "fieldType": "object",
+                                "title": "Address",
+                                "type": "object",
+                                "additionalProperties": false,
+                                "readOnly": true,
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "properties": {
+                                    "street": {
+                                        "fieldType": "text",
+                                        "title": "Street",
+                                        "type": "string",
+                                        "key": "street",
+                                        "default": "",
+                                        "readOnly": true,
+                                        "x-options": {
+                                            "fieldColProps": {
+                                                "cols": 12,
+                                                "sm": 12,
+                                                "messages": {}
+                                            }
+                                        },
+                                        "x-props": {
+                                            "outlined": true,
+                                            "dense": true
+                                        },
+                                        "x-rules": []
+                                    },
+                                    "zipCode": {
+                                        "fieldType": "text",
+                                        "title": "Zip Code",
+                                        "type": "string",
+                                        "key": "zipCode",
+                                        "default": "",
+                                        "readOnly": true,
+                                        "x-options": {
+                                            "fieldColProps": {
+                                                "cols": 12,
+                                                "sm": 12,
+                                                "messages": {}
+                                            }
+                                        },
+                                        "x-props": {
+                                            "outlined": true,
+                                            "dense": true
+                                        },
+                                        "x-rules": []
+                                    },
+                                    "city": {
+                                        "fieldType": "text",
+                                        "title": "City",
+                                        "type": "string",
+                                        "key": "city",
+                                        "description": "",
+                                        "default": "",
+                                        "readOnly": true,
+                                        "x-options": {
+                                            "fieldColProps": {
+                                                "cols": 12,
+                                                "sm": 12,
+                                                "messages": {}
+                                            }
+                                        },
+                                        "x-props": {
+                                            "outlined": true,
+                                            "dense": true
+                                        },
+                                        "x-rules": []
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "containerType": "group",
+                        "title": "Delivery Information",
+                        "description": "",
+                        "key": "b2a9dfdf-9fab-4db7-90d3-fb0eb596fd76",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "distributor": {
+                                "fieldType": "text",
+                                "title": "Distributor",
+                                "type": "string",
+                                "key": "distributor",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            },
+                            "items": {
+                                "key": "items",
+                                "fieldType": "arrayObject",
+                                "title": "Items",
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "fieldType": "text",
+                                            "title": "Name",
+                                            "type": "string",
+                                            "key": "name",
+                                            "default": "",
+                                            "readOnly": true,
+                                            "x-options": {
+                                                "fieldColProps": {
+                                                    "cols": 12,
+                                                    "sm": 12,
+                                                    "messages": {}
+                                                }
+                                            },
+                                            "x-props": {
+                                                "outlined": true,
+                                                "dense": true
+                                            },
+                                            "x-rules": []
+                                        },
+                                        "quantity": {
+                                            "fieldType": "integer",
+                                            "title": "Quantity",
+                                            "type": "integer",
+                                            "key": "quantity",
+                                            "readOnly": true,
+                                            "x-options": {
+                                                "fieldColProps": {
+                                                    "cols": 12,
+                                                    "sm": 12,
+                                                    "messages": {}
+                                                }
+                                            },
+                                            "x-props": {
+                                                "outlined": true,
+                                                "dense": true
+                                            },
+                                            "x-rules": []
+                                        }
+                                    }
+                                },
+                                "readOnly": true,
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": false
+                                }
+                            }
+                        }
+                    }
+                ],
+                "key": "36a811e0-ae1c-46b4-a3ce-c58ea5ac34a6"
+            }
+        ]
+    }
+}

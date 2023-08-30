@@ -1,0 +1,42 @@
+{
+  "$schema" : "https://unpkg.com/@camunda/element-templates-json-schema@0.1.0/resources/schema.json",
+  "name" : "Prepare Delivery",
+  "id" : "prepareDelivery",
+  "appliesTo" : [ "bpmn:ServiceTask" ],
+  "properties" : [ {
+    "value" : "external",
+    "label" : "Implementation Type",
+    "type" : "String",
+    "editable" : false,
+    "binding" : {
+      "type" : "property",
+      "name" : "camunda:type"
+    }
+  }, {
+    "value" : "prepareDelivery",
+    "label" : "Topic",
+    "type" : "String",
+    "editable" : false,
+    "binding" : {
+      "type" : "property",
+      "name" : "camunda:topic"
+    }
+  }, {
+    "value" : "${items}",
+    "label" : "Items",
+    "type" : "String",
+    "editable" : true,
+    "binding" : {
+      "type" : "camunda:inputParameter",
+      "name" : "items"
+    }
+  }, {
+    "value" : "valueOfItemsResult",
+    "label" : "valueOfItems",
+    "type" : "String",
+    "binding" : {
+      "type" : "camunda:outputParameter",
+      "source" : "${valueOfItems}"
+    }
+  } ]
+}

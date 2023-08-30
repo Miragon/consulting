@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "5c8c483d-0cdd-4711-b848-fee099402796",
+		"name": "Miranum-Stack-Showcase",
+		"description": "Collection of request for deploying process artifacts for the [Miranum-Stack-Showcase](https://github.com/Miragon/miranum-stack-showcase).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16043813"
+	},
+	"item": [
+		{
+			"name": "Deploy BPMN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "deployment-name",
+							"value": "order-example",
+							"type": "text"
+						},
+						{
+							"key": "data",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "deployment-source",
+							"value": "OrderExample",
+							"type": "text"
+						},
+						{
+							"key": "enable-duplicate-filtering",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/engine-rest/deployment/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"engine-rest",
+						"deployment",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete BPMN",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/engine-rest/process-definition/key/order-example",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"engine-rest",
+						"process-definition",
+						"key",
+						"order-example"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deployed BPMN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/engine-rest/process-definition",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"engine-rest",
+						"process-definition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy DMN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "deployment-name",
+							"value": "choose-distributor",
+							"type": "text"
+						},
+						{
+							"key": "data",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "deployment-source",
+							"value": "OrderExample",
+							"type": "text"
+						},
+						{
+							"key": "enable-duplicate-filtering",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/engine-rest/deployment/create",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"engine-rest",
+						"deployment",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Evaluate DMN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"variables\": {\n        \"valueOfItems\": {\n            \"value\": 599.99,\n            \"type\": \"Double\"\n        }\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/engine-rest/decision-definition/key/choose-distributor/evaluate",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"engine-rest",
+						"decision-definition",
+						"key",
+						"choose-distributor",
+						"evaluate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy Process Config",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tags\": [\n        \"latest\"\n    ],\n    \"jsonNode\": {\n        \"statusConfig\": [\n            {\n                \"key\": \"offen\",\n                \"label\": \"Offen\",\n                \"position\": 1\n            },\n            {\n                \"key\": \"inBearbeitung\",\n                \"label\": \"In Bearbeitung\",\n                \"position\": 2\n            },\n            {\n                \"key\": \"abgeschlossen\",\n                \"label\": \"Abgeschlossen\",\n                \"position\": 3\n            }\n        ],\n        \"configs\": []\n    }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schema-registry/schema/test/order-example",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schema-registry",
+						"schema",
+						"test",
+						"order-example"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy Form OrderForm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tags\": [\n        \"latest\"\n    ],\n    \"jsonNode\": {\n        \"type\": \"object\",\n        \"x-display\": \"\",\n        \"allOf\": [\n            {\n                \"title\": \"Abschnitt\",\n                \"description\": \"\",\n                \"type\": \"object\",\n                \"x-options\": {\n                    \"sectionsTitlesClasses\": [\n                        \"d-none\"\n                    ]\n                },\n                \"allOf\": [\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Customer Information\",\n                        \"description\": \"\",\n                        \"key\": \"ab40a82b-85e1-43cd-809e-8775643eb885\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"customerName\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Customer Name\",\n                                \"type\": \"string\",\n                                \"key\": \"customerName\",\n                                \"default\": \"John Doe\",\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"customerEmail\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Customer Email\",\n                                \"type\": \"string\",\n                                \"key\": \"customerEmail\",\n                                \"default\": \"john.doe@gmail.com\",\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"customerAddress\": {\n                                \"key\": \"customerAddress\",\n                                \"fieldType\": \"object\",\n                                \"title\": \"Customer Address\",\n                                \"type\": \"object\",\n                                \"additionalProperties\": false,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"properties\": {\n                                    \"street\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"Street\",\n                                        \"type\": \"string\",\n                                        \"key\": \"street\",\n                                        \"default\": \"Main Street 1\",\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    },\n                                    \"zipCode\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"Zip Code\",\n                                        \"type\": \"string\",\n                                        \"key\": \"zipCode\",\n                                        \"default\": \"10117\",\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    },\n                                    \"city\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"City\",\n                                        \"type\": \"string\",\n                                        \"key\": \"city\",\n                                        \"description\": \"\",\n                                        \"default\": \"Berlin\",\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Items Information\",\n                        \"description\": \"\",\n                        \"key\": \"880c6d79-cd03-470e-9134-9fb1ac27356f\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"items\": {\n                                \"key\": \"items\",\n                                \"fieldType\": \"arrayObject\",\n                                \"title\": \"Items\",\n                                \"type\": \"array\",\n                                \"items\": {\n                                    \"type\": \"object\",\n                                    \"properties\": {\n                                        \"name\": {\n                                            \"fieldType\": \"text\",\n                                            \"title\": \"Name\",\n                                            \"type\": \"string\",\n                                            \"key\": \"name\",\n                                            \"default\": \"MacBook\",\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        },\n                                        \"quantity\": {\n                                            \"fieldType\": \"integer\",\n                                            \"title\": \"Quantity\",\n                                            \"type\": \"integer\",\n                                            \"key\": \"quantity\",\n                                            \"default\": 7,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        },\n                                        \"price\": {\n                                            \"fieldType\": \"number\",\n                                            \"title\": \"Price\",\n                                            \"type\": \"number\",\n                                            \"key\": \"price\",\n                                            \"default\": 2700,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        }\n                                    }\n                                },\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": false\n                                }\n                            }\n                        }\n                    }\n                ],\n                \"key\": \"36a811e0-ae1c-46b4-a3ce-c58ea5ac34a6\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schema-registry/schema/test/orderForm",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schema-registry",
+						"schema",
+						"test",
+						"orderForm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy Form DecideOnOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tags\": [\n        \"latest\"\n    ],\n    \"jsonNode\": {\n        \"type\": \"object\",\n        \"x-display\": \"\",\n        \"allOf\": [\n            {\n                \"title\": \"Abschnitt\",\n                \"description\": \"\",\n                \"type\": \"object\",\n                \"x-options\": {\n                    \"sectionsTitlesClasses\": [\n                        \"d-none\"\n                    ]\n                },\n                \"allOf\": [\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Customer Information\",\n                        \"description\": \"\",\n                        \"key\": \"ab40a82b-85e1-43cd-809e-8775643eb885\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"customerName\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Customer Name\",\n                                \"type\": \"string\",\n                                \"key\": \"customerName\",\n                                \"default\": \"\",\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"customerEmail\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Customer Email\",\n                                \"type\": \"string\",\n                                \"key\": \"customerEmail\",\n                                \"default\": \"\",\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"customerAddress\": {\n                                \"key\": \"customerAddress\",\n                                \"fieldType\": \"object\",\n                                \"title\": \"Customer Address\",\n                                \"type\": \"object\",\n                                \"additionalProperties\": false,\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"properties\": {\n                                    \"street\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"Street\",\n                                        \"type\": \"string\",\n                                        \"key\": \"street\",\n                                        \"default\": \"\",\n                                        \"readOnly\": true,\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    },\n                                    \"zipCode\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"Zip Code\",\n                                        \"type\": \"string\",\n                                        \"key\": \"zipCode\",\n                                        \"default\": \"\",\n                                        \"readOnly\": true,\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    },\n                                    \"city\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"City\",\n                                        \"type\": \"string\",\n                                        \"key\": \"city\",\n                                        \"description\": \"\",\n                                        \"default\": \"\",\n                                        \"readOnly\": true,\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Items Information\",\n                        \"description\": \"\",\n                        \"key\": \"8524029b-a18d-4cf7-8c61-e1e5184fd533\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"items\": {\n                                \"key\": \"items\",\n                                \"fieldType\": \"arrayObject\",\n                                \"title\": \"Items\",\n                                \"type\": \"array\",\n                                \"items\": {\n                                    \"type\": \"object\",\n                                    \"properties\": {\n                                        \"name\": {\n                                            \"fieldType\": \"text\",\n                                            \"title\": \"Name\",\n                                            \"type\": \"string\",\n                                            \"key\": \"name\",\n                                            \"default\": \"\",\n                                            \"readOnly\": true,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        },\n                                        \"quantity\": {\n                                            \"fieldType\": \"integer\",\n                                            \"title\": \"Quantity\",\n                                            \"type\": \"integer\",\n                                            \"key\": \"quantity\",\n                                            \"readOnly\": true,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        },\n                                        \"price\": {\n                                            \"fieldType\": \"number\",\n                                            \"title\": \"Price\",\n                                            \"type\": \"number\",\n                                            \"key\": \"price\",\n                                            \"readOnly\": true,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        }\n                                    }\n                                },\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": false\n                                }\n                            }\n                        }\n                    },\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Descision\",\n                        \"description\": \"\",\n                        \"key\": \"912082a0-0a1e-4447-80a0-6f9d90165901\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"isValid\": {\n                                \"fieldType\": \"boolean\",\n                                \"title\": \"Order is valid\",\n                                \"default\": false,\n                                \"type\": \"boolean\",\n                                \"key\": \"isValid\",\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            }\n                        }\n                    }\n                ],\n                \"key\": \"36a811e0-ae1c-46b4-a3ce-c58ea5ac34a6\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schema-registry/schema/test/decideOnOrderForm",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schema-registry",
+						"schema",
+						"test",
+						"decideOnOrderForm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy Form DeliveryForm",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"tags\": [\n        \"latest\"\n    ],\n    \"jsonNode\": {\n        \"type\": \"object\",\n        \"x-display\": \"\",\n        \"allOf\": [\n            {\n                \"title\": \"Abschnitt\",\n                \"description\": \"\",\n                \"type\": \"object\",\n                \"x-options\": {\n                    \"sectionsTitlesClasses\": [\n                        \"d-none\"\n                    ]\n                },\n                \"allOf\": [\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Customer Information\",\n                        \"description\": \"\",\n                        \"key\": \"ab40a82b-85e1-43cd-809e-8775643eb885\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"customerName\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Customer Name\",\n                                \"type\": \"string\",\n                                \"key\": \"customerName\",\n                                \"default\": \"\",\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"customerEmail\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Customer Email\",\n                                \"type\": \"string\",\n                                \"key\": \"customerEmail\",\n                                \"default\": \"\",\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"customerAddress\": {\n                                \"key\": \"customerAddress\",\n                                \"fieldType\": \"object\",\n                                \"title\": \"Address\",\n                                \"type\": \"object\",\n                                \"additionalProperties\": false,\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"properties\": {\n                                    \"street\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"Street\",\n                                        \"type\": \"string\",\n                                        \"key\": \"street\",\n                                        \"default\": \"\",\n                                        \"readOnly\": true,\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    },\n                                    \"zipCode\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"Zip Code\",\n                                        \"type\": \"string\",\n                                        \"key\": \"zipCode\",\n                                        \"default\": \"\",\n                                        \"readOnly\": true,\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    },\n                                    \"city\": {\n                                        \"fieldType\": \"text\",\n                                        \"title\": \"City\",\n                                        \"type\": \"string\",\n                                        \"key\": \"city\",\n                                        \"description\": \"\",\n                                        \"default\": \"\",\n                                        \"readOnly\": true,\n                                        \"x-options\": {\n                                            \"fieldColProps\": {\n                                                \"cols\": 12,\n                                                \"sm\": 12,\n                                                \"messages\": {}\n                                            }\n                                        },\n                                        \"x-props\": {\n                                            \"outlined\": true,\n                                            \"dense\": true\n                                        },\n                                        \"x-rules\": []\n                                    }\n                                }\n                            }\n                        }\n                    },\n                    {\n                        \"containerType\": \"group\",\n                        \"title\": \"Delivery Information\",\n                        \"description\": \"\",\n                        \"key\": \"b2a9dfdf-9fab-4db7-90d3-fb0eb596fd76\",\n                        \"x-options\": {\n                            \"childrenClass\": \"pl-0\"\n                        },\n                        \"properties\": {\n                            \"distributor\": {\n                                \"fieldType\": \"text\",\n                                \"title\": \"Distributor\",\n                                \"type\": \"string\",\n                                \"key\": \"distributor\",\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": true\n                                },\n                                \"x-rules\": []\n                            },\n                            \"items\": {\n                                \"key\": \"items\",\n                                \"fieldType\": \"arrayObject\",\n                                \"title\": \"Items\",\n                                \"type\": \"array\",\n                                \"items\": {\n                                    \"type\": \"object\",\n                                    \"properties\": {\n                                        \"name\": {\n                                            \"fieldType\": \"text\",\n                                            \"title\": \"Name\",\n                                            \"type\": \"string\",\n                                            \"key\": \"name\",\n                                            \"default\": \"\",\n                                            \"readOnly\": true,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        },\n                                        \"quantity\": {\n                                            \"fieldType\": \"integer\",\n                                            \"title\": \"Quantity\",\n                                            \"type\": \"integer\",\n                                            \"key\": \"quantity\",\n                                            \"readOnly\": true,\n                                            \"x-options\": {\n                                                \"fieldColProps\": {\n                                                    \"cols\": 12,\n                                                    \"sm\": 12,\n                                                    \"messages\": {}\n                                                }\n                                            },\n                                            \"x-props\": {\n                                                \"outlined\": true,\n                                                \"dense\": true\n                                            },\n                                            \"x-rules\": []\n                                        }\n                                    }\n                                },\n                                \"readOnly\": true,\n                                \"x-options\": {\n                                    \"fieldColProps\": {\n                                        \"cols\": 12,\n                                        \"sm\": 12,\n                                        \"messages\": {}\n                                    }\n                                },\n                                \"x-props\": {\n                                    \"outlined\": true,\n                                    \"dense\": false\n                                }\n                            }\n                        }\n                    }\n                ],\n                \"key\": \"36a811e0-ae1c-46b4-a3ce-c58ea5ac34a6\"\n            }\n        ]\n    }\n}"
+				},
+				"url": {
+					"raw": "{{host}}/schema-registry/schema/test/deliveryForm",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"schema-registry",
+						"schema",
+						"test",
+						"deliveryForm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Playground",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/engine-rest/process-definition/key/order-processing/xml",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"engine-rest",
+						"process-definition",
+						"key",
+						"order-processing",
+						"xml"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "clientId",
+				"value": "miranum-worker",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "client_credentials",
+				"type": "string"
+			},
+			{
+				"key": "refreshRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "tokenRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "authRequestParams",
+				"value": [],
+				"type": "any"
+			},
+			{
+				"key": "challengeAlgorithm",
+				"value": "S256",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "alex",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "test",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "s3creT",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "http://keycloak:9090/auth/realms/miranum/protocol/openid-connect/auth",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "client_authentication",
+				"value": "header",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "http://keycloak:9090/auth/realms/miranum/protocol/openid-connect/token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:8081",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderExampleCamunda7Application<order-example-camunda7>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.miragon.orderExample.OrderExampleCamunda7Application",
+            "projectName": "order-example-camunda7",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+  "projectVersion": "1.0.0",
+  "name": "order-example",
+  "workspace": [
+    { "type": "bpmn", "path": "", "extension": ".bpmn" },
+    { "type": "dmn", "path": "", "extension": ".dmn" },
+    { "type": "form", "path": "forms", "extension": ".form" },
+    { "type": "element-template", "path": "element-templates", "extension": ".json" },
+    { "type": "config", "path": "configs", "extension": ".config.json" }
+  ],
+  "deployment": [
+    {
+      "plugin": "rest",
+      "targetEnvironments": [
+        {
+          "name": "local",
+          "url": "http://localhost:8090/engine-rest"
+        },
+        {
+          "name": "dev",
+          "url": "http://localhost:8090"
+        },
+        {
+          "name": "test",
+          "url": "http://localhost:8090"
+        }
+      ]
+    }
+  ]
+}
