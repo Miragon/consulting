@@ -16,10 +16,34 @@ This Showcase demonstrates our various tools, grouped under the **Miranum** bran
    <em>A screenshot of an External Task Service next to the BPMN diagram in VS Code.</em>
 </p>
 
-## Getting Started
+## Quick Start
 
-We also give you a step-by-step tutorial of how we created this Showcase by only using VS Code as our IDE.  
-If you are not interested in the tutorials and just want to run this Showcase, you can skip to step 5.
+1. Clone this repository
+ 
+   ```bash
+   git clone git@github.com:Miragon/miranum-consulting.git
+   ```
+   
+2. Rund docker compose
+
+   ```bash
+   cd miranum-consulting/miranum-stack-showcase/platform-stack
+   docker compose --profile engine up
+   ```
+
+3. Open your Browser under `localhost:8081` and login with the following credentials
+
+   ```text
+   user: alex
+   password: test
+   ```
+
+<img src="./images/miranum-platform.gif" alt="Miranum Platform in Action" width=1000>
+
+## Development
+
+With this showcase, we are also going to give you a step-by-step tutorial on how we created it, using only VS Code 
+as our IDE.
 
 1. [Set up the Project and Development Environment](./docs/setup-project.md)
 2. [Create the **Miranum Worker**](./docs/create-worker.md)
@@ -34,5 +58,3 @@ If you are not interested in the tutorials and just want to run this Showcase, y
    user: alex
    password: test
    ```
-
-<img src="./images/miranum-platform.gif" alt="Miranum Platform in Action" width=1000>
