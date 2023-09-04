@@ -16,7 +16,7 @@
         <java.version>17</java.version>
         <miranum.version>0.2.0</miranum.version>
         <camunda7.version>7.19.0</camunda7.version>
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.28</lombok.version>
         <spring.boot.version>3.1.1</spring.boot.version>
         <maven.surfire.plugin.version>3.0.0</maven.surfire.plugin.version>
     </properties>
