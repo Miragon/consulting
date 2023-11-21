@@ -1,0 +1,74 @@
+{
+  "components": [
+    {
+      "label": "Customer Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0px1x92",
+        "columns": null
+      },
+      "id": "Field_0vpuwao",
+      "key": "customerName",
+      "description": "Surname, Name",
+      "readonly": true,
+      "disabled": true
+    },
+    {
+      "label": "Ordered Meal",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1v4qdth",
+        "columns": null
+      },
+      "id": "Field_1ibx0s2",
+      "key": "meal",
+      "disabled": true,
+      "readonly": true
+    },
+    {
+      "label": "Called Customer?",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_1i1ohx6",
+        "columns": null
+      },
+      "id": "Field_0k441z5",
+      "key": "checkbox_yz16le",
+      "description": "Tick if completed"
+    },
+    {
+      "values": [
+        {
+          "label": "Very",
+          "value": "value"
+        },
+        {
+          "label": "It was ok ",
+          "value": "value2"
+        },
+        {
+          "label": "Could be better ",
+          "value": "value3"
+        }
+      ],
+      "label": "How satisfied was the customer?",
+      "type": "select",
+      "layout": {
+        "row": "Row_14fkjq0",
+        "columns": null
+      },
+      "id": "Field_0znoc5l",
+      "key": "select_zkq4b2",
+      "defaultValue": "value"
+    }
+  ],
+  "type": "default",
+  "id": "form_survey",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.17.0"
+  },
+  "schemaVersion": 12
+}
