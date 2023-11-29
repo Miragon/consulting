@@ -1,4 +1,4 @@
-package applicant.employee.application.application.port.in;
+package applicant.employee.application.application.port.in.placeApplication;
 
 import applicant.employee.application.adapter.in.rest.dtos.PlaceApplicationRequestDto;
 import lombok.Getter;

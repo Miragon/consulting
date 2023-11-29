@@ -14,7 +14,7 @@ import java.util.Map;
 @Slf4j
 @AllArgsConstructor
 @Component
-public class MessageAdapter implements PlaceApplicationOutPort {
+public class PlaceApplicationMessageAdapter implements PlaceApplicationOutPort {
     private final MessageApi messageApi;
     private static final String MESSAGE_REFERENCE = "Message_offer_made";
 

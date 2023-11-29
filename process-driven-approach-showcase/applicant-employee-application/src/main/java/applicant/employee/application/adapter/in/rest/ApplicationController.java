@@ -2,8 +2,8 @@ package applicant.employee.application.adapter.in.rest;
 
 import applicant.employee.application.adapter.in.rest.dtos.PlaceApplicationRequestDto;
 import applicant.employee.application.adapter.in.rest.dtos.PlaceApplicationResponseDto;
-import applicant.employee.application.application.port.in.PlaceApplicationInCommand;
-import applicant.employee.application.application.port.in.PlaceApplicationUseCase;
+import applicant.employee.application.application.port.in.placeApplication.PlaceApplicationInCommand;
+import applicant.employee.application.application.port.in.placeApplication.PlaceApplicationUseCase;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

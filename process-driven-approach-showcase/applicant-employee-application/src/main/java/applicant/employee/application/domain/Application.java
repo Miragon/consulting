@@ -1,6 +1,6 @@
 package applicant.employee.application.domain;
 
-import applicant.employee.application.application.port.in.PlaceApplicationInCommand;
+import applicant.employee.application.application.port.in.placeApplication.PlaceApplicationInCommand;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -13,11 +13,11 @@ public class Application {
     private final String position;
     private final String applicationId;
 
-    public Application(PlaceApplicationInCommand placeApplicationInCommand) {
-        this.applicantName = placeApplicationInCommand.getApplicantName();
-        this.applicantAddress = placeApplicationInCommand.getApplicantAddress();
-        this.applicantPhone = placeApplicationInCommand.getApplicantPhone();
-        this.position = placeApplicationInCommand.getPosition();
-        this.applicationId = String.format("order-%s-%s", placeApplicationInCommand.getApplicantName().toLowerCase().replaceAll("\\s", ""), LocalDateTime.now());;
+    public Application(String applicantName, String applicantAddress, String applicantPhone, String position) {
+        this.applicantName = applicantName;
+        this.applicantAddress = applicantAddress;
+        this.applicantPhone = applicantPhone;
+        this.position = position;
+        this.applicationId = String.format("order-%s-%s", applicantName.toLowerCase().replaceAll("\\s", ""), LocalDateTime.now());;
     }
 }

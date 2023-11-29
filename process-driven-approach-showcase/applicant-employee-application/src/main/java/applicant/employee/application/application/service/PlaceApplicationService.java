@@ -1,7 +1,7 @@
 package applicant.employee.application.application.service;
 
-import applicant.employee.application.application.port.in.PlaceApplicationInCommand;
-import applicant.employee.application.application.port.in.PlaceApplicationUseCase;
+import applicant.employee.application.application.port.in.placeApplication.PlaceApplicationInCommand;
+import applicant.employee.application.application.port.in.placeApplication.PlaceApplicationUseCase;
 import applicant.employee.application.application.port.out.placeApplication.PlaceApplicationOutCommand;
 import applicant.employee.application.application.port.out.placeApplication.PlaceApplicationOutPort;
 import applicant.employee.application.domain.Application;
@@ -15,7 +15,7 @@ public class PlaceApplicationService implements PlaceApplicationUseCase {
 
     @Override
     public String placeApplication(PlaceApplicationInCommand placeApplicationInCommand) {
-        var application = new Application(placeApplicationInCommand);
+        var application = new Application(placeApplicationInCommand.getApplicantName(), placeApplicationInCommand.getApplicantAddress(), placeApplicationInCommand.getApplicantPhone(), placeApplicationInCommand.getPosition());
         var placeOrderOutCommand = new PlaceApplicationOutCommand(application);
         placeApplicationPort.placeApplication(placeOrderOutCommand);
         return application.getApplicationId();
