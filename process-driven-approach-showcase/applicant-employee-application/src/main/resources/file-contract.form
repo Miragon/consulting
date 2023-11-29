@@ -27,7 +27,7 @@
         "columns": null
       },
       "id": "Field_0rg23w4",
-      "key": "hr_userID",
+      "key": "hrUserID",
       "description": "ID of the newly created user, retrieved from the HR System",
       "disabled": true,
       "readonly": true

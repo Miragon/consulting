@@ -16,7 +16,7 @@ public class WebsocketNotificator implements FormFeedbackOutPort {
 
     @Override
     public void propagateFeedback(FormFeedbackOutCommand formFeedbackOutCommand) {
-        log.info("[{}] Notifying Customer: {}", formFeedbackOutCommand.getApplicationId(), formFeedbackOutCommand.getMessage());
+        log.info("[{}] Notifying: {}", formFeedbackOutCommand.getApplicationId(), formFeedbackOutCommand.getMessage());
         messagingTemplate.convertAndSend(String.format("/topic/message/%s", formFeedbackOutCommand.getApplicationId()), formFeedbackOutCommand.getMessage());
     }
 }

@@ -27,7 +27,7 @@
         "columns": null
       },
       "id": "Field_1u4igre",
-      "key": "applicant_name",
+      "key": "applicantName",
       "readonly": true,
       "disabled": true
     },
@@ -39,7 +39,7 @@
         "columns": null
       },
       "id": "Field_077ex6z",
-      "key": "applicant_address",
+      "key": "applicantAddress",
       "disabled": true,
       "readonly": true
     },
@@ -51,7 +51,7 @@
         "columns": null
       },
       "id": "Field_0v33blz",
-      "key": "applicant_phone",
+      "key": "applicantPhone",
       "disabled": true,
       "readonly": true
     },
@@ -75,7 +75,7 @@
         "columns": null
       },
       "id": "Field_0xfe6cl",
-      "key": "applicant_salary",
+      "key": "applicantSalary",
       "disabled": false,
       "readonly": false,
       "validate": {

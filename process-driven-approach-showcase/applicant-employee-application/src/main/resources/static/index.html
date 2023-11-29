@@ -139,7 +139,7 @@
 
     let stompClient = null;
 
-    function connect(orderId) {
+    function connect(applicationId) {
         var socket = new SockJS('/application');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function () {
@@ -153,20 +153,20 @@
         event.preventDefault();
         const data = {
             applicationId: "set-by-backend",
-            applicant_name: $("#applicant_name").val(),
-            applicant_address: $("#applicant_address").val(),
-            applicant_phone: $("#applicant_phone").val(),
+            applicantName: $("#applicant_name").val(),
+            applicantAddress: $("#applicant_address").val(),
+            applicantPhone: $("#applicant_phone").val(),
             position: $("#position").val()
         };
         $.ajax({
             method: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            url: "/order",
+            url: "/application",
             data: JSON.stringify(data)
         })
             .done(function (response) {
-                connect(response.orderId);
+                connect(response.applicationId);
             })
             .fail(function (jqXHR) {
                 $('.response').append('<div class="responseMessage"><p>' + jqXHR.responseText + '</p></div>');

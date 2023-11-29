@@ -25,7 +25,7 @@ public class MessageAdapter implements PlaceApplicationOutPort {
         variables.put("applicantName", placeApplicationOutCommand.getApplication().getApplicantName());
         variables.put("applicantPhone", placeApplicationOutCommand.getApplication().getApplicantPhone());
         variables.put("applicantAddress", placeApplicationOutCommand.getApplication().getApplicantAddress());
-        variables.put("applicantCity", placeApplicationOutCommand.getApplication().getPosition());
+        variables.put("position", placeApplicationOutCommand.getApplication().getPosition());
 
         messageApi.correlateMessage(new CorrelateMessageCommand(
                 MESSAGE_REFERENCE,

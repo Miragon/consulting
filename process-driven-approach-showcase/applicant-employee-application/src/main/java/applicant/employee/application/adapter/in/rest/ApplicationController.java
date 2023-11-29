@@ -20,7 +20,7 @@ public class ApplicationController {
     private final PlaceApplicationUseCase placeApplicationUseCase;
 
     @PostMapping
-    @RequestMapping("/order")
+    @RequestMapping("/application")
     public ResponseEntity<PlaceApplicationResponseDto> placeOrder(@RequestBody PlaceApplicationRequestDto placeApplicationRequestDto) {
         var placeApplicationInCommand = new PlaceApplicationInCommand(placeApplicationRequestDto);
         String applicationId = placeApplicationUseCase.placeApplication(placeApplicationInCommand);

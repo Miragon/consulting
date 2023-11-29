@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0235bh9" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.17.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
   <bpmn:collaboration id="Collaboration_1e2u6aj">
-    <bpmn:participant id="Participant_01qlj92" name="Application 2 Employee Process" processRef="Process_0b4guxw" />
+    <bpmn:participant id="Participant_01qlj92" name="Application 2 Employee Process" processRef="Process_application2employee" />
     <bpmn:participant id="Participant_0zsr1ju" name="Online Application Portal" />
     <bpmn:participant id="Participant_18xbggl" name="HR System" />
     <bpmn:participant id="Participant_1wu84s1" name="Payroll System" />
@@ -10,7 +10,7 @@
     <bpmn:messageFlow id="Flow_056jt7c" sourceRef="Participant_18xbggl" targetRef="Event_0pd4sys" />
     <bpmn:messageFlow id="Flow_17dvfkr" sourceRef="Activity_1eqs0g1" targetRef="Participant_1wu84s1" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_0b4guxw" isExecutable="true">
+  <bpmn:process id="Process_application2employee" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1" name="Offer made to applicant">
       <bpmn:outgoing>Flow_0c6lkwy</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0qnlzmw" messageRef="Message_091gp67" />
@@ -64,7 +64,7 @@
     <bpmn:sequenceFlow id="Flow_0c6lkwy" sourceRef="StartEvent_1" targetRef="Activity_0x11osq" />
     <bpmn:sequenceFlow id="Flow_0pbn4j2" sourceRef="Activity_0x11osq" targetRef="Gateway_0xo8rji" />
     <bpmn:sequenceFlow id="Flow_0t5w3ff" name="yes" sourceRef="Gateway_0xo8rji" targetRef="Gateway_12d0qxj">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=signed = true</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=signed = "true"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1ohzgcf" sourceRef="Gateway_12d0qxj" targetRef="Activity_1eqs0g1" />
     <bpmn:sequenceFlow id="Flow_0vztiwi" sourceRef="Gateway_12d0qxj" targetRef="Activity_096ug39" />
@@ -76,7 +76,7 @@
       <bpmn:incoming>Flow_1tc87wi</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_1tc87wi" name="no" sourceRef="Gateway_0xo8rji" targetRef="Event_1v55z1w">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=signed = false</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=signed = "false"</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmn:message id="Message_091gp67" name="Message_offer_made" />
@@ -196,21 +196,17 @@
         <dc:Bounds x="129" y="80" width="301" height="60" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1dm7axg" bpmnElement="Participant_1wu84s1" isHorizontal="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
-        <dc:Bounds x="550" y="80" width="300" height="60" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Participant_06wq4ns_di" bpmnElement="Participant_18xbggl" isHorizontal="true" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <dc:Bounds x="620" y="540" width="300" height="60" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1dm7axg" bpmnElement="Participant_1wu84s1" isHorizontal="true" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="550" y="80" width="300" height="60" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1757jag_di" bpmnElement="Flow_1757jag">
         <di:waypoint x="197" y="140" />
         <di:waypoint x="197" y="299" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_17dvfkr_di" bpmnElement="Flow_17dvfkr">
-        <di:waypoint x="700" y="190" />
-        <di:waypoint x="700" y="140" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0qpw9rk_di" bpmnElement="Flow_0qpw9rk">
         <di:waypoint x="700" y="420" />
@@ -219,6 +215,10 @@
       <bpmndi:BPMNEdge id="Flow_056jt7c_di" bpmnElement="Flow_056jt7c">
         <di:waypoint x="840" y="540" />
         <di:waypoint x="840" y="398" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17dvfkr_di" bpmnElement="Flow_17dvfkr">
+        <di:waypoint x="700" y="190" />
+        <di:waypoint x="700" y="140" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
