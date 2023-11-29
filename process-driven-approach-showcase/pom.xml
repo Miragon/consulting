@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <name>Process-driven-approach Showcase</name>
     <modules>
-        <module>application-employee-application</module>
+        <module>applicant-employee-application</module>
         <module>payroll-service-contract-application</module>
         <module>hr-system-service-contract-application</module>
     </modules>
