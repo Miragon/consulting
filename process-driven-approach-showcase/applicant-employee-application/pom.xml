@@ -8,14 +8,8 @@
         <artifactId>process-driven-approach-showcase</artifactId>
         <version>1.0.0</version>
     </parent>
-
+    <packaging>jar</packaging>
     <artifactId>applicant-employee-application</artifactId>
-
-    <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -30,11 +24,16 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+  <      <dependency>
+            <groupId>io.camunda.spring</groupId>
+            <artifactId>spring-boot-starter-camunda</artifactId>
+            <version>8.3.1</version>
+        </dependency>
         <dependency>
             <groupId>io.camunda</groupId>
             <artifactId>spring-zeebe-starter</artifactId>
             <version>${camunda8.version}</version>
-        </dependency>
+        </dependency>>
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>

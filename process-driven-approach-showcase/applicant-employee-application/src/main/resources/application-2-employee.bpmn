@@ -55,6 +55,9 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_09guoma" messageRef="Message_03us8dj" />
     </bpmn:intermediateCatchEvent>
     <bpmn:userTask id="Activity_1xcb2zl" name="File signed contract in HR System">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formId="Form_file_content" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_1krgbkm</bpmn:incoming>
       <bpmn:outgoing>Flow_1c6tcw6</bpmn:outgoing>
     </bpmn:userTask>
