@@ -1,0 +1,145 @@
+{
+  "components": [
+    {
+      "text": "# Contract Signature",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0082mp6",
+        "columns": null
+      },
+      "id": "Field_1ta0q3x"
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_19gver2",
+        "columns": null
+      },
+      "id": "Field_0ma0tec"
+    },
+    {
+      "label": "Applicant Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0ggsuem",
+        "columns": null
+      },
+      "id": "Field_1u4igre",
+      "key": "applicant_name",
+      "readonly": true,
+      "disabled": true
+    },
+    {
+      "label": "Applicant Address",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0cw74dn",
+        "columns": null
+      },
+      "id": "Field_077ex6z",
+      "key": "applicant_address",
+      "disabled": true,
+      "readonly": true
+    },
+    {
+      "label": "Applicant Phone Number",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0cw74dn",
+        "columns": null
+      },
+      "id": "Field_0v33blz",
+      "key": "applicant_phone",
+      "disabled": true,
+      "readonly": true
+    },
+    {
+      "label": "Hired Position",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_09qkt64",
+        "columns": null
+      },
+      "id": "Field_007su0c",
+      "key": "position",
+      "disabled": true,
+      "readonly": true
+    },
+    {
+      "label": "Agreed Salary",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_16dytkl",
+        "columns": null
+      },
+      "id": "Field_0xfe6cl",
+      "key": "applicant_salary",
+      "disabled": false,
+      "readonly": false,
+      "validate": {
+        "required": true
+      },
+      "properties": {}
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_1mnjqwt",
+        "columns": null
+      },
+      "id": "Field_16b4fvy"
+    },
+    {
+      "values": [
+        {
+          "label": "Contract Signed",
+          "value": "true"
+        },
+        {
+          "label": "Offer Declined",
+          "value": "false"
+        }
+      ],
+      "label": "Contract Signed",
+      "type": "select",
+      "layout": {
+        "row": "Row_1oancpx",
+        "columns": null
+      },
+      "id": "Field_06k2o21",
+      "key": "signed",
+      "description": "Choose the correct outcome",
+      "defaultValue": "value",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date",
+      "label": "Date time",
+      "type": "datetime",
+      "layout": {
+        "row": "Row_1oancpx",
+        "columns": null
+      },
+      "id": "Field_0i78lh9",
+      "key": "datetime_deqb2d2",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_sign_contract",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.17.0"
+  },
+  "schemaVersion": 12
+}

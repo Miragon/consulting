@@ -1,0 +1,45 @@
+{
+  "components": [
+    {
+      "text": "# File Contract\n\nA user has been created in the HR System. \nPlease scan the original contract and add it to the digital-file of the new employee.  ",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_0day382",
+        "columns": null
+      },
+      "id": "Field_100nawd"
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_0xtxs41",
+        "columns": null
+      },
+      "id": "Field_0fcx1jw"
+    },
+    {
+      "label": "User ID in the HR-System",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0dxznr6",
+        "columns": null
+      },
+      "id": "Field_0rg23w4",
+      "key": "hr_userID",
+      "description": "ID of the newly created user, retrieved from the HR System",
+      "disabled": true,
+      "readonly": true
+    }
+  ],
+  "type": "default",
+  "id": "Form_0jg0v4d",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.17.0"
+  },
+  "schemaVersion": 12
+}
