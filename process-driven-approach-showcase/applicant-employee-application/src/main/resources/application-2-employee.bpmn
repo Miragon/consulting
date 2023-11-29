@@ -85,7 +85,7 @@
   <bpmn:message id="Message_091gp67" name="Message_offer_made" />
   <bpmn:message id="Message_03us8dj" name="Message_HR_user_created">
     <bpmn:extensionElements>
-      <zeebe:subscription correlationKey="=offerID" />
+      <zeebe:subscription correlationKey="=applicationId" />
     </bpmn:extensionElements>
   </bpmn:message>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
