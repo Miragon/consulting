@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0fvnr7h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.17.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0fvnr7h" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.17.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0">
   <bpmn:collaboration id="Collaboration_1qugsxk">
-    <bpmn:participant id="Participant_0qo1qey" name="Payroll Service Contract Layer" processRef="Process_03pr81j" />
+    <bpmn:participant id="Participant_0qo1qey" name="Payroll Service Contract Layer" processRef="Process_Payroll_SCL" />
   </bpmn:collaboration>
-  <bpmn:process id="Process_03pr81j" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_1" />
+  <bpmn:process id="Process_Payroll_SCL" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1859gml</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1l5y8qh" messageRef="Message_16pdlej" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1jgw1bq">
+      <bpmn:incoming>Flow_1859gml</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1859gml" sourceRef="StartEvent_1" targetRef="Event_1jgw1bq" />
   </bpmn:process>
+  <bpmn:message id="Message_16pdlej" name="Message_add_to_Payroll_pool" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1qugsxk">
       <bpmndi:BPMNShape id="Participant_0qo1qey_di" bpmnElement="Participant_0qo1qey" isHorizontal="true">
-        <dc:Bounds x="129" y="52" width="600" height="250" />
+        <dc:Bounds x="129" y="52" width="301" height="250" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+      <bpmndi:BPMNShape id="Event_182b9ax_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="159" width="36" height="36" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1jgw1bq_di" bpmnElement="Event_1jgw1bq">
+        <dc:Bounds x="272" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1859gml_di" bpmnElement="Flow_1859gml">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="272" y="177" />
+      </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
