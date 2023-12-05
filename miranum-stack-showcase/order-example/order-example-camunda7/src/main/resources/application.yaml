@@ -1,8 +1,10 @@
 # Camunda Platform 7
-camunda.bpm:
-  client:
-    base-url: ${CAMUNDA_BASE_URL:http://localhost:8081/engine-rest}
-    disable-backoff-strategy: true
+camunda:
+  bpm:
+    auto-deployment-enabled: true
+    client:
+      base-url: ${CAMUNDA_BASE_URL:http://localhost:8081/engine-rest}
+      disable-backoff-strategy: true
 
 miranum:
   c7:
