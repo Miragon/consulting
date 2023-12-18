@@ -19,7 +19,7 @@
         <camunda8.version>8.1.4</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.30</lombok.version>
-        <miranum.version>0.4.0</miranum.version>
+        <miranum.version>0.5.0</miranum.version>
     </properties>
 
     <modules>
