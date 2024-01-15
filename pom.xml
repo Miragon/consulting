@@ -18,5 +18,6 @@
         <module>customer-onboarding-showcase</module>
         <module>miranum-stack-showcase</module>
         <module>futue-proof-connector</module>
+        <module>futue-proof-connector/notify-customer-connector</module>
     </modules>
 </project>
