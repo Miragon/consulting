@@ -7,5 +7,6 @@ import lombok.Getter;
 @Getter
 public class Customer {
     private final String name;
-    private final String number;
+    private final String email;
+    private final String mobilephone;
 }
