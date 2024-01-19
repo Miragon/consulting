@@ -1,5 +1,6 @@
 package miranum.notification.customer.application.service;
 
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import miranum.notification.customer.application.port.in.NotifyCustomerInCommand;
 import miranum.notification.customer.application.port.in.NotifyCustomerUseCase;
@@ -12,7 +13,7 @@ import miranum.notification.customer.domain.Notification;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class NotifyCustomerService implements NotifyCustomerUseCase {
 
     private SendSmsOutPort sendSmsOutPort;
@@ -21,7 +22,7 @@ public class NotifyCustomerService implements NotifyCustomerUseCase {
     @Override
     public void notifyCustomer(NotifyCustomerInCommand notifyCustomerInCommand) throws Exception {
         Customer customer = new Customer(notifyCustomerInCommand.getCustomerName(), notifyCustomerInCommand.getCustomerMobilePhone(), notifyCustomerInCommand.getCustomerEMail());
-        Notification notification = new Notification(notifyCustomerInCommand.getNotificationMethod(), notifyCustomerInCommand.getTopic(), notifyCustomerInCommand.getMessage(), customer);
+        Notification notification = new Notification(notifyCustomerInCommand.getNotificationMethod(), notifyCustomerInCommand.getMailTopic(), notifyCustomerInCommand.getMessage(), customer);
 
         if (notification.getNotificationMethod().equals("SMS")) {
             sendSmsOutPort.notifyCustomer(new SendSmsOutCommand(customer.getName(), customer.getMobilephone(), notification.getTopic(), notification.getMessage()));

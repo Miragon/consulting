@@ -2,35 +2,29 @@ package miranum.notification.customer.application.port.in;
 
 import io.miragon.miranum.connect.elementtemplate.api.ElementTemplateProperty;
 import io.miragon.miranum.connect.elementtemplate.api.PropertyType;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class NotifyCustomerInCommand {
     @ElementTemplateProperty(type = PropertyType.STRING, label = "Notification Method", notEmpty = true)
-    private final String notificationMethod;
+    private String notificationMethod;
 
     @ElementTemplateProperty(type = PropertyType.STRING, label = "Topic", notEmpty = true)
-    private final String topic;
+    private String mailTopic;
 
     @ElementTemplateProperty(type = PropertyType.STRING, label = "Message", notEmpty = true)
-    private final String message;
+    private String message;
 
     @ElementTemplateProperty(type = PropertyType.STRING, label = "Customer Name", notEmpty = true)
-    private final String customerName;
+    private String customerName;
 
     @ElementTemplateProperty(type = PropertyType.STRING, label = "Mobile Phone Number", notEmpty = true)
-    private final String customerMobilePhone;
+    private String customerMobilePhone;
 
     @ElementTemplateProperty(type = PropertyType.STRING, label = "Customer Email", notEmpty = true)
-    private final String customerEMail;
-
-
-    public NotifyCustomerInCommand(String notificationMethod, String topic, String message, String customerName, String customerMobilePhone, String customerEMail){
-        this.notificationMethod = notificationMethod;
-        this.topic = topic;
-        this.message = message;
-        this.customerName = customerName;
-        this.customerMobilePhone = customerMobilePhone;
-        this.customerEMail = customerEMail;
-    }
+    private String customerEMail;
 }
