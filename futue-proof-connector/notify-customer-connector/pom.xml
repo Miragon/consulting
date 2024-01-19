@@ -71,12 +71,19 @@
             <artifactId>element-template-api</artifactId>
             <version>${miranum.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.miragon.miranum</groupId>
-            <artifactId>element-templates-c8</artifactId>
-            <version>${miranum.version}</version>
-        </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.miragon.miranum</groupId>
+                <artifactId>element-templates-generator-maven-plugin</artifactId>
+                <configuration>
+                    <targetPlatforms>camunda8</targetPlatforms>
+                </configuration>
+                <version>0.3.0</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
