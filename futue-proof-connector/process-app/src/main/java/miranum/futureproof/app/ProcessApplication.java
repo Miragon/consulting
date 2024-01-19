@@ -16,7 +16,7 @@ public class ProcessApplication {
     }
 
     @JobWorker(type = "getCustomer_NotificationPreference")
-    public Map<String, Object> getCustomer_NotificationPreference(final ActivatedJob job) {
+    public Map<String, Object> getCustomer_NotificationPreference() {
         List<String> givenList = Arrays.asList("SMS", "EMAIL");
         Map<String, Object> variables = new HashMap<>();
         Random rand = new Random();
