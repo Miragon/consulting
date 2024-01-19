@@ -18,9 +18,9 @@
           <zeebe:input source="=notificationMethod" target="notificationMethod" />
           <zeebe:input source="=&#34;About your purchase&#34;" target="mailTopic" />
           <zeebe:input source="=message" target="message" />
-          <zeebe:input source="=name" target="customerName" />
-          <zeebe:input source="=phoneNumber" target="customerMobilePhone" />
-          <zeebe:input source="=email" target="customerEMail" />
+          <zeebe:input source="=customerName" target="customerName" />
+          <zeebe:input source="=customerMobilePhone" target="customerMobilePhone" />
+          <zeebe:input source="=customerEMail" target="customerEMail" />
         </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1lu1htm</bpmn:incoming>
@@ -40,7 +40,7 @@
     </bpmn:userTask>
     <bpmn:boundaryEvent id="Event_096dot3" name="Error occured" attachedToRef="Activity_11lkoig">
       <bpmn:outgoing>Flow_01p3uzr</bpmn:outgoing>
-      <bpmn:errorEventDefinition id="ErrorEventDefinition_15gv4db" />
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_15gv4db" errorRef="Error_1nlajbq" />
     </bpmn:boundaryEvent>
     <bpmn:sequenceFlow id="Flow_1dokp01" sourceRef="StartEvent_1" targetRef="Activity_0jckdp1" />
     <bpmn:sequenceFlow id="Flow_1lu1htm" sourceRef="Activity_0jckdp1" targetRef="Activity_11lkoig" />
@@ -52,6 +52,7 @@
       <bpmn:outgoing>Flow_1dokp01</bpmn:outgoing>
     </bpmn:startEvent>
   </bpmn:process>
+  <bpmn:error id="Error_1nlajbq" name="Error_Notification" errorCode="NOTIFY_CUSTOMER_FAILED" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_13nlk30">
       <bpmndi:BPMNShape id="Participant_01gkj6d_di" bpmnElement="Participant_01gkj6d" isHorizontal="true">
