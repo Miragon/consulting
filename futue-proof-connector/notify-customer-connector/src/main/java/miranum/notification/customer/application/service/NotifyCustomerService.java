@@ -1,7 +1,6 @@
 package miranum.notification.customer.application.service;
 
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import miranum.notification.customer.application.port.in.NotifyCustomerInCommand;
 import miranum.notification.customer.application.port.in.NotifyCustomerUseCase;
 import miranum.notification.customer.application.port.out.sendMail.SendMailOutCommand;

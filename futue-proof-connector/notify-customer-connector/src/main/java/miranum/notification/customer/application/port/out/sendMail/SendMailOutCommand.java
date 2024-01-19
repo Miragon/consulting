@@ -1,7 +1,6 @@
 package miranum.notification.customer.application.port.out.sendMail;
 
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

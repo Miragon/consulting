@@ -1,6 +1,5 @@
 package miranum.futureproof.app;
 
-import io.camunda.zeebe.client.api.response.ActivatedJob;
 import io.camunda.zeebe.spring.client.EnableZeebeClient;
 import io.camunda.zeebe.spring.client.annotation.JobWorker;
 import org.springframework.boot.SpringApplication;
