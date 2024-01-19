@@ -14,35 +14,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.camunda</groupId>
             <artifactId>spring-zeebe-starter</artifactId>
             <version>${camunda8.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>webjars-locator-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>sockjs-client</artifactId>
-            <version>1.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>stomp-websocket</artifactId>
-            <version>2.3.4</version>
         </dependency>
 
         <!--Miranum-->
@@ -53,17 +27,7 @@
         </dependency>
         <dependency>
             <groupId>io.miragon.miranum</groupId>
-            <artifactId>process-api</artifactId>
-            <version>${miranum.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.miragon.miranum</groupId>
             <artifactId>worker-adapter-c8</artifactId>
-            <version>${miranum.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.miragon.miranum</groupId>
-            <artifactId>process-adapter-c8</artifactId>
             <version>${miranum.version}</version>
         </dependency>
         <dependency>
