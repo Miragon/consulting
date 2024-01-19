@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_16gpl8v" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.19.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0">
+  <bpmn:collaboration id="Collaboration_13nlk30">
+    <bpmn:participant id="Participant_01gkj6d" name="Notify Customer" processRef="Process_notify_customer" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_notify_customer" name="Notify Customer" isExecutable="true">
+    <bpmn:serviceTask id="Activity_0jckdp1" name="Retrieve Customer Notification Preferences">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="getCustomer_NotificationPreference" retries="3" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1dokp01</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lu1htm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_11lkoig" name="Notify Customer">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="to-be-connector" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1lu1htm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1n59nqd</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0lfikap" name="Customer notified">
+      <bpmn:incoming>Flow_0hd196q</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_1qu0sdx">
+      <bpmn:incoming>Flow_1n59nqd</bpmn:incoming>
+      <bpmn:incoming>Flow_04lg7cn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hd196q</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Activity_08pdmbu" name="Notify Customer manually">
+      <bpmn:incoming>Flow_01p3uzr</bpmn:incoming>
+      <bpmn:outgoing>Flow_04lg7cn</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:boundaryEvent id="Event_096dot3" name="Error occured" attachedToRef="Activity_11lkoig">
+      <bpmn:outgoing>Flow_01p3uzr</bpmn:outgoing>
+      <bpmn:errorEventDefinition id="ErrorEventDefinition_15gv4db" />
+    </bpmn:boundaryEvent>
+    <bpmn:sequenceFlow id="Flow_1dokp01" sourceRef="StartEvent_1" targetRef="Activity_0jckdp1" />
+    <bpmn:sequenceFlow id="Flow_1lu1htm" sourceRef="Activity_0jckdp1" targetRef="Activity_11lkoig" />
+    <bpmn:sequenceFlow id="Flow_1n59nqd" sourceRef="Activity_11lkoig" targetRef="Gateway_1qu0sdx" />
+    <bpmn:sequenceFlow id="Flow_0hd196q" sourceRef="Gateway_1qu0sdx" targetRef="Event_0lfikap" />
+    <bpmn:sequenceFlow id="Flow_04lg7cn" sourceRef="Activity_08pdmbu" targetRef="Gateway_1qu0sdx" />
+    <bpmn:sequenceFlow id="Flow_01p3uzr" sourceRef="Event_096dot3" targetRef="Activity_08pdmbu" />
+    <bpmn:startEvent id="StartEvent_1" name="Notification request received">
+      <bpmn:outgoing>Flow_1dokp01</bpmn:outgoing>
+    </bpmn:startEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_13nlk30">
+      <bpmndi:BPMNShape id="Participant_01gkj6d_di" bpmnElement="Participant_01gkj6d" isHorizontal="true">
+        <dc:Bounds x="160" y="100" width="780" height="260" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1m398vk_di" bpmnElement="Activity_0jckdp1">
+        <dc:Bounds x="330" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14t9nqs_di" bpmnElement="Activity_11lkoig">
+        <dc:Bounds x="490" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0lfikap_di" bpmnElement="Event_0lfikap">
+        <dc:Bounds x="852" y="159" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="827" y="202" width="87" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1qu0sdx_di" bpmnElement="Gateway_1qu0sdx" isMarkerVisible="true">
+        <dc:Bounds x="755" y="152" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0rm0mya_di" bpmnElement="Activity_08pdmbu">
+        <dc:Bounds x="640" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_05v318s_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="239" y="159" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="202" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1g7hxq0_di" bpmnElement="Event_096dot3">
+        <dc:Bounds x="572" y="199" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="606" y="233" width="67" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1dokp01_di" bpmnElement="Flow_1dokp01">
+        <di:waypoint x="275" y="177" />
+        <di:waypoint x="330" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lu1htm_di" bpmnElement="Flow_1lu1htm">
+        <di:waypoint x="430" y="177" />
+        <di:waypoint x="490" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1n59nqd_di" bpmnElement="Flow_1n59nqd">
+        <di:waypoint x="590" y="177" />
+        <di:waypoint x="755" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hd196q_di" bpmnElement="Flow_0hd196q">
+        <di:waypoint x="805" y="177" />
+        <di:waypoint x="852" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04lg7cn_di" bpmnElement="Flow_04lg7cn">
+        <di:waypoint x="740" y="300" />
+        <di:waypoint x="780" y="300" />
+        <di:waypoint x="780" y="202" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01p3uzr_di" bpmnElement="Flow_01p3uzr">
+        <di:waypoint x="590" y="235" />
+        <di:waypoint x="590" y="300" />
+        <di:waypoint x="640" y="300" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

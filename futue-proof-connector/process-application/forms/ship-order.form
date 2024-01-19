@@ -1,0 +1,45 @@
+{
+  "components": [
+    {
+      "text": "# Ship order to:",
+      "label": "Text view",
+      "type": "text",
+      "layout": {
+        "row": "Row_1oj0epy",
+        "columns": null
+      },
+      "id": "Field_05lppxz"
+    },
+    {
+      "label": "Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_18dwkx4",
+        "columns": null
+      },
+      "id": "Field_0e8n1mx",
+      "key": "name",
+      "readonly": true
+    },
+    {
+      "label": "Address",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_18dwkx4",
+        "columns": null
+      },
+      "id": "Field_0nfd6bs",
+      "key": "address",
+      "readonly": true
+    }
+  ],
+  "type": "default",
+  "id": "Form_1wnke3u",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.19.0"
+  },
+  "schemaVersion": 14
+}
