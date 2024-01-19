@@ -8,7 +8,7 @@
         "columns": null
       },
       "id": "Field_0tr99vu",
-      "key": "name",
+      "key": "customerName",
       "disabled": false,
       "readonly": true
     },

@@ -18,7 +18,7 @@
         "columns": null
       },
       "id": "Field_0e8n1mx",
-      "key": "name",
+      "key": "customerName",
       "readonly": true
     },
     {

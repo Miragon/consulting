@@ -7,9 +7,11 @@
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:extensionElements>
         <zeebe:ioMapping>
-          <zeebe:output source="=&#34;Andre Strothmann&#34;" target="name" />
+          <zeebe:output source="=&#34;Andre Strothmann&#34;" target="customerName" />
           <zeebe:output source="=&#34;Anton-Bruchausen-Straße 8, 48147 Münster&#34;" target="address" />
           <zeebe:output source="=&#34;1 big party pizza&#34;" target="order" />
+          <zeebe:output source="=&#34;thomas.heinrichs@miragon.io&#34;" target="customerEMail" />
+          <zeebe:output source="=&#34;+4916741722828&#34;" target="customerMobilePhone" />
         </zeebe:ioMapping>
       </bpmn:extensionElements>
       <bpmn:outgoing>Flow_0tr016v</bpmn:outgoing>

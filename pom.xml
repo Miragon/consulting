@@ -19,5 +19,6 @@
         <module>miranum-stack-showcase</module>
         <module>futue-proof-connector</module>
         <module>futue-proof-connector/notify-customer-connector</module>
+        <module>futue-proof-connector/process-app</module>
     </modules>
 </project>
