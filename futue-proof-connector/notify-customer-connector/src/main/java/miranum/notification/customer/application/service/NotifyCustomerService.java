@@ -9,6 +9,7 @@ import miranum.notification.customer.application.port.out.sendSMS.SendSmsOutComm
 import miranum.notification.customer.application.port.out.sendSMS.SendSmsOutPort;
 import miranum.notification.customer.domain.Customer;
 import miranum.notification.customer.domain.Notification;
+import miranum.notification.customer.domain.NotificationMethod;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,12 +21,12 @@ public class NotifyCustomerService implements NotifyCustomerUseCase {
 
     @Override
     public void notifyCustomer(NotifyCustomerInCommand notifyCustomerInCommand) throws Exception {
-        Customer customer = new Customer(notifyCustomerInCommand.getCustomerName(), notifyCustomerInCommand.getCustomerMobilePhone(), notifyCustomerInCommand.getCustomerEMail());
-        Notification notification = new Notification(notifyCustomerInCommand.getNotificationMethod(), notifyCustomerInCommand.getMailTopic(), notifyCustomerInCommand.getMessage(), customer);
+        Customer customer = new Customer(notifyCustomerInCommand);
+        Notification notification = new Notification(notifyCustomerInCommand);
 
-        if (notification.getNotificationMethod().equals("SMS")) {
+        if (notification.getNotificationMethod() == NotificationMethod.SMS) {
             sendSmsOutPort.notifyCustomer(new SendSmsOutCommand(customer.getName(), customer.getMobilephone(), notification.getTopic(), notification.getMessage()));
-        } else if (notification.getNotificationMethod().equals("EMAIL")) {
+        } else if (notification.getNotificationMethod() == NotificationMethod.EMAIL) {
             sendMailOutPort.notifyCustomer(new SendMailOutCommand(customer.getName(), customer.getEmail(), notification.getTopic(), notification.getMessage()));
         } else {
             throw new Exception("Invalid notification method");
