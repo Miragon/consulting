@@ -1,0 +1,104 @@
+{
+  "components": [
+    {
+      "label": "Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0zhvc66",
+        "columns": null
+      },
+      "id": "Field_0tr99vu",
+      "key": "customerName",
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "label": "Address",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0zhvc66",
+        "columns": null
+      },
+      "id": "Field_010vbz1",
+      "key": "address",
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "label": "Order",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0mpnv30",
+        "columns": null
+      },
+      "id": "Field_17ox4sl",
+      "key": "order",
+      "readonly": true
+    },
+    {
+      "label": "Separator",
+      "type": "separator",
+      "layout": {
+        "row": "Row_0q29i31",
+        "columns": null
+      },
+      "id": "Field_0lw39o5"
+    },
+    {
+      "height": 60,
+      "label": "Spacer",
+      "type": "spacer",
+      "layout": {
+        "row": "Row_0jjsvtt",
+        "columns": null
+      },
+      "id": "Field_1s6v35n"
+    },
+    {
+      "values": [
+        {
+          "label": "stock sufficient",
+          "value": "stock_sufficient"
+        },
+        {
+          "label": "not enough stock",
+          "value": "stock_insufficient"
+        }
+      ],
+      "label": "Order fullfillable?",
+      "type": "select",
+      "layout": {
+        "row": "Row_1ft7pkl",
+        "columns": null
+      },
+      "id": "Field_1i6ytom",
+      "key": "fullfillable",
+      "defaultValue": "value",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Message to the Customer",
+      "type": "textarea",
+      "layout": {
+        "row": "Row_1a6n515",
+        "columns": null
+      },
+      "id": "Field_0wcnl56",
+      "key": "message",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "Form_065lycp",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.4.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.19.0"
+  },
+  "schemaVersion": 14
+}

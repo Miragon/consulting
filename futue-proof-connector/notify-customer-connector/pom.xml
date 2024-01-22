@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.miragon.miranum.consulting</groupId>
+        <artifactId>futue-proof-connector</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>notify-customer-connector</artifactId>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>io.camunda</groupId>
+            <artifactId>spring-zeebe-starter</artifactId>
+            <version>${camunda8.version}</version>
+        </dependency>
+
+        <!--Miranum-->
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>worker-api</artifactId>
+            <version>${miranum.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>worker-adapter-c8</artifactId>
+            <version>${miranum.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.miragon.miranum</groupId>
+            <artifactId>element-template-api</artifactId>
+            <version>${miranum.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.miragon.miranum</groupId>
+                <artifactId>element-templates-generator-maven-plugin</artifactId>
+                <configuration>
+                    <targetPlatforms>camunda8</targetPlatforms>
+                </configuration>
+                <version>0.3.0</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
