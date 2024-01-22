@@ -16,12 +16,14 @@ public class ProcessApplication {
 
     @JobWorker(type = "getCustomer_NotificationPreference")
     public Map<String, Object> getCustomer_NotificationPreference() {
-        List<String> givenList = Arrays.asList("SMS", "EMAIL");
         Map<String, Object> variables = new HashMap<>();
-        Random rand = new Random();
-        String randomElement = givenList.get(rand.nextInt(givenList.size()));
-
-        variables.put("notificationMethod", randomElement);
+        int pick = new Random().nextInt(NotificationMethod.values().length);
+        variables.put("notificationMethod", NotificationMethod.values()[pick]);
         return variables;
+    }
+
+    enum NotificationMethod {
+        SMS,
+        EMAIL
     }
 }
