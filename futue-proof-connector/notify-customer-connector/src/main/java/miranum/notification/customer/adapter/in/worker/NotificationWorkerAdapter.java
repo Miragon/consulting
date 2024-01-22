@@ -1,7 +1,7 @@
 package miranum.notification.customer.adapter.in.worker;
 
-import io.camunda.zeebe.spring.client.exception.ZeebeBpmnError;
 import io.miragon.miranum.connect.elementtemplate.api.ElementTemplate;
+import io.miragon.miranum.connect.worker.api.BusinessException;
 import io.miragon.miranum.connect.worker.api.Worker;
 import lombok.AllArgsConstructor;
 import miranum.notification.customer.application.port.in.NotifyCustomerInCommand;
@@ -19,7 +19,7 @@ public class NotificationWorkerAdapter {
         try {
             notifyCustomerUseCase.notifyCustomer(notifyCustomerInCommand);
         } catch (Exception ex) {
-            throw new ZeebeBpmnError("NOTIFY_CUSTOMER_FAILED", "Failed to notify customer");
+            throw new BusinessException("NOTIFY_CUSTOMER_FAILED", "Failed to notify customer");
         }
     }
 }
