@@ -45,7 +45,7 @@
                 <configuration>
                     <targetPlatforms>camunda8</targetPlatforms>
                 </configuration>
-                <version>0.3.0</version>
+                <version>0.5.0</version>
             </plugin>
         </plugins>
     </build>
