@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "deploy:local",
+      "type": "npm",
+      "script": "deploy:local",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "deploy:dev",
+      "type": "npm",
+      "script": "deploy:dev",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "deploy:test",
+      "type": "npm",
+      "script": "deploy:test",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "deploy:prod",
+      "type": "npm",
+      "script": "deploy:prod",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
+
+  

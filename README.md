@@ -6,6 +6,7 @@ The following ones are contained in this repository:
 * [Process Example](./process-example) 
 * [Customer Onboarding Showcase](./customer-onboarding-showcase)
 * [Restaurant Showcase](./restaurant-showcase)
+* [Miranum IDE Showcase](./miranum-ide-showcase)
 * [Miranum Stack Showcase](./miranum-stack-showcase)
 
 More information can be found in [our documentation](https://miranum.com). 
