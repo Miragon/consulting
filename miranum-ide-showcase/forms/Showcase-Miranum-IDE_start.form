@@ -1,0 +1,51 @@
+{
+    "key": "Showcase-Miranum-IDE_start",
+    "schema": {
+        "type": "object",
+        "x-display": "stepper",
+        "allOf": [
+            {
+                "title": "Abschnitt",
+                "description": "",
+                "type": "object",
+                "x-options": {
+                    "sectionsTitlesClasses": [
+                        "d-none"
+                    ]
+                },
+                "allOf": [
+                    {
+                        "containerType": "group",
+                        "title": "Group",
+                        "description": "",
+                        "x-options": {
+                            "childrenClass": "pl-0"
+                        },
+                        "properties": {
+                            "TEXTFIELD": {
+                                "fieldType": "text",
+                                "title": "Textfield",
+                                "type": "string",
+                                "key": "TEXTFIELD",
+                                "x-options": {
+                                    "fieldColProps": {
+                                        "cols": 12,
+                                        "sm": 12,
+                                        "messages": {}
+                                    }
+                                },
+                                "x-props": {
+                                    "outlined": true,
+                                    "dense": true
+                                },
+                                "x-rules": []
+                            }
+                        },
+                        "key": "79b91a20-5be3-4020-8e18-e0c7cd5e4983"
+                    }
+                ],
+                "key": "786bcc11-2ccb-4923-9ae9-2a7bb038b7c0"
+            }
+        ]
+    }
+}
