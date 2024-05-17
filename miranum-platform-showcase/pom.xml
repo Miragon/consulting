@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.miragon.miranum.consulting</groupId>
+    <artifactId>miranum-platform-showcase</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Miranum Platform Showcase</name>
+    <description>This project serves as a showcase for demonstrating Miranum Platform and Miranum Connect.</description>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <miranum.platform.version>0.3.2</miranum.platform.version>
+        <miranum.connect.version>0.6.0</miranum.connect.version>
+        <spring.boot.version>3.2.5</spring.boot.version>
+        <lombok.version>1.18.32</lombok.version>
+        <camunda7.version>7.20.0</camunda7.version>
+        <maven.surfire.plugin.version>3.2.5</maven.surfire.plugin.version>
+    </properties>
+
+    <modules>
+        <module>order-c7</module>
+        <module>order-core</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Miranum -->
+            <dependency>
+                <groupId>io.miragon.miranum.platform</groupId>
+                <artifactId>miranum-engine-core</artifactId>
+                <version>${miranum.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.miragon.miranum.platform</groupId>
+                <artifactId>miranum-engine-task</artifactId>
+                <version>${miranum.platform.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.miragon.miranum.platform</groupId>
+                <artifactId>miranum-deployment-server-embedded-starter</artifactId>
+                <version>${miranum.platform.version}</version>
+            </dependency>
+
+            <!-- miranum libs -->
+            <dependency>
+                <groupId>io.miragon.miranum.platform</groupId>
+                <artifactId>spring-security-starter</artifactId>
+                <version>${miranum.platform.version}</version>
+            </dependency>
+
+            <!-- miranum connect -->
+            <dependency>
+                <groupId>io.miragon.miranum.connect</groupId>
+                <artifactId>connect-process-api</artifactId>
+                <version>${miranum.connect.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.miragon.miranum.connect</groupId>
+                <artifactId>connect-worker-api</artifactId>
+                <version>${miranum.connect.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.miragon.miranum.connect</groupId>
+                <artifactId>connect-task-api</artifactId>
+                <version>${miranum.connect.version}</version>
+            </dependency>
+
+            <!-- miranum unit test -->
+            <dependency>
+                <groupId>io.miragon.miranum.platform</groupId>
+                <artifactId>miranum-unit-test</artifactId>
+                <version>${miranum.platform.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.3.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.4.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.3.1</version>
+                    <configuration>
+                        <propertiesEncoding>UTF-8</propertiesEncoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>3.1.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>3.4.1</version>
+                    <executions>
+                        <execution>
+                            <id>enforce-maven</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireJavaVersion>
+                                        <version>17</version>
+                                    </requireJavaVersion>
+                                    <requireMavenVersion>
+                                        <version>3.6.0</version>
+                                    </requireMavenVersion>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
