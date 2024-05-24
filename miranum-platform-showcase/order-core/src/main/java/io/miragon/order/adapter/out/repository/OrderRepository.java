@@ -69,7 +69,7 @@ public class OrderRepository implements OrderRepositoryPort
                 order.getCustomerName(),
                 order.getCustomerAddress(),
                 order.getItems(),
-                Order.OrderStatus.NEW.toString()
+                order.getStatus().toString()
         ));
         return true;
     }

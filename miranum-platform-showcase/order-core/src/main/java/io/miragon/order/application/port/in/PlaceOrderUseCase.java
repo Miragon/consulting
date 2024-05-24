@@ -4,7 +4,6 @@ import lombok.Getter;
 
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public interface PlaceOrderUseCase
 {
@@ -17,15 +16,13 @@ public interface PlaceOrderUseCase
 
         private final String customerAddress;
 
-        private final Map<UUID, Integer> items;
+        private final Map<String, Integer> items;
 
-        public PlaceOrderCommand(String customerName, String customerAddress, Map<String, Integer> items) {
+        public PlaceOrderCommand(String customerName, String customerAddress, Map<String, Integer> items)
+        {
             this.customerName = customerName;
             this.customerAddress = customerAddress;
-            this.items = items
-                    .entrySet()
-                    .stream()
-                    .collect(Collectors.toMap(entry -> UUID.fromString(entry.getKey()), Map.Entry::getValue));
+            this.items = items;
         }
     }
 }

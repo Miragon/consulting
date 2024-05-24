@@ -33,8 +33,8 @@ public class PlaceOrderService implements PlaceOrderUseCase
         );
 
         // Check if the ordered items exist
-        UUID[] itemIds = order.getItems().keySet().toArray(new UUID[0]);
-        List<Item> items = itemRepositoryPort.readItems(itemIds);
+        String[] itemIds = order.getItems().keySet().toArray(new String[0]);
+        List<Item> items = itemRepositoryPort.readItemsById(itemIds);
         if (items.size() != itemIds.length) {
             throw new IllegalArgumentException("Invalid item ids");
         }
@@ -46,7 +46,7 @@ public class PlaceOrderService implements PlaceOrderUseCase
         double orderValue = items.stream()
                 .mapToDouble(item -> item.getPrice() * order.getItems().get(item.getId()))
                 .sum();
-        // TODO: How do I get the process instance id back?
+
         startProcessPort.startProcess(orderId.toString(), orderValue);
 
         return orderId;

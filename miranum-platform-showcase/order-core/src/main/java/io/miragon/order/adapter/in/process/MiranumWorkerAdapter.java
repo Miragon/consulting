@@ -1,14 +1,12 @@
 package io.miragon.order.adapter.in.process;
 
 import io.miragon.miranum.connect.worker.api.Worker;
-import io.miragon.order.application.port.in.PrepareDeliveryUseCase;
 import io.miragon.order.application.port.in.DeliverOrderUseCase;
+import io.miragon.order.application.port.in.PrepareDeliveryUseCase;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-@Component
 @AllArgsConstructor
 public class MiranumWorkerAdapter
 {

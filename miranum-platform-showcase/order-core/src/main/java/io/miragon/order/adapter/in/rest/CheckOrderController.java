@@ -6,9 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-import java.util.stream.Collectors;
-
 @RestController
 @RequestMapping("/api/order")
 @AllArgsConstructor
@@ -25,18 +22,15 @@ public class CheckOrderController
         }
 
         OrderDto response = new OrderDto(
+                order.getItems(),
+                order.getStatus().toString(),
                 order.getCustomerName(),
-                order.getCustomerAddress(),
-                order.getItems().entrySet().stream().collect(
-                        Collectors.toMap(
-                                entry -> entry.getKey().toString(),
-                                Map.Entry::getValue
-                        )
-                )
+                order.getCustomerAddress()
         );
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @PostMapping("/check/{orderId}")
     public ResponseEntity<Boolean> completeCheck(@PathVariable String orderId, @RequestBody boolean isAccepted)
     {

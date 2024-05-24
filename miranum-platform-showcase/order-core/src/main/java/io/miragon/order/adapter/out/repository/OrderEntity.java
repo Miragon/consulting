@@ -18,7 +18,7 @@ public class OrderEntity
 
     String customerAddress;
 
-    Map<UUID, Integer> items;
+    Map<String, Integer> items;
 
     String status;
 }

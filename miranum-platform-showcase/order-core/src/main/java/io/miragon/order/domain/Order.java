@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Map;
-import java.util.UUID;
 
 @AllArgsConstructor
 @Getter
@@ -16,7 +15,7 @@ public class Order
 
     String customerAddress;
 
-    Map<UUID, Integer> items;
+    Map<String, Integer> items;
 
     OrderStatus status;
 

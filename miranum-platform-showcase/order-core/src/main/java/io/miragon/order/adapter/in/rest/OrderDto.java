@@ -11,9 +11,8 @@ import java.util.Map;
 @Getter
 public class OrderDto
 {
-    private String customerName;
-
-    private String customerAddress;
-
     Map<String, Integer> items;
+    String status = "NEW";
+    private String customerName;
+    private String customerAddress;
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -18,7 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <miranum.platform.version>0.3.2</miranum.platform.version>
         <miranum.connect.version>0.6.0</miranum.connect.version>
-        <spring.boot.version>3.2.5</spring.boot.version>
+        <spring.boot.version>3.1.5</spring.boot.version>
         <lombok.version>1.18.32</lombok.version>
         <camunda7.version>7.20.0</camunda7.version>
         <maven.surfire.plugin.version>3.2.5</maven.surfire.plugin.version>
@@ -37,55 +37,6 @@
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <!-- Miranum -->
-            <dependency>
-                <groupId>io.miragon.miranum.platform</groupId>
-                <artifactId>miranum-engine-core</artifactId>
-                <version>${miranum.platform.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.miragon.miranum.platform</groupId>
-                <artifactId>miranum-engine-task</artifactId>
-                <version>${miranum.platform.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.miragon.miranum.platform</groupId>
-                <artifactId>miranum-deployment-server-embedded-starter</artifactId>
-                <version>${miranum.platform.version}</version>
-            </dependency>
-
-            <!-- miranum libs -->
-            <dependency>
-                <groupId>io.miragon.miranum.platform</groupId>
-                <artifactId>spring-security-starter</artifactId>
-                <version>${miranum.platform.version}</version>
-            </dependency>
-
-            <!-- miranum connect -->
-            <dependency>
-                <groupId>io.miragon.miranum.connect</groupId>
-                <artifactId>connect-process-api</artifactId>
-                <version>${miranum.connect.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.miragon.miranum.connect</groupId>
-                <artifactId>connect-worker-api</artifactId>
-                <version>${miranum.connect.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.miragon.miranum.connect</groupId>
-                <artifactId>connect-task-api</artifactId>
-                <version>${miranum.connect.version}</version>
-            </dependency>
-
-            <!-- miranum unit test -->
-            <dependency>
-                <groupId>io.miragon.miranum.platform</groupId>
-                <artifactId>miranum-unit-test</artifactId>
-                <version>${miranum.platform.version}</version>
-                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
