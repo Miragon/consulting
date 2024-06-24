@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <spring.boot.version>3.2.5</spring.boot.version>
-        <camunda8.version>8.5.3</camunda8.version>
+        <camunda8.version>8.5.6</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.32</lombok.version>
         <cloudStreamKafka.version>4.0.2</cloudStreamKafka.version>
