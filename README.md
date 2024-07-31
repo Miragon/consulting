@@ -1,18 +1,15 @@
-<div id="top"></div>
-
 <!-- PROJECT SHIELDS -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
 <!-- END OF PROJECT SHIELDS --> 
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <a href="#">
-        <img src="images/miragon-logo.svg" alt="Miragon">
-    </a>
+    <img src="images/miragon-logo.svg" alt="Miragon">
     <h3><a href="https://miragon.io/">Consulting</a></h3>
 </div>
 
@@ -28,6 +25,12 @@ The following ones are contained in this repository:
 * [Miranum IDE Showcase](./miranum-ide-showcase)
 * [Miranum Stack Showcase](./miranum-stack-showcase)
 
+## License
+
+Distributed under the MIT License. See `LICENSE` file for more information.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [contributors-shield]: https://img.shields.io/github/contributors/Miragon/consulting.svg?style=for-the-badge
 
@@ -45,4 +48,7 @@ The following ones are contained in this repository:
 
 [issues-url]: https://github.com/Miragon/consulting/issues
 
+[license-shield]: https://img.shields.io/github/license/Miragon/miranum.svg?style=for-the-badge
+
+[license-url]: https://github.com/Miragon/miranum/blob/main/LICENSE
 
