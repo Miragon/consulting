@@ -15,7 +15,7 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.boot.version>3.2.5</spring.boot.version>
-        <camunda7.version>7.20.0</camunda7.version>
+        <camunda7.version>7.21.0</camunda7.version>
         <camunda8.version>8.1.4</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.32</lombok.version>
