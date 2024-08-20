@@ -1,24 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.miragon.miranum.consulting</groupId>
-    <artifactId>schema-client-example</artifactId>
-    <version>1.0.0</version>
-    <name>Schema Client Example</name>
-    <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
+    <artifactId>miranum-platform-showcase</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Miranum Platform Showcase</name>
+    <description>This project serves as a showcase for demonstrating Miranum Platform and Miranum Connect.</description>
+    <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>3.2.5</spring.boot.version>
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <miranum.platform.version>0.3.2</miranum.platform.version>
+        <miranum.connect.version>0.6.0</miranum.connect.version>
+        <spring.boot.version>3.1.5</spring.boot.version>
         <lombok.version>1.18.32</lombok.version>
-        <miranum.version>0.5.0</miranum.version>
+        <camunda7.version>7.20.0</camunda7.version>
+        <maven.surfire.plugin.version>3.2.5</maven.surfire.plugin.version>
     </properties>
+
+    <modules>
+        <module>order-c7</module>
+        <module>order-core</module>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -33,20 +42,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <!--Spring-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.miragon.miranum</groupId>
-            <artifactId>json-api</artifactId>
-            <version>${miranum.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -79,12 +74,12 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>3.1.2</version>
+                    <version>3.1.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>3.4.1</version>
                     <executions>
                         <execution>
                             <id>enforce-maven</id>
@@ -94,7 +89,7 @@
                             <configuration>
                                 <rules>
                                     <requireJavaVersion>
-                                        <version>11</version>
+                                        <version>17</version>
                                     </requireJavaVersion>
                                     <requireMavenVersion>
                                         <version>3.6.0</version>

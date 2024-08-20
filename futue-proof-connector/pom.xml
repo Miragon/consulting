@@ -8,19 +8,13 @@
     <groupId>io.miragon.miranum.consulting</groupId>
     <version>1.0.0</version>
 
-    <parent>
-        <groupId>io.miragon.miranum.consulting</groupId>
-        <artifactId>miranum-consulting</artifactId>
-        <version>1.0.0</version>
-    </parent>
-
     <properties>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <spring.boot.version>3.2.5</spring.boot.version>
-        <camunda8.version>8.5.3</camunda8.version>
+        <camunda8.version>8.5.9</camunda8.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <lombok.version>1.18.32</lombok.version>
         <cloudStreamKafka.version>4.0.2</cloudStreamKafka.version>
@@ -86,7 +80,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>3.5.0</version>
                     <executions>
                         <execution>
                             <id>enforce-maven</id>
