@@ -1,0 +1,4 @@
+.data/elastic/nodes
+.data/zeebe/*
+!.env
+!.gitkeep
