@@ -1,0 +1,16 @@
+# https://docs.camunda.io/docs/apis-tools/spring-zeebe-sdk/getting-started/
+# https://docs.camunda.io/docs/apis-tools/spring-zeebe-sdk/configuration/
+
+server:
+  port: 9100
+
+zeebe:
+  client:
+    cloud:
+      cluster-id: ${CAMUNDA_CLUSTER_ID}
+      client-id: ${ZEEBE_CLIENT_ID}
+      client-secret: ${ZEEBE_CLIENT_SECRET}
+      region: ${CAMUNDA_CLUSTER_REGION:ont-1}
+      auth-url: ${ZEEBE_AUTHORIZATION_SERVER_URL}
+    broker:
+      gateway-address: ${ZEEBE_ADDRESS:localhost:26500}
