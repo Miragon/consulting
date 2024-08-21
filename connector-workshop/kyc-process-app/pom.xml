@@ -5,16 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.miragon.consulting</groupId>
-        <artifactId>miragon-consulting</artifactId>
+        <artifactId>connector-workshop</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>connector-workshop</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>kyc-process-app</module>
-        <module>notifiy-customer-integration</module>
-    </modules>
+    <artifactId>kyc-process-app</artifactId>
 
     <properties>
         <maven.compiler.source>19</maven.compiler.source>
