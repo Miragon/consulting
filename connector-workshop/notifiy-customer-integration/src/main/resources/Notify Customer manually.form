@@ -1,0 +1,147 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "3ffff27"
+  },
+  "schemaVersion": 16,
+  "id": "notify-customer-manually",
+  "components": [
+    {
+      "text": "### Customer Notification Form",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Customer Details",
+      "type": "text",
+      "id": "Subheading_1",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Customer Name",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "customerName",
+      "description": "Enter customer name",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Customer Email",
+      "validate": {
+        "minLength": 5,
+        "maxLength": 100,
+        "required": true
+      },
+      "key": "customerEmail",
+      "description": "Enter customer email",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_4",
+      "label": "Customer Phone",
+      "validate": {
+        "minLength": 10,
+        "maxLength": 15,
+        "required": true
+      },
+      "key": "customerPhone",
+      "description": "Enter customer phone",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Notification Details",
+      "type": "text",
+      "id": "Subheading_5",
+      "layout": {
+        "row": "row_3",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Notification Date",
+      "type": "datetime",
+      "id": "Date_6",
+      "validate": {
+        "required": true
+      },
+      "key": "notificationDate",
+      "description": "Select notification date",
+      "layout": {
+        "row": "row_4",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "time",
+      "dateLabel": "Date",
+      "type": "datetime",
+      "id": "Time_7",
+      "timeLabel": "Notification Time",
+      "validate": {
+        "required": true
+      },
+      "key": "notificationTime",
+      "description": "Select notification time",
+      "layout": {
+        "row": "row_4",
+        "columns": null
+      },
+      "timeInterval": 15
+    },
+    {
+      "type": "textarea",
+      "id": "Textarea_8",
+      "label": "Notification Message",
+      "validate": {
+        "minLength": 10,
+        "maxLength": 500,
+        "required": true
+      },
+      "key": "notificationMessage",
+      "description": "Enter notification message",
+      "layout": {
+        "row": "row_5",
+        "columns": null
+      }
+    },
+    {
+      "action": "submit",
+      "type": "button",
+      "id": "Button_10",
+      "label": "Customer Contacted",
+      "layout": {
+        "row": "row_6",
+        "columns": null
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}

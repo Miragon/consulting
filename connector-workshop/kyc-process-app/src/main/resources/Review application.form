@@ -1,0 +1,147 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "3ffff27"
+  },
+  "schemaVersion": 16,
+  "id": "review-application",
+  "components": [
+    {
+      "text": "### Bank Account Application Review",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "Row_1bz9s8k"
+      }
+    },
+    {
+      "text": "##### Applicant Information Section",
+      "type": "text",
+      "id": "Subheading_1",
+      "layout": {
+        "row": "Row_1vdlf08"
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Applicant Name",
+      "validate": {
+        "minLength": 2,
+        "required": true
+      },
+      "key": "applicantName",
+      "layout": {
+        "row": "Row_03ppky3"
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Applicant Address",
+      "validate": {
+        "minLength": 5,
+        "maxLength": 100,
+        "required": true
+      },
+      "key": "applicantAddress",
+      "layout": {
+        "row": "Row_18ioe1o"
+      }
+    },
+    {
+      "type": "number",
+      "id": "Number_4",
+      "label": "Applicant Age",
+      "validate": {
+        "min": 18,
+        "max": 120,
+        "step": 1,
+        "required": true
+      },
+      "key": "applicantAge",
+      "layout": {
+        "row": "Row_1uxqpb8"
+      }
+    },
+    {
+      "text": "##### Financial Information Section",
+      "type": "text",
+      "id": "Subheading_5",
+      "layout": {
+        "row": "Row_0jx3y42"
+      }
+    },
+    {
+      "type": "number",
+      "id": "Number_6",
+      "label": "Credit Score",
+      "validate": {
+        "min": 100,
+        "max": 100000,
+        "step": 100,
+        "required": true
+      },
+      "key": "creditScore",
+      "layout": {
+        "row": "Row_1997bow"
+      }
+    },
+    {
+      "values": [
+        {
+          "value": "savings",
+          "label": "Savings"
+        },
+        {
+          "value": "current",
+          "label": "Current"
+        }
+      ],
+      "type": "select",
+      "id": "Select_7",
+      "label": "Account Type",
+      "validate": {
+        "required": true
+      },
+      "key": "accountType",
+      "layout": {
+        "row": "Row_050w5bu"
+      }
+    },
+    {
+      "text": "##### Review Decision",
+      "type": "text",
+      "id": "Subheading_8",
+      "layout": {
+        "row": "Row_17k4c69"
+      }
+    },
+    {
+      "values": [
+        {
+          "value": "accept",
+          "label": "Accept"
+        },
+        {
+          "value": "decline",
+          "label": "Decline"
+        }
+      ],
+      "type": "radio",
+      "id": "Radio_9",
+      "label": "Decision",
+      "validate": {
+        "required": true
+      },
+      "key": "decision",
+      "layout": {
+        "row": "Row_05cv4wh"
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}

@@ -1,0 +1,176 @@
+{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.5.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "3ffff27"
+  },
+  "schemaVersion": 16,
+  "id": "application-received",
+  "components": [
+    {
+      "text": "### Apply for a new bank account",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Personal Information",
+      "type": "text",
+      "id": "Subheading_1",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Full Name",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "fullName",
+      "description": "Enter your full name",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Address",
+      "validate": {
+        "minLength": 5,
+        "maxLength": 100,
+        "required": true
+      },
+      "key": "address",
+      "description": "Enter your address",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_4",
+      "label": "Email",
+      "validate": {
+        "minLength": 5,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "email",
+      "description": "Enter your email",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "type": "number",
+      "id": "Number_5",
+      "label": "Phone Number",
+      "decimalDigits": 0,
+      "validate": {
+        "min": 1000000000,
+        "max": 9999999999,
+        "step": 1,
+        "required": true
+      },
+      "key": "phoneNumber",
+      "description": "Enter your phone number",
+      "layout": {
+        "row": "row_3",
+        "columns": null
+      }
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Date of Birth",
+      "type": "datetime",
+      "id": "Date_6",
+      "validate": {
+        "required": true
+      },
+      "key": "dateOfBirth",
+      "description": "Enter your date of birth",
+      "layout": {
+        "row": "row_3",
+        "columns": null
+      }
+    },
+    {
+      "text": "##### Financial Information",
+      "type": "text",
+      "id": "Subheading_7",
+      "layout": {
+        "row": "row_4",
+        "columns": null
+      }
+    },
+    {
+      "values": [
+        {
+          "value": "Savings",
+          "label": "Savings"
+        },
+        {
+          "value": "Current",
+          "label": "Current"
+        }
+      ],
+      "type": "select",
+      "id": "Select_8",
+      "label": "Account Type",
+      "validate": {
+        "required": true
+      },
+      "key": "accountType",
+      "description": "Select your account type",
+      "layout": {
+        "row": "row_5",
+        "columns": null
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "Checkbox_9",
+      "label": "Additional Services",
+      "defaultValue": false,
+      "validate": {
+        "required": true
+      },
+      "key": "additionalServices",
+      "description": "Select additional services",
+      "layout": {
+        "row": "row_5",
+        "columns": null
+      }
+    },
+    {
+      "type": "checkbox",
+      "id": "Checkbox_10",
+      "label": "Terms and Conditions Agreement",
+      "defaultValue": false,
+      "validate": {
+        "required": true
+      },
+      "key": "termsAgreement",
+      "description": "Agree to the terms and conditions",
+      "layout": {
+        "row": "row_5",
+        "columns": null
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}
