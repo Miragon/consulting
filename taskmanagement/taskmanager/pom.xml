@@ -59,7 +59,7 @@
         </dependency>
 
         <dependency>
-            <groupId>io.miragon</groupId>
+            <groupId>io.miragon.consulting</groupId>
             <artifactId>tasklistApi</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
