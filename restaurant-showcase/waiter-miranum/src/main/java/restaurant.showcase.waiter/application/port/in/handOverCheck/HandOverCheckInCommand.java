@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class HandOverCheckInCommand {
+public class    HandOverCheckInCommand {
     private String orderId;
     private String customerName;
     private String meal;

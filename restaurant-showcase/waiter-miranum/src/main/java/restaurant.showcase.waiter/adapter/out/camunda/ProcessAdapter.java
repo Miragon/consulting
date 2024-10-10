@@ -22,5 +22,4 @@ public class ProcessAdapter implements PlaceOrderOutPort {
         processApi.startProcess(startProcessCommand);
         log.info("[{}] Started Process {} with variables {}", startProcessCommand.getProcessKey(), PLACE_ORDER_PROCESS_ID, startProcessCommand.getVariables());
     }
-
 }

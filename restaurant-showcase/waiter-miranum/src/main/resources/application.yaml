@@ -8,11 +8,12 @@ application:
     kitchen: http://localhost:8881
     payment: http://localhost:8882
 
-zeebe.client:
-  broker:
-    gateway-address: localhost:26500
-  security:
-    plaintext: true
+zeebe:
+  client:
+    broker:
+      gateway-address: localhost:26500
+    security:
+      plaintext: true
 
 spring.kafka.producer:
   bootstrap-servers: localhost:9092

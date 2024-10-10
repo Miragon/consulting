@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
   "name": "Notify Customer",
   "id": "bafe3d35-c93d-458f-b3ec-5fff03162cfb",
-  "version": 1705660607778,
+  "version": 1,
   "appliesTo": [
     "bpmn:ServiceTask"
   ],

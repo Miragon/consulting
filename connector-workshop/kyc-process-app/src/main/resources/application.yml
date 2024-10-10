@@ -4,13 +4,9 @@
 server:
   port: 9100
 
-zeebe:
-  client:
-    cloud:
-      cluster-id: ${CAMUNDA_CLUSTER_ID}
-      client-id: ${ZEEBE_CLIENT_ID}
-      client-secret: ${ZEEBE_CLIENT_SECRET}
-      region: ${CAMUNDA_CLUSTER_REGION:ont-1}
-      auth-url: ${ZEEBE_AUTHORIZATION_SERVER_URL}
-    broker:
-      gateway-address: ${ZEEBE_ADDRESS:localhost:26500}
+zeebe.client:
+  cloud:
+    region: ont-1
+    clusterId: 2f2efc37-6219-4e69-b79b-edb662f2bc60
+    clientId: rnBk9bqCERl.H86~q4jO7dtLRI8ETQLu
+    clientSecret: J5A__vhVQfdJsQqwR~216sS3KHrgBPU-UQ_rFhxvC2o2WG75OKLT1AoV4NASIpao

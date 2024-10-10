@@ -76,12 +76,12 @@
         </dependency>
         <dependency>
             <groupId>io.miragon.miranum</groupId>
-            <artifactId>process-adapter-c8</artifactId>
+            <artifactId>process-adapter-c7</artifactId>
             <version>${miranum.version}</version>
         </dependency>
         <dependency>
             <groupId>io.miragon.miranum</groupId>
-            <artifactId>message-adapter-c8</artifactId>
+            <artifactId>message-adapter-c7</artifactId>
             <version>${miranum.version}</version>
         </dependency>
     </dependencies>
