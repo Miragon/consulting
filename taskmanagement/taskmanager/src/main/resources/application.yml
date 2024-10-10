@@ -1,0 +1,44 @@
+server:
+  port: ${TM_PORT:8090}
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health,info
+
+spring:
+  application:
+    name: taskmanager
+  flyway:
+    locations: classpath:db/migration
+    schemas: task_schema
+    baseline-on-migrate: true
+    enabled: true
+  datasource:
+    driver-class-name: ${LOCAL_DATASOURCE_DRIVER:org.postgresql.Driver}
+    url: ${TM_JDBC_URL:jdbc:postgresql://localhost:5432/taskmanager}?currentSchema=task_schema
+    username: ${LOCAL_DATASOURCE_USER:postgres}
+    password: ${LOCAL_DATASOURCE_PASSWORD:postgres}
+
+camunda:
+  client:
+    mode: simple
+    zeebe:
+      enabled: true
+      gateway-url: ${ZEEBE_GRPC_URL:http://localhost:26500}
+      base-url: ${ZEEBE_REST_URL:http://localhost:8080}
+      prefer-rest-over-grpc: false
+
+miranum.tm:
+  exporter: ${TM_USE_EXPORTER:false}
+  metadata.process-application:
+    orderProcess:
+      label: Order Process
+      base-url: ${ORDER_BASE_URL:http://localhost:8091}
+      startable: true
+    paymentProcess:
+      label: Payment Process
+      base-url: ${PAYMENT_BASE_URL:http://localhost:8092}
+      startable: false
+

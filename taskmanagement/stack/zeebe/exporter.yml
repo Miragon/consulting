@@ -1,0 +1,12 @@
+zeebe:
+  broker:
+    exporters:
+      user-task-exporter:
+        className: io.miragon.zeebe.tm.exporter.UserTaskExporter
+        jarPath: /usr/local/zeebe/lib/zeebe-user-task-exporter.jar
+        args:
+          maxBatchSize: 100
+          maxBlockingTimeoutMs: 1000
+          flushIntervalMs: 1000
+
+          baseUrl: http://host.docker.internal:8090

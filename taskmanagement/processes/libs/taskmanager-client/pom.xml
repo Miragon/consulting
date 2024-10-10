@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.miragon</groupId>
+        <artifactId>libs</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>taskmanager-client</artifactId>
+
+    <properties>
+        <maven.openapi.generation.version>7.4.0</maven.openapi.generation.version>
+        <maven.plugin.exec>3.0.0</maven.plugin.exec>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-kotlin</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>${project.basedir}/generated-sources/src/main/kotlin</sourceDirectory>
+
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>${maven.openapi.generation.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/.openapi/openapi.json</inputSpec>
+                            <generatorName>kotlin</generatorName>
+                            <output>${project.basedir}/generated-sources</output>
+                            <packageName>io.miragon.libs.taskmanager.client</packageName>
+                            <generateApis>true</generateApis>
+                            <generateModels>true</generateModels>
+                            <cleanupOutput>false</cleanupOutput>
+                            <configOptions>
+                                <idea>true</idea>
+                                <library>jvm-spring-restclient</library>
+                                <serializationLibrary>jackson</serializationLibrary>
+                                <useSpringBoot3>true</useSpringBoot3>
+                                <enumPropertyNaming>UPPERCASE</enumPropertyNaming>
+                                <openApiNullable>false</openApiNullable>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${maven.plugin.exec}</version>
+                <executions>
+                    <execution>
+                        <id>cleanup-openapi-genration</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Cleanup Generation: Remove all no Kotlin files -->
+                            <executable>.openapi/remove-no-kt-files.sh</executable>
+                            <arguments>
+                                <argument>${project.basedir}/generated-sources</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/generated-sources/src/main/kotlin</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

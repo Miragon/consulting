@@ -1,0 +1,244 @@
+services:
+
+  zeebe:
+    image: camunda/zeebe:8.5.6
+    container_name: zeebe
+    ports:
+      - "26500:26500" # gRPC
+      - "9600:9600"
+      - "8088:8080" # REST
+    env_file:
+      - zeebe.env
+    environment:
+      # - SPRING_CONFIG_ADDITIONAL_LOCATION=/usr/local/zeebe/config/exporter.yml # TODO: Add this line if using Zeebe exporter
+      - "JAVA_TOOL_OPTIONS=-Xms512m -Xmx512m"
+    restart: always
+    # volumes:
+    # - ./zeebe/exporter.yml:/usr/local/zeebe/config/exporter.yml # TODO: Add this line if using Zeebe exporter
+    # - ./zeebe/zeebe-user-task-exporter.jar:/usr/local/zeebe/lib/zeebe-user-task-exporter.jar # TODO: Add this line if using Zeebe exporter
+    networks:
+      - internal
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+
+  operate:
+    image: camunda/operate:8.5.5
+    container_name: zeebe-operate
+    ports:
+      - "8081:8080"
+    environment:
+      - CAMUNDA_OPERATE_ZEEBE_GATEWAYADDRESS=zeebe:26500
+      - CAMUNDA_OPERATE_ELASTICSEARCH_URL=http://elasticsearch:9200
+      - CAMUNDA_OPERATE_ZEEBEELASTICSEARCH_URL=http://elasticsearch:9200
+    networks:
+      - internal
+    depends_on:
+      zeebe:
+        condition: service_started
+      elasticsearch:
+        condition: service_healthy
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.2
+    container_name: zeebe-elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - bootstrap.memory_lock=true
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - cluster.routing.allocation.disk.threshold_enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    restart: always
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://localhost:9200/_cat/health | grep -q green" ]
+      interval: 5s
+      retries: 30
+    networks:
+      - internal
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - internal
+
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092
+      KAFKA_LISTENER_NAME: PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+    networks:
+      - internal
+
+  postgres:
+    image: postgres:15.3
+    container_name: postgres
+    volumes:
+      - ./postgres/:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    env_file:
+      - common.env
+    environment:
+      POSTGRES_MULTIPLE_DATABASES: ${TM_DATASOURCE_DB},${ORDER_DATASOURCE_DB},${PAYMENT_DATASOURCE_DB}
+    networks:
+      - internal
+
+  nginx:
+    image: nginx:1.24.0
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    profiles:
+      - prod
+    networks:
+      - internal
+
+  tasklist:
+    container_name: tasklist
+    build:
+      context: ../apps/tasklist
+      target: prod
+      args:
+        VITE_BASE_URL: ${PROCESS_BASE_URL}
+    ports:
+      - "3000:8080"
+    restart: unless-stopped
+    profiles:
+      - prod
+    networks:
+      - internal
+
+  taskmanager:
+    container_name: taskmanager
+    build:
+      context: ../.
+      dockerfile: stack/docker/Dockerfile
+      args:
+        PORT: ${TM_PORT}
+        PROJECT: taskmanager
+    ports:
+      - "8090:${TM_PORT}"
+    restart: unless-stopped
+    healthcheck:
+      test: "wget --no-verbose --tries=1 --spider http://localhost:${TM_PORT}/actuator/health || exit 1"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    env_file:
+      - common.env
+    environment:
+      TM_USE_EXPORTER: false # TODO: Set to true if using Zeebe exporter
+      TM_PORT: ${TM_PORT}
+      TM_JDBC_URL: ${TM_JDBC_URL}
+      ORDER_BASE_URL: ${ORDER_BASE_URL}
+      PAYMENT_BASE_URL: ${PAYMENT_BASE_URL}
+    profiles:
+      - prod
+    depends_on:
+      - zeebe
+      - postgres
+    networks:
+      - internal
+
+  order-process:
+    container_name: order-process
+    build:
+      context: ../.
+      dockerfile: stack/docker/Dockerfile
+      args:
+        PORT: ${ORDER_PORT}
+        PROJECT: processes/order
+    ports:
+      - "8091:${ORDER_PORT}"
+    restart: unless-stopped
+    healthcheck:
+      test: "wget --no-verbose --tries=1 --spider http://localhost:${ORDER_PORT}/actuator/health || exit 1"
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    env_file:
+      - common.env
+    environment:
+      TM_BASE_URL: http://taskmanager:8090
+      ORDER_PORT: ${ORDER_PORT}
+      ORDER_JDBC_URL: ${ORDER_JDBC_URL}
+    profiles:
+      - prod
+    depends_on:
+      - zeebe
+      - postgres
+      - kafka
+    networks:
+      - internal
+
+  payment-process:
+    container_name: payment-process
+    build:
+      context: ../.
+      dockerfile: stack/docker/Dockerfile
+      args:
+        PORT: ${PAYMENT_PORT}
+        PROJECT: processes/payment
+    ports:
+      - "8092:${PAYMENT_PORT}"
+    restart: unless-stopped
+    healthcheck:
+      test: "wget --no-verbose --tries=1 --spider http://localhost:${PAYMENT_PORT}/actuator/health || exit 1"
+      interval: 60s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    env_file:
+      - common.env
+    environment:
+      TM_BASE_URL: http://taskmanager:8090
+      PAYMENT_PORT: ${PAYMENT_PORT}
+      PAYMENT_JDBC_URL: ${PAYMENT_JDBC_URL}
+    profiles:
+      - prod
+    depends_on:
+      - zeebe
+      - postgres
+      - kafka
+    networks:
+      - internal
+
+networks:
+  internal:

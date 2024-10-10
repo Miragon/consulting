@@ -1,0 +1,194 @@
+openapi: 3.0.1
+info:
+  title: Tasklist API
+  version: 1.0.0
+paths:
+  /rest/process/start/form:
+    post:
+      summary: Get start form
+      operationId: loadStartForm
+      tags:
+        - start-process-controller
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Start form loaded
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/HtmlForm"
+                  - $ref: "#/components/schemas/JsonForm"
+  /rest/process/start:
+    post:
+      summary: Start a process
+      operationId: startProcess
+      tags:
+        - start-process-controller
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FormData"
+      responses:
+        '200':
+          description: Process started
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageDto"
+  /rest/task/load:
+    post:
+      summary: Load a task form and it's data
+      operationId: loadData
+      tags:
+        - load-task-controller
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserTaskDto"
+      responses:
+        '200':
+          description: Task form loaded
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/HtmlForm"
+                  - $ref: "#/components/schemas/JsonForm"
+  /rest/task/update:
+    post:
+      summary: Update task
+      operationId: updateTask
+      tags:
+        - complete-task-controller
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompleteTaskDtoFormData"
+      responses:
+        '200':
+          description: Task updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageDto"
+  /rest/task/complete:
+    post:
+      summary: Complete task
+      operationId: completeTask
+      tags:
+        - complete-task-controller
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompleteTaskDtoFormData"
+      responses:
+        '200':
+          description: Task completed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageDto"
+components:
+  schemas:
+    CompleteTaskDtoFormData:
+      type: object
+      required:
+        - formData
+        - userTask
+      properties:
+        userTask:
+          $ref: "#/components/schemas/UserTaskDto"
+        formData:
+          $ref: "#/components/schemas/FormData"
+    FormData:
+      type: object
+    UserTaskDto:
+      type: object
+      required:
+        - bpmnProcessId
+        - elementId
+        - key
+        - processDefinitionKey
+        - processInstanceKey
+        - taskState
+        - variables
+      properties:
+        key:
+          type: integer
+          format: int64
+        elementId:
+          type: string
+        processInstanceKey:
+          type: integer
+          format: int64
+        bpmnProcessId:
+          type: string
+        processDefinitionKey:
+          type: integer
+          format: int64
+        variables:
+          type: object
+          additionalProperties:
+            type: object
+        taskState:
+          type: string
+        assignee:
+          type: string
+    MessageDto:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+    FormDto:
+      type: object
+    HtmlForm:
+      type: object
+      required:
+        - html
+        - updatable
+      allOf:
+        - $ref: "#/components/schemas/FormDto"
+        - type: object
+          properties:
+            html:
+              type: string
+            updatable:
+              type: boolean
+            formData:
+              $ref: "#/components/schemas/FormData"
+    JsonForm:
+      type: object
+      required:
+        - schema
+        - uiSchema
+        - updatable
+      allOf:
+        - $ref: "#/components/schemas/FormDto"
+        - type: object
+          properties:
+            schema:
+              type: string
+            uiSchema:
+              type: string
+            updatable:
+              type: boolean
+            formData:
+              $ref: "#/components/schemas/FormData"
+
