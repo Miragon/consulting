@@ -1,0 +1,124 @@
+### POST Start Process
+POST http://localhost:8091/rest/process/start
+Content-Type: application/json
+
+{
+  "firstname": "John",
+  "lastname": "Doe",
+  "email": "john.doe@gmail.com",
+  "street": "1234 Main St",
+  "zip": "12345",
+  "city": "Springfield",
+  "items": [
+    {
+      "id": "123e4567-e89b-12d3-a456-426614174000",
+      "quantity": 1
+    }
+  ]
+}
+
+### GET CheckOrder Task
+GET http://localhost:8090/rest/tasks
+Accept: application/json
+
+> {%
+    if (response.body.length > 0) {
+        let res = response.body[0];
+        res.assignee = "";
+        client.global.set("user_task", JSON.stringify(res));
+        client.global.set("element_id", res["elementId"]);
+        console.log(client.global.get("user_task"));
+    }
+%}
+
+### POST Load form for CheckOrderTask
+POST http://localhost:8091/rest/task/load
+Content-Type: application/json
+Accept: application/json
+
+{{user_task}}
+
+### POST Complete CheckOrderTask
+POST http://localhost:8091/rest/task/complete
+Content-Type: application/json
+
+{
+  "userTask": {{user_task}},
+  "formData": {
+    "isOrderValid": true
+  }
+}
+
+### GET CheckPayment Task
+GET http://localhost:8090/rest/tasks
+Accept: application/json
+
+> {%
+    if (response.body.length > 0) {
+        let res = response.body[0];
+        res.assignee = "";
+        client.global.set("user_task", JSON.stringify(res));
+        client.global.set("element_id", res["elementId"]);
+        console.log(client.global.get("user_task"));
+    }
+%}
+
+### POST Load form for CheckPayment Task
+POST http://localhost:8092/rest/task/load
+Content-Type: application/json
+Accept: application/json
+
+{{user_task}}
+
+### PUT Complete CheckPayment Task
+POST http://localhost:8092/rest/task/complete
+Content-Type: application/json
+
+{
+  "userTask": {{user_task}},
+  "formData": {
+    "invoiceId": "ac572206-dc76-426d-977a-277e6bc5b81e",
+    "orderId": "cc83b9b1-b0a2-4429-a593-04d10d02e16c",
+    "amount": 11,
+    "isAccepted": true
+  }
+}
+
+### GET PrepareOrder Task
+GET http://localhost:8090/rest/tasks
+Accept: application/json
+
+> {%
+    if (response.body.length > 0) {
+        let res = response.body[0];
+        res.assignee = "";
+        client.global.set("user_task", JSON.stringify(res));
+        client.global.set("element_id", res["elementId"]);
+        console.log(client.global.get("user_task"));
+    }
+%}
+
+### POST Load form for PrepareOrder Task
+POST http://localhost:8091/rest/task/load
+Content-Type: application/json
+Accept: application/json
+
+{{user_task}}
+
+### PUT Complete PrepareOrderTask
+POST http://localhost:8091/rest/task/complete
+Content-Type: application/json
+
+{
+  "userTask": {{user_task}},
+  "formData": {
+    "deliveryDate": "2021-12-31",
+    "itemCheckList": [
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174000",
+        "name": "Item 1",
+        "quantity": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "address": {
+        "type": "object",
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "street": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 5
+          }
+        }
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "quantity": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  },
+  "uiSchema": {
+    "type": "VerticalLayout",
+    "elements": [
+      {
+        "type": "Control",
+        "scope": "#/properties/name",
+        "label": "Name"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/address",
+        "label": "Address"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/items",
+        "label": "Items"
+      }
+    ]
+  }
+}

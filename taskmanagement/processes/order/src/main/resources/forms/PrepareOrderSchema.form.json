@@ -1,0 +1,109 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "deliveryDate": {
+        "type": "string",
+        "minLength": 1,
+        "format": "date"
+      },
+      "itemCheckList": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "quantity": {
+              "type": "integer"
+            },
+            "ready": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "modeOfDispatch": {
+        "type": "string",
+        "enum": [
+          "STANDARD",
+          "EXPRESS"
+        ]
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "deliveryDate",
+      "modeOfDispatch"
+    ]
+  },
+  "uischema": {
+    "type": "VerticalLayout",
+    "elements": [
+      {
+        "type": "Control",
+        "scope": "#/properties/deliveryDate"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/modeOfDispatch"
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/itemCheckList",
+        "options": {
+          "elementLabelProp": "name",
+          "detail": {
+            "type": "VerticalLayout",
+            "elements": [
+              {
+                "type": "Control",
+                "scope": "#/properties/id",
+                "options": {
+                  "readonly": true
+                }
+              },
+              {
+                "type": "HorizontalLayout",
+                "elements": [
+                  {
+                    "type": "Control",
+                    "scope": "#/properties/name",
+                    "options": {
+                      "readonly": true
+                    }
+                  },
+                  {
+                    "type": "Control",
+                    "scope": "#/properties/quantity",
+                    "options": {
+                      "readonly": true
+                    }
+                  },
+                  {
+                    "type": "Control",
+                    "scope": "#/properties/ready",
+                    "options": {
+                      "readonly": false
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "rule": {
+          "effect": "DISABLE",
+          "condition": {
+            "scope": "#/properties/itemCheckList"
+          }
+        },
+        "label": "Checklist"
+      }
+    ]
+  }
+}

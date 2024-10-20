@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+
+# Include the following files
+!taskmanager/pom.xml
+!taskmanager/src/
+
+!tasklistApi/pom.xml
+!tasklistApi/src/
+
+!processes/pom.xml
+!processes/**/pom.xml
+!processes/**/src/

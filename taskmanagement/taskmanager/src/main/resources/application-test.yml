@@ -1,0 +1,15 @@
+miranum.tm.process-application:
+  order-process:
+    label: Order Process
+    base-url: ${ORDER_BASE_URL:http://localhost:8091}
+    startable: false
+    process-url:
+      start: /rest/placeOrder
+      form: /rest/orderForm
+  payment-process:
+    label: Payment Process
+    base-url: ${PAYMENT_BASE_URL:http://localhost:8092}
+    user-task-url:
+      load: /rest/loadPayment
+      complete: /rest/completePayment
+      update: /rest/updatePayment

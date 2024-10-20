@@ -1,0 +1,21 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "properties" : {
+    "amount" : {
+      "type" : "number"
+    },
+    "invoiceId" : {
+      "type" : "string",
+      "minLength" : 1
+    },
+    "isAccepted" : {
+      "type" : "boolean"
+    },
+    "orderId" : {
+      "type" : "string",
+      "minLength" : 1
+    }
+  },
+  "required" : [ "amount", "invoiceId", "orderId" ]
+}

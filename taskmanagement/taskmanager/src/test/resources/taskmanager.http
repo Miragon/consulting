@@ -1,0 +1,7 @@
+### GET Metadata
+GET http://localhost:9100/rest/metadata
+Accept: application/json
+
+### GET Tasks
+GET http://localhost:9100/rest/tasks
+Accept: application/json

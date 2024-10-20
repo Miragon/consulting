@@ -1,0 +1,64 @@
+{
+  "schema": {
+    "type": "object",
+    "properties": {
+      "invoiceId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "orderId": {
+        "type": "string",
+        "minLength": 1
+      },
+      "amount": {
+        "type": "number"
+      },
+      "isAccepted": {
+        "type": "boolean",
+        "title": "Valid"
+      }
+    },
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+      "invoiceId",
+      "orderId",
+      "amount"
+    ]
+  },
+  "uischema": {
+    "type": "VerticalLayout",
+    "elements": [
+      {
+        "type": "Control",
+        "scope": "#/properties/invoiceId",
+        "options": {
+          "readonly": true
+        }
+      },
+      {
+        "type": "Control",
+        "scope": "#/properties/orderId",
+        "options": {
+          "readonly": true
+        }
+      },
+      {
+        "type": "HorizontalLayout",
+        "elements": [
+          {
+            "type": "Control",
+            "scope": "#/properties/amount",
+            "options": {
+              "readonly": true
+            }
+          },
+          {
+            "type": "Control",
+            "scope": "#/properties/isAccepted",
+            "label": "Valid"
+          }
+        ]
+      }
+    ]
+  }
+}
