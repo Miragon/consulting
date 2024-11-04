@@ -171,6 +171,7 @@
                                 <goal>repackage</goal>
                             </goals>
                         </execution>
+<!--
                         <execution>
                             <id>pre-integration-test</id>
                             <goals>
@@ -183,6 +184,7 @@
                                 <goal>stop</goal>
                             </goals>
                         </execution>
+-->
                     </executions>
                 </plugin>
                 <plugin>
