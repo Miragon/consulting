@@ -41,7 +41,6 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/eslint-plugin", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:7.8.0"],\
           ["@typescript-eslint/parser", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:7.8.0"],\
           ["@vitejs/plugin-react", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:4.3.1"],\
-          ["axios", "npm:1.7.4"],\
           ["dayjs", "npm:1.11.12"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:9.1.0"],\
@@ -2456,16 +2455,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/axios-npm-1.6.8-85cf1e7152-10c0.zip/node_modules/axios/",\
         "packageDependencies": [\
           ["axios", "npm:1.6.8"],\
-          ["follow-redirects", "virtual:85cf1e7152e3c0d8e39e61ad2b81b59a43fb6bdb8f3bf49869bb97804b1403ecaee4505fcb0d4869cfdd99ee3eaa880b79498575407fb770c800bf64c64156ec#npm:1.15.6"],\
-          ["form-data", "npm:4.0.0"],\
-          ["proxy-from-env", "npm:1.1.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:1.7.4", {\
-        "packageLocation": "../../../../../.yarn/berry/cache/axios-npm-1.7.4-cc1c89ddba-10c0.zip/node_modules/axios/",\
-        "packageDependencies": [\
-          ["axios", "npm:1.7.4"],\
           ["follow-redirects", "virtual:85cf1e7152e3c0d8e39e61ad2b81b59a43fb6bdb8f3bf49869bb97804b1403ecaee4505fcb0d4869cfdd99ee3eaa880b79498575407fb770c800bf64c64156ec#npm:1.15.6"],\
           ["form-data", "npm:4.0.0"],\
           ["proxy-from-env", "npm:1.1.0"]\
@@ -5554,7 +5543,6 @@ const RAW_RUNTIME_STATE =
           ["@typescript-eslint/eslint-plugin", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:7.8.0"],\
           ["@typescript-eslint/parser", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:7.8.0"],\
           ["@vitejs/plugin-react", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:4.3.1"],\
-          ["axios", "npm:1.7.4"],\
           ["dayjs", "npm:1.11.12"],\
           ["eslint", "npm:8.57.0"],\
           ["eslint-config-prettier", "virtual:184f8e76556cd0fd44444bfa8669fe5b416bd3bd42083ef04fb4ca1c3f528fc945a305e047dc88ecc7be1e55fbe9b21e43a00b861c282daf77f83bf33633dc24#npm:9.1.0"],\
