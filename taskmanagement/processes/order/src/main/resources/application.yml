@@ -1,0 +1,46 @@
+server:
+  port: ${ORDER_PORT:8091}
+
+order:
+  id: orderProcess
+  tm.base-url: ${TM_BASE_URL:http://localhost:8090}
+
+management:
+  endpoint:
+    web:
+      exposure:
+        include: health,info
+
+spring:
+  application:
+    name: order-process
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:http://localhost:29092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: order-process
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: '*'
+  flyway:
+    locations: classpath:db/migration
+    schemas: order_schema
+    baseline-on-migrate: true
+    enabled: true
+  datasource:
+    driver-class-name: ${LOCAL_DATASOURCE_DRIVER:org.postgresql.Driver}
+    url: ${ORDER_JDBC_URL:jdbc:postgresql://localhost:5432/orderprocess}?currentSchema=order_schema
+    username: ${LOCAL_DATASOURCE_USER:postgres}
+    password: ${LOCAL_DATASOURCE_PASSWORD:postgres}
+
+camunda:
+  client:
+    mode: simple
+    zeebe:
+      enabled: true
+      gateway-url: ${ZEEBE_GRPC_URL:http://localhost:26500}
+      base-url: ${ZEEBE_REST_URL:http://localhost:8080}
+      prefer-rest-over-grpc: false

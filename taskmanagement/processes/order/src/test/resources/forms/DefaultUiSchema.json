@@ -1,0 +1,44 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "properties" : {
+    "customerName" : {
+      "type" : "string",
+      "minLength" : 1
+    },
+    "deliveryAddress" : {
+      "type" : "object",
+      "properties" : {
+        "city" : {
+          "type" : "string"
+        },
+        "street" : {
+          "type" : "string"
+        },
+        "zipCode" : {
+          "type" : "string",
+          "minLength" : 5,
+          "maxLength" : 5
+        }
+      }
+    },
+    "isOrderValid" : {
+      "type" : "boolean"
+    },
+    "items" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer"
+          },
+          "quantity" : {
+            "type" : "integer"
+          }
+        }
+      }
+    }
+  },
+  "required" : [ "customerName", "isOrderValid" ]
+}

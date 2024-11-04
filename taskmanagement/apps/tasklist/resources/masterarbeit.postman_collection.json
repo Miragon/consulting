@@ -1,0 +1,821 @@
+{
+	"info": {
+		"_postman_id": "bb55a307-6c90-4ae8-94c6-e9468ffbe188",
+		"name": "Masterarbeit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16043813"
+	},
+	"item": [
+		{
+			"name": "orderProcess",
+			"item": [
+				{
+					"name": "rest",
+					"item": [
+						{
+							"name": "task",
+							"item": [
+								{
+									"name": "prepareOrder",
+									"item": [
+										{
+											"name": "load Prepare Order Form",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"bpmnProcessId\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"key\": \"<long>\",\n  \"processDefinitionKey\": \"<long>\",\n  \"processInstanceKey\": \"<long>\",\n  \"taskState\": \"<string>\",\n  \"variables\": {\n    \"incididunt_7\": {},\n    \"eiusmod41\": {}\n  },\n  \"assignee\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/{{orderId}}/rest/task/prepareOrder",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"{{orderId}}",
+														"rest",
+														"task",
+														"prepareOrder"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"bpmnProcessId\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"key\": \"<long>\",\n  \"processDefinitionKey\": \"<long>\",\n  \"processInstanceKey\": \"<long>\",\n  \"taskState\": \"<string>\",\n  \"variables\": {\n    \"incididunt_7\": {},\n    \"eiusmod41\": {}\n  },\n  \"assignee\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/task/prepareOrder",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"task",
+																"prepareOrder"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json",
+															"description": ""
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"schema\": \"{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"itemCheckList\\\":{\\\"type\\\":\\\"array\\\",\\\"items\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"id\\\":{\\\"type\\\":\\\"integer\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"integer\\\"},\\\"isAvailable\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"deliveryDate\\\":{\\\"type\\\":\\\"string\\\",\\\"format\\\":\\\"date\\\"}},\\\"required\\\":[\\\"isAvailable\\\",\\\"deliveryDate\\\"]}}}}\",\n    \"uischema\": \"{\\\"type\\\":\\\"VerticalLayout\\\",\\\"elements\\\":[{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/itemCheckList\\\",\\\"label\\\":\\\"Item Check List\\\"}]}\",\n    \"data\": {\n        \"itemCheckList\": [\n            {\n                \"id\": 1234,\n                \"quantity\": 1,\n                \"isAvailable\": true,\n                \"deliveryDate\": \"24.12.2024\"\n            },\n            {\n                \"id\": 5678,\n                \"quantity\": 2,\n                \"isAvailable\": true,\n                \"deliveryDate\": \"24.12.2024\"\n            }\n        ]\n    }\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "complete",
+									"item": [
+										{
+											"name": "prepareOrder",
+											"item": [
+												{
+													"name": "complete Prepare Task",
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"items\": [\n    {\n      \"deliveryDate\": \"<string>\",\n      \"id\": \"<long>\",\n      \"isAvailable\": \"<boolean>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"deliveryDate\": \"<string>\",\n      \"id\": \"<long>\",\n      \"isAvailable\": \"<boolean>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"userTask\": {\n    \"bpmnProcessId\": \"<string>\",\n    \"elementId\": \"<string>\",\n    \"key\": \"<long>\",\n    \"processDefinitionKey\": \"<long>\",\n    \"processInstanceKey\": \"<long>\",\n    \"taskState\": \"<string>\",\n    \"variables\": {\n      \"occaecat50\": {}\n    },\n    \"assignee\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/task/complete/prepareOrder",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"task",
+																"complete",
+																"prepareOrder"
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"items\": [\n    {\n      \"deliveryDate\": \"<string>\",\n      \"id\": \"<long>\",\n      \"isAvailable\": \"<boolean>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"deliveryDate\": \"<string>\",\n      \"id\": \"<long>\",\n      \"isAvailable\": \"<boolean>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"userTask\": {\n    \"bpmnProcessId\": \"<string>\",\n    \"elementId\": \"<string>\",\n    \"key\": \"<long>\",\n    \"processDefinitionKey\": \"<long>\",\n    \"processInstanceKey\": \"<long>\",\n    \"taskState\": \"<string>\",\n    \"variables\": {\n      \"occaecat50\": {}\n    },\n    \"assignee\": \"<string>\"\n  }\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/{{orderId}}/rest/task/complete/prepareOrder",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"{{orderId}}",
+																		"rest",
+																		"task",
+																		"complete",
+																		"prepareOrder"
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json",
+																	"description": ""
+																}
+															],
+															"cookie": [],
+															"body": "{\n    \"taskId\": 987654321\n}"
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "checkOrder",
+											"item": [
+												{
+													"name": "complete Task",
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"approved\": \"<boolean>\",\n  \"userTask\": {\n    \"bpmnProcessId\": \"<string>\",\n    \"elementId\": \"<string>\",\n    \"key\": \"<long>\",\n    \"processDefinitionKey\": \"<long>\",\n    \"processInstanceKey\": \"<long>\",\n    \"taskState\": \"<string>\",\n    \"variables\": {\n      \"enim24\": {},\n      \"incididunt5\": {}\n    },\n    \"assignee\": \"<string>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/task/complete/checkOrder",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"task",
+																"complete",
+																"checkOrder"
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"approved\": \"<boolean>\",\n  \"userTask\": {\n    \"bpmnProcessId\": \"<string>\",\n    \"elementId\": \"<string>\",\n    \"key\": \"<long>\",\n    \"processDefinitionKey\": \"<long>\",\n    \"processInstanceKey\": \"<long>\",\n    \"taskState\": \"<string>\",\n    \"variables\": {\n      \"enim24\": {},\n      \"incididunt5\": {}\n    },\n    \"assignee\": \"<string>\"\n  }\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/{{orderId}}/rest/task/complete/checkOrder",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"{{orderId}}",
+																		"rest",
+																		"task",
+																		"complete",
+																		"checkOrder"
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json",
+																	"description": ""
+																}
+															],
+															"cookie": [],
+															"body": "{\n    \"taskId\": 123456789\n}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "checkOrder",
+									"item": [
+										{
+											"name": "load Check Order Form",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"bpmnProcessId\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"key\": \"<long>\",\n  \"processDefinitionKey\": \"<long>\",\n  \"processInstanceKey\": \"<long>\",\n  \"taskState\": \"<string>\",\n  \"variables\": {\n    \"incididunt_7\": {},\n    \"eiusmod41\": {}\n  },\n  \"assignee\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/{{orderId}}/rest/task/checkOrder",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"{{orderId}}",
+														"rest",
+														"task",
+														"checkOrder"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"bpmnProcessId\": \"<string>\",\n  \"elementId\": \"<string>\",\n  \"key\": \"<long>\",\n  \"processDefinitionKey\": \"<long>\",\n  \"processInstanceKey\": \"<long>\",\n  \"taskState\": \"<string>\",\n  \"variables\": {\n    \"incididunt_7\": {},\n    \"eiusmod41\": {}\n  },\n  \"assignee\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/task/checkOrder",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"task",
+																"checkOrder"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json",
+															"description": ""
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"schema\": \"{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"deliveryAddress\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"street\\\":{\\\"type\\\":\\\"string\\\"},\\\"zipCode\\\":{\\\"type\\\":\\\"string\\\"},\\\"city\\\":{\\\"type\\\":\\\"string\\\"}}},\\\"items\\\":{\\\"type\\\":\\\"array\\\",\\\"items\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"id\\\":{\\\"type\\\":\\\"integer\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"integer\\\"}}}},\\\"isOrderValid\\\":{\\\"type\\\":\\\"boolean\\\"}},\\\"required\\\":[\\\"isOrderValid\\\"]}\",\n    \"uischema\": \"{\\\"type\\\":\\\"VerticalLayout\\\",\\\"elements\\\":[{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/customerName\\\",\\\"label\\\":\\\"Name\\\"},{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/deliveryAddress\\\",\\\"label\\\":\\\"Address\\\"},{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/items\\\",\\\"label\\\":\\\"Items\\\"},{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/isOrderValid\\\",\\\"label\\\":\\\"Is Order Valid?\\\"}]}\",\n    \"data\": {\n        \"customerName\": \"John Doe\",\n        \"deliveryAddress\": {\n            \"street\": \"Main Street 1\",\n            \"zipCode\": \"1234\",\n            \"city\": \"Springfield\"\n        },\n        \"items\": [\n            {\n                \"id\": 1234,\n                \"quantity\": 1\n            },\n            {\n                \"id\": 5678,\n                \"quantity\": 2\n            }\n        ]\n    }\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "process",
+							"item": [
+								{
+									"name": "start",
+									"item": [
+										{
+											"name": "place Order",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"address\": {\n    \"city\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zipCode\": \"<string>\"\n  },\n  \"items\": [\n    {\n      \"id\": \"<long>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/{{orderId}}/rest/process/start",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"{{orderId}}",
+														"rest",
+														"process",
+														"start"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"address\": {\n    \"city\": \"<string>\",\n    \"street\": \"<string>\",\n    \"zipCode\": \"<string>\"\n  },\n  \"items\": [\n    {\n      \"id\": \"<long>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"name\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/process/start",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"process",
+																"start"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json",
+															"description": ""
+														}
+													],
+													"cookie": [],
+													"body": "{\n    \"returnMessage\": \"Order 123456 was created.\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "deploy",
+							"item": [
+								{
+									"name": "prepareOrder",
+									"item": [
+										{
+											"name": "deploy Prepare Order Form",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"version\": 1.0,\n  \"type\": \"JSON_FORM\",\n  \"form\": \"{\\\"schema\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"itemCheckList\\\":{\\\"type\\\":\\\"array\\\",\\\"items\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"id\\\":{\\\"type\\\":\\\"integer\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"integer\\\"},\\\"isAvailable\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"deliveryDate\\\":{\\\"type\\\":\\\"string\\\",\\\"format\\\":\\\"date\\\"}},\\\"required\\\":[\\\"isAvailable\\\",\\\"deliveryDate\\\"]}}}},\\\"uischema\\\":{\\\"type\\\":\\\"VerticalLayout\\\",\\\"elements\\\":[{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/itemCheckList\\\",\\\"label\\\":\\\"Item Check List\\\"}]}}\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{localhost}}/{{orderId}}/rest/deploy/prepareOrder",
+													"host": [
+														"{{localhost}}"
+													],
+													"path": [
+														"{{orderId}}",
+														"rest",
+														"deploy",
+														"prepareOrder"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"form\": \"<string>\",\n  \"type\": \"<string>\",\n  \"version\": \"<double>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/deploy/prepareOrder",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"deploy",
+																"prepareOrder"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "checkOrder",
+									"item": [
+										{
+											"name": "deploy Check Order Form",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"version\": 1.0,\n  \"type\": \"JSON_FORM\",\n  \"form\": \"{\\\"schema\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"deliveryAddress\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"street\\\":{\\\"type\\\":\\\"string\\\"},\\\"zipCode\\\":{\\\"type\\\":\\\"string\\\"},\\\"city\\\":{\\\"type\\\":\\\"string\\\"}}},\\\"items\\\":{\\\"type\\\":\\\"array\\\",\\\"items\\\":{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"id\\\":{\\\"type\\\":\\\"integer\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"integer\\\"}}}},\\\"isOrderValid\\\":{\\\"type\\\":\\\"boolean\\\"}},\\\"required\\\":[\\\"isOrderValid\\\"]},\\\"uischema\\\":{\\\"type\\\":\\\"VerticalLayout\\\",\\\"elements\\\":[{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/customerName\\\",\\\"label\\\":\\\"Name\\\"},{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/deliveryAddress\\\",\\\"label\\\":\\\"Address\\\"},{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/items\\\",\\\"label\\\":\\\"Items\\\"},{\\\"type\\\":\\\"Control\\\",\\\"scope\\\":\\\"#/properties/isOrderValid\\\",\\\"label\\\":\\\"Is Order Valid?\\\"}]}}\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{localhost}}/{{orderId}}/rest/deploy/checkOrder",
+													"host": [
+														"{{localhost}}"
+													],
+													"path": [
+														"{{orderId}}",
+														"rest",
+														"deploy",
+														"checkOrder"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"form\": \"<string>\",\n  \"type\": \"<string>\",\n  \"version\": \"<double>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/{{orderId}}/rest/deploy/checkOrder",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"{{orderId}}",
+																"rest",
+																"deploy",
+																"checkOrder"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "taskmanager",
+			"item": [
+				{
+					"name": "rest",
+					"item": [
+						{
+							"name": "tasks",
+							"item": [
+								{
+									"name": "load Tasks",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/taskmanager/rest/tasks",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"taskmanager",
+												"rest",
+												"tasks"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/taskmanager/rest/tasks",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"taskmanager",
+														"rest",
+														"tasks"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json",
+													"description": "",
+													"type": "text"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"bpmnProcessId\": \"orderProcess\",\n        \"elementId\": \"checkOrder\",\n        \"key\": \"123456789\",\n        \"processDefinitionKey\": \"123456789\",\n        \"processInstanceKey\": \"123456789\",\n        \"taskState\": \"CREATE\",\n        \"variables\": {\n            \"orderId\": \"123456\"\n        },\n        \"assignee\": \"\"\n    },\n    {\n        \"bpmnProcessId\": \"orderProcess\",\n        \"elementId\": \"prepareOrder\",\n        \"key\": \"987654321\",\n        \"processDefinitionKey\": \"987654321\",\n        \"processInstanceKey\": \"987654321\",\n        \"taskState\": \"CREATE\",\n        \"variables\": {\n            \"orderId\": \"987654\"\n        },\n        \"assignee\": \"\"\n    }\n]"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "paymentProcess",
+			"item": []
+		},
+		{
+			"name": "rest",
+			"item": [
+				{
+					"name": "metadata",
+					"item": [
+						{
+							"name": "load Metadata",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getMetadata",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getMetadata"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/getMetadata",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getMetadata"
+											]
+										}
+									},
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json",
+											"description": ""
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": \"orderProcess\",\n        \"name\": \"Order Process\",\n        \"startable\": true\n    },\n    {\n        \"id\": \"paymentProcess\",\n        \"name\": \"Payment Process\",\n        \"startable\": true\n    },\n    {\n        \"id\": \"notStartable\",\n        \"name\": \"Not Startable\",\n        \"startable\": false\n    }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

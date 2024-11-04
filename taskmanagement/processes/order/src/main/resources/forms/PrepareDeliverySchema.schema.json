@@ -1,0 +1,35 @@
+{
+  "$schema" : "http://json-schema.org/draft-07/schema#",
+  "type" : "object",
+  "properties" : {
+    "deliveryDate" : {
+      "type" : "string",
+      "minLength" : 1
+    },
+    "itemCheckList" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "quantity" : {
+            "type" : "integer"
+          },
+          "ready" : {
+            "type" : "boolean"
+          }
+        }
+      }
+    },
+    "modeOfDispatch" : {
+      "type" : "string",
+      "enum" : [ "STANDARD", "EXPRESS" ]
+    }
+  },
+  "required" : [ "deliveryDate", "modeOfDispatch" ]
+}
