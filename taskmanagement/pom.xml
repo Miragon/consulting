@@ -28,7 +28,7 @@
         <java.version>17</java.version>
         <!-- spring -->
         <spring.boot.version>3.2.3</spring.boot.version>
-        <spring.kafka.version>3.1.4</spring.kafka.version>
+        <spring.kafka.version>3.2.4</spring.kafka.version>
         <!-- camunda -->
         <camunda.version>8.5.6</camunda.version>
         <!-- project -->
