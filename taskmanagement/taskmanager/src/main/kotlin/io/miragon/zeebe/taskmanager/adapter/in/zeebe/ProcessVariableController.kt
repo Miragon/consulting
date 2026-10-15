@@ -24,14 +24,6 @@ class ProcessVariableController(
         val jobValue = job.value
         log.info { "Saving variable for instance ${jobValue.processInstanceKey} with name ${jobValue.name}." }
 
-        val variableValue = if (jobValue.value is String)
-        {
-            jobValue.value.trim('"')
-        } else
-        {
-            jobValue.value
-        }
-
         try
         {
             useCase.save(
@@ -40,7 +32,7 @@ class ProcessVariableController(
                     bpmnProcessId = jobValue.bpmnProcessId,
                     processDefinitionKey = jobValue.processDefinitionKey,
                     name = jobValue.name,
-                    value = variableValue,
+                    value = unquoted(jobValue.value),
                 )
             )
             return ResponseEntity.ok("Variable saved")
@@ -60,9 +52,9 @@ class ProcessVariableController(
         {
             useCase.update(
                 UpdateCommand(
-                    processInstanceKey = job.key,
+                    processInstanceKey = value.processInstanceKey,
                     name = value.name,
-                    value = value.value,
+                    value = unquoted(value.value),
                 )
             )
             return ResponseEntity.ok("Variable updated")
@@ -71,4 +63,9 @@ class ProcessVariableController(
             return ResponseEntity.badRequest().body(e.message)
         }
     }
+
+    /**
+     * Zeebe sends variable values as JSON, so a string value arrives with its quotes.
+     */
+    private fun unquoted(value: Any): Any = if (value is String) value.trim('"') else value
 }
