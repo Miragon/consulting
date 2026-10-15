@@ -5,14 +5,23 @@ import io.camunda.zeebe.exporter.api.Exporter
 import io.camunda.zeebe.exporter.api.context.Context
 import io.camunda.zeebe.exporter.api.context.Controller
 import io.camunda.zeebe.protocol.record.Record
-import okhttp3.Callback
+import io.camunda.zeebe.protocol.record.ValueType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.slf4j.Logger
 import java.io.IOException
+import java.time.Duration
 
+/**
+ * Forwards user task and variable records to the task manager.
+ *
+ * Delivery is at-least-once and in log order: each record is sent synchronously and its position is only
+ * acknowledged after the task manager answered. If the task manager is unreachable or answers with 5xx,
+ * [export] throws and the broker retries the same record with backoff. A 4xx answer means the task manager
+ * rejected the record itself; it is logged and skipped, since sending it again cannot succeed.
+ */
 @Suppress("unused")
 class UserTaskExporter : Exporter
 {
@@ -46,7 +55,8 @@ class UserTaskExporter : Exporter
         }
 
         this.client = OkHttpClient.Builder()
-            .retryOnConnectionFailure(true)
+            .connectTimeout(Duration.ofSeconds(2))
+            .readTimeout(Duration.ofSeconds(10))
             .build()
     }
 
@@ -58,61 +68,75 @@ class UserTaskExporter : Exporter
 
     override fun export(record: Record<*>)
     {
-        if (record.intent.name() == "CREATING")
+        val action = actionFor(record)
+        if (action != null)
         {
-            return
+            val recordString = mapper.writeValueAsString(record)
+            log.info("User Task Exporter Record: $recordString")
+
+            val url = "$baseUrl/rest/${record.valueType.name.lowercase()}/$action"
+            postRecord(url, recordString, record)
         }
-
-        val recordString = mapper.writeValueAsString(record)
-
-        log.info("User Task Exporter Record: $recordString")
-
-        val url = if (record.intent.name() == "CREATED")
-        {
-            "$baseUrl/rest/${record.valueType.name.lowercase()}/save"
-        } else
-        {
-            "$baseUrl/rest/${record.valueType.name.lowercase()}/update"
-        }
-
-        postUserTaskRecord(url, recordString)
 
         this.controller.updateLastExportedRecordPosition(record.position)
     }
 
-    private fun postUserTaskRecord(url: String, recordString: String)
+    /**
+     * Only the intents the task manager handles are sent, all others are acknowledged without a call.
+     */
+    private fun actionFor(record: Record<*>): String?
+    {
+        val intent = record.intent.name()
+        return when (record.valueType)
+        {
+            ValueType.USER_TASK -> when (intent)
+            {
+                "CREATED" -> "save"
+                "COMPLETED", "CANCELED" -> "update"
+                else -> null
+            }
+
+            ValueType.VARIABLE -> when (intent)
+            {
+                "CREATED" -> "save"
+                "UPDATED" -> "update"
+                else -> null
+            }
+
+            else -> null
+        }
+    }
+
+    /**
+     * Sends the record synchronously. Throws if it has to be sent again, which makes the broker retry it.
+     */
+    private fun postRecord(url: String, recordString: String, record: Record<*>)
     {
         val json = "application/json; charset=utf-8".toMediaType()
-        val body = recordString.toRequestBody(json)
-        val rb = Request.Builder()
-
-        val request = rb.url(url)
-            .post(body)
+        val request = Request.Builder()
+            .url(url)
+            .post(recordString.toRequestBody(json))
             .build()
 
-        client.newCall(request).enqueue(object : Callback
+        val description = "${record.valueType} ${record.intent} (position ${record.position}, key ${record.key})"
+        try
         {
-            override fun onFailure(call: okhttp3.Call, e: IOException)
-            {
-                log.error("Failed to send user task job event", e)
-            }
+            client.newCall(request).execute().use { response ->
+                when
+                {
+                    response.isSuccessful -> log.debug("Exported $description")
+                    response.code in 400..499 -> log.error(
+                        "Task manager rejected $description with ${response.code}, record is skipped: " +
+                            response.body?.string()
+                    )
 
-            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response)
-            {
-                response.use {
-                    if (!response.isSuccessful)
-                    {
-                        log.error("Failed to send user task job event: ${response.code}: ${response.message}")
-                    }
-
-                    for ((name, value) in response.headers)
-                    {
-                        log.debug("$name: $value")
-                    }
-
-                    log.debug(response.body!!.string())
+                    else -> throw IOException("Task manager answered ${response.code} for $description")
                 }
             }
-        })
+        } catch (e: IOException)
+        {
+            log.warn("Could not export $description, the broker will retry: ${e.message}")
+            throw e
+        }
     }
 }

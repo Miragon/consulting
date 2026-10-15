@@ -9,5 +9,5 @@ interface ProcessVariableRepository : JpaRepository<ProcessVariableEntity, Long>
     fun findByProcessInstanceKey(processInstanceKey: Long): List<ProcessVariableEntity>
 
     @Query("SELECT v FROM ProcessVariableEntity v WHERE v.processInstanceKey = :processInstanceKey AND v.name = :name")
-    fun findByName(processInstanceKey: Long, name: String): ProcessVariableEntity
+    fun findByName(processInstanceKey: Long, name: String): ProcessVariableEntity?
 }
