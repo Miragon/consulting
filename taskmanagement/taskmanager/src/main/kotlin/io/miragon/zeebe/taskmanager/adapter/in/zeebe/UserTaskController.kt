@@ -2,7 +2,9 @@ package io.miragon.zeebe.taskmanager.adapter.`in`.zeebe
 
 import io.miragon.zeebe.taskmanager.application.port.`in`.UserTaskUseCase
 import io.miragon.zeebe.taskmanager.application.port.`in`.UserTaskUseCase.SaveCommand
+import jakarta.persistence.EntityNotFoundException
 import mu.KotlinLogging
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -36,8 +38,9 @@ class UserTaskController(
                 )
             )
             return ResponseEntity.ok("Task saved")
-        } catch (e: Exception)
+        } catch (e: IllegalArgumentException)
         {
+            // other exceptions (e.g. database unavailable) lead to 500, so the exporter retries the record
             return ResponseEntity.badRequest().body(e.message)
         }
     }
@@ -50,7 +53,10 @@ class UserTaskController(
         {
             useCase.updateState(job.key, job.intent)
             return ResponseEntity.ok("Task updated")
-        } catch (e: Exception)
+        } catch (e: EntityNotFoundException)
+        {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.message)
+        } catch (e: IllegalArgumentException)
         {
             return ResponseEntity.badRequest().body(e.message)
         }
