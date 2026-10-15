@@ -22,14 +22,19 @@ class CompleteTaskService(
         try
         {
             val task = userTaskPersistencePort.findByTaskId(key)
+
+            // The engine is the source of truth: the task only counts as completed once the engine confirmed it.
+            val isConfirmedByEngine = completeTaskPort.complete(task.key, variables)
+            if (!isConfirmedByEngine)
+            {
+                log.warn { "Engine rejected completion of task $key, task state is left unchanged." }
+                return false
+            }
+
             task.complete()
+            val taskId = userTaskPersistencePort.update(task)
 
-            val isCompleted = completeTaskPort.complete(task.key, variables)
-
-            val taskId =
-                userTaskPersistencePort.update(task) // Update database after task is marked completed in engine
-
-            return taskId == key && isCompleted
+            return taskId == key
         } catch (e: EntityNotFoundException)
         {
             log.error { "Task with id ${command.key} not found: ${e.message}\n${e.stackTrace}" }

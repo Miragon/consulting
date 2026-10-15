@@ -3,6 +3,7 @@ package io.miragon.zeebe.taskmanager.adapter.`in`.rest
 import io.miragon.zeebe.taskmanager.adapter.`in`.rest.model.CompleteTaskCommand
 import io.miragon.zeebe.taskmanager.application.port.`in`.CompleteTaskUseCase
 import io.miragon.zeebe.taskmanager.application.port.`in`.CompleteTaskUseCase.Command
+import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -20,6 +21,8 @@ class CompleteTaskController(
     {
         val (taskId, variables) = command
         val command = Command(taskId, variables)
-        return ResponseEntity.ok(useCase.complete(command))
+        val isCompleted = useCase.complete(command)
+        // 409: the task could not be completed (unknown task or rejected by the engine)
+        return if (isCompleted) ResponseEntity.ok(true) else ResponseEntity.status(HttpStatus.CONFLICT).body(false)
     }
 }
