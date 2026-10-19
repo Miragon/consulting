@@ -19,7 +19,7 @@
 
     <properties>
         <pojo.generator.version>1.2.1</pojo.generator.version>
-        <jsonschema.generator.version>4.35.0</jsonschema.generator.version>
+        <jsonschema.generator.version>5.0.0</jsonschema.generator.version>
     </properties>
 
     <dependencyManagement>
