@@ -1,0 +1,26 @@
+meta {
+  name: Engine REST Version
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{serviceUrl}}/engine-rest/version
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.version: isDefined
+}
+
+docs {
+  Calls the Camunda REST API on the cockpit-sso service with the bearer token
+  from "Get Access Token". A 200 with a version (e.g. 7.24.0) proves the
+  service is up, the JWT is accepted, and the process engine is running.
+}

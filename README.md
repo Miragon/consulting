@@ -15,9 +15,13 @@
 
 ## About The Project
 
-This repository holds examples which are used and maintained by the miragon consulting team for.  
-The following ones are contained in this repository: 
-* [Task Management](./taskmanagement)
+Focused recipes for concrete process-engine problems. Where [process-engine-blueprints](https://github.com/Miragon/process-engine-blueprints) shows whole services that automate a process, each recipe here solves exactly one problem, in one language, with an automated proof.
+
+| Problem | Recipe | Engine | Language |
+| --- | --- | --- | --- |
+| Single sign-on for the web applications | [camunda7-cockpit-sso](recipes/camunda7-cockpit-sso) | Camunda 7.24 | Java |
+
+[Task Management](./taskmanagement) is still being migrated into a recipe.
 
 Earlier showcases are preserved at the tag [`archive/showcases-2026`](https://github.com/Miragon/consulting/tree/archive/showcases-2026).
 

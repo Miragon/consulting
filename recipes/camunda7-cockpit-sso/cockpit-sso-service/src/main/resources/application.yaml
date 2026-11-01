@@ -1,0 +1,41 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./camunda-h2-database
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${SSO_BASE_URL}/realms/${SSO_REALM}
+      client:
+        provider:
+          keycloak:
+            issuer-uri: ${SSO_BASE_URL}/realms/${SSO_REALM}
+            user-name-attribute: sub
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: ${SSO_ENGINE_CLIENT_ID}
+            client-secret: ${SSO_ENGINE_CLIENT_SECRET}
+            redirect-uri: "{baseUrl}/app/{action}/oauth2/code/{registrationId}"
+logging:
+  level:
+    root: debug
+
+application:
+  web-app-role: "${SSO_ENGINE_CLIENT_ID}:${WEBAPP_REQUIRED_ROLE}"
+  registration: keycloak
+
+camunda:
+  bpm:
+    default-serialization-format: application/json
+    history-level: full
+    webapp:
+      index-redirect-enabled: true
+      # Set to / to comply with older configuration
+      application-path: "/"
+    id-generator: strong
+    database:
+      schema-update: true

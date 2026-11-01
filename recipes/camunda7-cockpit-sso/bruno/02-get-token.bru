@@ -1,0 +1,35 @@
+meta {
+  name: Get Access Token
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{keycloakUrl}}/realms/{{realm}}/protocol/openid-connect/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  grant_type: password
+  client_id: {{clientId}}
+  client_secret: {{clientSecret}}
+  username: {{username}}
+  password: {{password}}
+  scope: openid
+}
+
+vars:post-response {
+  accessToken: res.body.access_token
+}
+
+assert {
+  res.status: eq 200
+  res.body.access_token: isDefined
+}
+
+docs {
+  Logs `johndoe` in via the `engine` client (direct access grant) and stores
+  the access token as `accessToken` for the engine-rest requests below.
+  Proves the Keycloak client and the test user work end-to-end.
+}

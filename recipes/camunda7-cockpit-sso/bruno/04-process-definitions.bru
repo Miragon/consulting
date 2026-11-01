@@ -1,0 +1,25 @@
+meta {
+  name: Engine REST Process Definitions
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{serviceUrl}}/engine-rest/process-definition
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+assert {
+  res.status: eq 200
+}
+
+docs {
+  Lists deployed process definitions. Expect at least `cockpit-oauth-process`,
+  which the service auto-deploys on startup — confirms the full stack is wired
+  up and the engine served an authenticated request.
+}

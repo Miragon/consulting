@@ -2,10 +2,60 @@ name: build
 
 on:
   push:
-    branches:
-      - '**'
+    branches: [main]
+  pull_request:
 
 jobs:
+  select-recipes:
+    runs-on: ubuntu-latest
+    outputs:
+      recipes: ${{ steps.select.outputs.recipes }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: select
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          all=$(ls recipes)
+          if [ -z "$BASE_SHA" ] || git diff --name-only "$BASE_SHA" HEAD | grep -q '^\.github/'; then
+            selected=$all
+          else
+            selected=$(git diff --name-only "$BASE_SHA" HEAD | sed -n 's|^recipes/\([^/]*\)/.*|\1|p' | sort -u)
+          fi
+          existing=$(comm -12 <(echo "$all" | sort) <(echo "$selected" | sort))
+          echo "recipes=$(echo "$existing" | jq -Rsc 'split("\n") | map(select(length > 0))')" >> "$GITHUB_OUTPUT"
+
+  recipe:
+    needs: select-recipes
+    if: needs.select-recipes.outputs.recipes != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        recipe: ${{ fromJson(needs.select-recipes.outputs.recipes) }}
+    defaults:
+      run:
+        working-directory: recipes/${{ matrix.recipe }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read manifest
+        run: |
+          echo "JAVA_VERSION=$(yq -r .java recipe.yaml)" >> "$GITHUB_ENV"
+          echo "BUILD_COMMAND=$(yq -r .build recipe.yaml)" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: temurin
+      - name: Build
+        run: eval "$BUILD_COMMAND"
+      - name: End-to-end test
+        if: hashFiles(format('recipes/{0}/e2e.sh', matrix.recipe)) != ''
+        run: |
+          sudo bash -c 'echo "127.0.0.1 keycloak" >> /etc/hosts'
+          ./e2e.sh
+
   build-maven:
     runs-on: ubuntu-latest
     steps:
@@ -18,3 +68,12 @@ jobs:
 
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
+
+  ci-gate:
+    name: CI gate
+    if: always()
+    needs: [select-recipes, recipe, build-maven]
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if echo '${{ toJson(needs.*.result) }}' | grep -qE 'failure|cancelled'; then exit 1; fi

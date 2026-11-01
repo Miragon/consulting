@@ -26,3 +26,51 @@ updates:
       prefix: fix
       prefix-development: chore
       include: scope
+  - package-ecosystem: maven
+    directory: "/recipes/camunda7-cockpit-sso"
+    schedule:
+      interval: weekly
+      time: "05:00"
+    target-branch: "main"
+    labels:
+      - "Technical Dept"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+  - package-ecosystem: docker-compose
+    directory: "/recipes/camunda7-cockpit-sso/sso-stack"
+    schedule:
+      interval: weekly
+      time: "05:00"
+    target-branch: "main"
+    labels:
+      - "Technical Dept"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+  - package-ecosystem: npm
+    directory: "/taskmanagement/apps/react-forms"
+    schedule:
+      interval: weekly
+      time: "05:00"
+    target-branch: "main"
+    labels:
+      - "Technical Dept"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+  - package-ecosystem: npm
+    directory: "/taskmanagement/apps/tasklist"
+    schedule:
+      interval: weekly
+      time: "05:00"
+    target-branch: "main"
+    labels:
+      - "Technical Dept"
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope

@@ -1,0 +1,6 @@
+name: camunda7-cockpit-sso
+problem: Add OAuth2/OIDC single sign-on to the Camunda 7 web applications.
+engine: Camunda 7.24
+language: Java
+java: "21"
+build: ./mvnw -B verify
