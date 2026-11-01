@@ -44,7 +44,7 @@ jobs:
         run: |
           echo "JAVA_VERSION=$(yq -r .java recipe.yaml)" >> "$GITHUB_ENV"
           echo "BUILD_COMMAND=$(yq -r .build recipe.yaml)" >> "$GITHUB_ENV"
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v6
         with:
           java-version: ${{ env.JAVA_VERSION }}
           distribution: temurin
