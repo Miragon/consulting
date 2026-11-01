@@ -400,3 +400,6 @@ gradle-app.setting
 **/pom.xml.versionsBackup
 **/application-internal.*
 
+
+.flattened-pom.xml
+dependency-reduced-pom.xml
