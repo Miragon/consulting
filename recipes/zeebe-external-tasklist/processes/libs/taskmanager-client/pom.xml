@@ -12,7 +12,7 @@
     <artifactId>taskmanager-client</artifactId>
 
     <properties>
-        <maven.openapi.generation.version>7.4.0</maven.openapi.generation.version>
+        <maven.openapi.generation.version>7.26.0</maven.openapi.generation.version>
         <maven.plugin.exec>3.0.0</maven.plugin.exec>
     </properties>
 
