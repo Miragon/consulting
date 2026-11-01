@@ -1,76 +1,192 @@
 version: 2
 updates:
-  # Fetch and update latest `maven` packages
-  - package-ecosystem: maven
-    directory: "/recipes/zeebe-external-tasklist"
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: weekly
-      time: "05:00"
-    target-branch: "main"
+      interval: 'monthly'
     labels:
-      - "Technical Dept"
+      - 'dependencies'
+    rebase-strategy: 'auto'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
-  # Fetch and update latest `github-actions` packages
-  - package-ecosystem: github-actions
-    directory: "/"
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      root-github-actions:
+        applies-to: version-updates
+        patterns: ['*']
+      root-github-actions-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'maven'
+    directory: '/recipes/camunda7-cockpit-sso'
     schedule:
-      interval: weekly
-      time: "05:00"
-    target-branch: "main"
+      interval: 'monthly'
     labels:
-      - "Technical Dept"
+      - 'dependencies'
+      - 'recipe:camunda7-cockpit-sso'
+    rebase-strategy: 'auto'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
-  - package-ecosystem: maven
-    directory: "/recipes/camunda7-cockpit-sso"
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    ignore:
+      - dependency-name: 'org.springframework.boot:*'
+        versions: ['>=4.0.0']
+    groups:
+      sso-maven:
+        applies-to: version-updates
+        patterns: ['*']
+      sso-maven-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'docker-compose'
+    directory: '/recipes/camunda7-cockpit-sso/sso-stack'
     schedule:
-      interval: weekly
-      time: "05:00"
-    target-branch: "main"
+      interval: 'monthly'
     labels:
-      - "Technical Dept"
+      - 'dependencies'
+      - 'recipe:camunda7-cockpit-sso'
+    rebase-strategy: 'auto'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
-  - package-ecosystem: docker-compose
-    directory: "/recipes/camunda7-cockpit-sso/sso-stack"
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      sso-docker-compose:
+        applies-to: version-updates
+        patterns: ['*']
+      sso-docker-compose-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'maven'
+    directory: '/recipes/zeebe-external-tasklist'
     schedule:
-      interval: weekly
-      time: "05:00"
-    target-branch: "main"
+      interval: 'monthly'
     labels:
-      - "Technical Dept"
+      - 'dependencies'
+      - 'recipe:zeebe-external-tasklist'
+    rebase-strategy: 'auto'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
-  - package-ecosystem: npm
-    directory: "/recipes/zeebe-external-tasklist/apps/react-forms"
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      tasklist-maven:
+        applies-to: version-updates
+        patterns: ['*']
+      tasklist-maven-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'npm'
+    directory: '/recipes/zeebe-external-tasklist/apps/react-forms'
     schedule:
-      interval: weekly
-      time: "05:00"
-    target-branch: "main"
+      interval: 'monthly'
     labels:
-      - "Technical Dept"
+      - 'dependencies'
+      - 'recipe:zeebe-external-tasklist'
+    rebase-strategy: 'auto'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
-  - package-ecosystem: npm
-    directory: "/recipes/zeebe-external-tasklist/apps/tasklist"
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      tasklist-react-forms-npm:
+        applies-to: version-updates
+        patterns: ['*']
+      tasklist-react-forms-npm-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'npm'
+    directory: '/recipes/zeebe-external-tasklist/apps/tasklist'
     schedule:
-      interval: weekly
-      time: "05:00"
-    target-branch: "main"
+      interval: 'monthly'
     labels:
-      - "Technical Dept"
+      - 'dependencies'
+      - 'recipe:zeebe-external-tasklist'
+    rebase-strategy: 'auto'
     commit-message:
-      prefix: fix
-      prefix-development: chore
-      include: scope
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      tasklist-app-npm:
+        applies-to: version-updates
+        patterns: ['*']
+      tasklist-app-npm-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'docker'
+    directory: '/recipes/zeebe-external-tasklist/apps/tasklist'
+    schedule:
+      interval: 'monthly'
+    labels:
+      - 'dependencies'
+      - 'recipe:zeebe-external-tasklist'
+    rebase-strategy: 'auto'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      tasklist-app-docker:
+        applies-to: version-updates
+        patterns: ['*']
+      tasklist-app-docker-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'docker-compose'
+    directory: '/recipes/zeebe-external-tasklist/stack'
+    schedule:
+      interval: 'monthly'
+    labels:
+      - 'dependencies'
+      - 'recipe:zeebe-external-tasklist'
+    rebase-strategy: 'auto'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      tasklist-stack-docker-compose:
+        applies-to: version-updates
+        patterns: ['*']
+      tasklist-stack-docker-compose-security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  - package-ecosystem: 'docker'
+    directory: '/recipes/zeebe-external-tasklist/stack/docker'
+    schedule:
+      interval: 'monthly'
+    labels:
+      - 'dependencies'
+      - 'recipe:zeebe-external-tasklist'
+    rebase-strategy: 'auto'
+    commit-message:
+      prefix: 'chore'
+      include: 'scope'
+    cooldown:
+      default-days: 7
+    groups:
+      tasklist-stack-image-docker:
+        applies-to: version-updates
+        patterns: ['*']
+      tasklist-stack-image-docker-security:
+        applies-to: security-updates
+        patterns: ['*']
