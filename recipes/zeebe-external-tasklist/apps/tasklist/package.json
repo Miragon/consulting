@@ -16,7 +16,7 @@
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@jsonforms/core": "^3.3.0",
-    "@jsonforms/material-renderers": "^3.3.0",
+    "@jsonforms/material-renderers": "^3.8.0",
     "@jsonforms/react": "^3.3.0",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",

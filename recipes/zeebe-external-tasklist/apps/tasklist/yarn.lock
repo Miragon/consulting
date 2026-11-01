@@ -326,21 +326,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@date-io/core@npm:^1.3.13":
-  version: 1.3.13
-  resolution: "@date-io/core@npm:1.3.13"
-  checksum: 10c0/7f099234a6fff74c5510197de577c2402ba399ce45341978e59252452192988aa41e0157d29a478b293513f68a18fc1674c408fa8b6f1c6a1f26b181581df3b2
+"@date-io/core@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@date-io/core@npm:3.2.0"
+  checksum: 10c0/e320e5eb1dc5cdafbebdb5b3a4c80fcf18cef1ccf39bd57e63de7826c966b89814c984b59f7fb1fc3f7650859fb0ba890e39b0e77bfb671f4b01991432ccc06e
   languageName: node
   linkType: hard
 
-"@date-io/dayjs@npm:1.3.13":
-  version: 1.3.13
-  resolution: "@date-io/dayjs@npm:1.3.13"
+"@date-io/dayjs@npm:^3.0.0":
+  version: 3.2.0
+  resolution: "@date-io/dayjs@npm:3.2.0"
   dependencies:
-    "@date-io/core": "npm:^1.3.13"
+    "@date-io/core": "npm:^3.2.0"
   peerDependencies:
     dayjs: ^1.8.17
-  checksum: 10c0/2f1f1d54852bbaf925bfc8841a048ad9e9b32f754e13d1bf87084690f637bf1a717d1877b19786e6fb9585ac49326163622337f9b74c78de8b0ed74396690aee
+  peerDependenciesMeta:
+    dayjs:
+      optional: true
+  checksum: 10c0/ba3d8d472b8aaa387c87310127a9692baf00d13fa6797dba2e740f3dba85890e87de47e171a17a547b1787fa20df26872c552637ccb2d5ce36319f7b7b90851e
   languageName: node
   linkType: hard
 
@@ -827,23 +830,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jsonforms/material-renderers@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "@jsonforms/material-renderers@npm:3.3.0"
+"@jsonforms/material-renderers@npm:^3.8.0":
+  version: 3.8.0
+  resolution: "@jsonforms/material-renderers@npm:3.8.0"
   dependencies:
-    "@date-io/dayjs": "npm:1.3.13"
+    "@date-io/dayjs": "npm:^3.0.0"
     dayjs: "npm:1.10.7"
     lodash: "npm:^4.17.21"
   peerDependencies:
-    "@emotion/react": ^11.4.1
+    "@emotion/react": ^11.5.0
     "@emotion/styled": ^11.3.0
-    "@jsonforms/core": 3.3.0
-    "@jsonforms/react": 3.3.0
-    "@mui/icons-material": ^5.11.16
-    "@mui/material": ^5.13.0
-    "@mui/x-date-pickers": ^6.0.0
-    react: ^16.12.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/84209505728985bc065755be091209e1c890b66ab530a2a6ead81996c78d4428020bb90fb10f70c0210cb0a403093bacc09f7ef3849cbfa5dced11ad3a9301ac
+    "@jsonforms/core": 3.8.0
+    "@jsonforms/react": 3.8.0
+    "@mui/icons-material": ^7.0.0
+    "@mui/material": ^7.0.0
+    "@mui/x-date-pickers": ^8.0.0
+    react: ^16.12.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/257d1b55fd3d4bdf9082e9e353ac6fd3511692a6ec9ad8104caac0fd4078b8e8863c4a158ffee4d26dbb0ce489bb3ae4f21323cceb30797416d9e7d289867b65
   languageName: node
   linkType: hard
 
@@ -4540,7 +4543,7 @@ __metadata:
     "@emotion/react": "npm:^11.13.0"
     "@emotion/styled": "npm:^11.13.0"
     "@jsonforms/core": "npm:^3.3.0"
-    "@jsonforms/material-renderers": "npm:^3.3.0"
+    "@jsonforms/material-renderers": "npm:^3.8.0"
     "@jsonforms/react": "npm:^3.3.0"
     "@mui/icons-material": "npm:^5.16.7"
     "@mui/material": "npm:^5.16.7"
