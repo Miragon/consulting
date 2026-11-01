@@ -1,0 +1,6 @@
+name: zeebe-external-tasklist
+problem: Run your own tasklist on Camunda 8 by exporting user tasks from Zeebe.
+engine: Camunda 8.5
+language: Kotlin
+java: "17"
+build: mvn --batch-mode --update-snapshots verify

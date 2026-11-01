@@ -1,0 +1,107 @@
+realm: $(env:SSO_REALM)
+enabled: true
+displayName: Local Realm
+
+attributes:
+  userProfileEnabled: "true"
+
+userProfile:
+  unmanagedAttributePolicy: ENABLED
+  attributes:
+    - name: username
+      displayName: ${username}
+      permissions:
+        view: [admin, user]
+        edit: [admin, user]
+      validations:
+        length: { min: 3, max: 255 }
+        username-prohibited-characters: {}
+        up-username-not-idn-homograph: {}
+    - name: email
+      displayName: ${email}
+      permissions:
+        view: [admin, user]
+        edit: [admin, user]
+      validations:
+        email: {}
+        length: { max: 255 }
+
+groups:
+  - name: group1
+
+roles:
+  client:
+    "$(env:SSO_ENGINE_CLIENT_ID)":
+      - name: camunda-admin
+        description: Special camunda admin group.
+      - name: $(env:WEBAPP_REQUIRED_ROLE)
+        description: Can use Camunda web apps.
+
+clients:
+  - clientId: $(env:SSO_ENGINE_CLIENT_ID)
+    enabled: true
+    publicClient: false
+    clientAuthenticatorType: client-secret
+    secret: $(env:SSO_ENGINE_CLIENT_SECRET)
+    standardFlowEnabled: true
+    directAccessGrantsEnabled: true
+    redirectUris:
+      - http://localhost:8082/*
+    webOrigins:
+      - "+"
+    protocolMappers:
+      - name: user_id
+        protocol: openid-connect
+        protocolMapper: oidc-usermodel-attribute-mapper
+        config:
+          user.attribute: user_id
+          claim.name: user_id
+          jsonType.label: String
+          id.token.claim: "true"
+          access.token.claim: "true"
+          userinfo.token.claim: "true"
+      - name: user_name
+        protocol: openid-connect
+        protocolMapper: oidc-usermodel-attribute-mapper
+        config:
+          user.attribute: user_name
+          claim.name: user_name
+          jsonType.label: String
+          id.token.claim: "true"
+          access.token.claim: "true"
+          userinfo.token.claim: "true"
+      - name: userClientRole
+        protocol: openid-connect
+        protocolMapper: oidc-usermodel-client-role-mapper
+        config:
+          access.token.claim: "true"
+          id.token.claim: "true"
+          userinfo.token.claim: "true"
+          jsonType.label: String
+          multivalued: "true"
+          claim.name: user_roles
+          usermodel.clientRoleMapping.clientId: $(env:SSO_ENGINE_CLIENT_ID)
+          usermodel.clientRoleMapping.rolePrefix: "ROLE_"
+
+users:
+  - username: johndoe
+    enabled: true
+    emailVerified: true
+    firstName: John
+    lastName: Doe
+    email: john.doe@example.com
+    attributes:
+      user_name:
+        - john.doe
+      user_id:
+        - "123456789"
+    groups:
+      - /group1
+    clientRoles:
+      "$(env:SSO_ENGINE_CLIENT_ID)":
+        - camunda-admin
+        - $(env:WEBAPP_REQUIRED_ROLE)
+    credentials:
+      - type: password
+        value: test
+        temporary: false

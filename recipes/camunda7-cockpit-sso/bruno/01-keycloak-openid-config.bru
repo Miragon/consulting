@@ -1,0 +1,21 @@
+meta {
+  name: Keycloak OpenID Config
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{keycloakUrl}}/realms/{{realm}}/.well-known/openid-configuration
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.issuer: eq {{keycloakUrl}}/realms/{{realm}}
+}
+
+docs {
+  Verifies Keycloak is up and the `testrealm` has been seeded by the
+  init-keycloak migration. No authentication required.
+}
