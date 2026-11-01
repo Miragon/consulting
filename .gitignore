@@ -400,5 +400,3 @@ gradle-app.setting
 **/pom.xml.versionsBackup
 **/application-internal.*
 
-forms-flow-showcase/forms-flow-ai/docker-compose/postgres/
-forms-flow-showcase/forms-flow-ai/docker-compose/mongodb/
