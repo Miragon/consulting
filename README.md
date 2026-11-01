@@ -1,6 +1,6 @@
 # process-engine-recipes
 
-[![CI](https://github.com/Miragon/consulting/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/Miragon/consulting/actions/workflows/build.yaml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/Miragon/process-engine-recipes/actions/workflows/build.yaml/badge.svg?branch=main)](https://github.com/Miragon/process-engine-recipes/actions/workflows/build.yaml) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 One concrete process-engine problem per folder, solved in working code. Find your problem, read how it was solved and take what you need.
 
@@ -20,7 +20,7 @@ Most engine material shows how to use an engine. The harder questions come later
 | Single sign-on for the web applications | [`camunda7-cockpit-sso`](recipes/camunda7-cockpit-sso/README.md) | Camunda 7.24 | Java |
 | Your own tasklist via a Zeebe exporter | [`zeebe-external-tasklist`](recipes/zeebe-external-tasklist/README.md) | Camunda 8.5 | Kotlin |
 
-Looking for an older showcase? They are preserved at the tag [`archive/showcases-2026`](https://github.com/Miragon/consulting/tree/archive/showcases-2026).
+Looking for an older showcase? They are preserved at the tag [`archive/showcases-2026`](https://github.com/Miragon/process-engine-recipes/tree/archive/showcases-2026).
 
 ## Working on a recipe
 
