@@ -17,13 +17,9 @@
 
 This repository holds examples which are used and maintained by the miragon consulting team for.  
 The following ones are contained in this repository: 
-* [Pizza-order Showcase](./pizza-order-showcase) 
-* [Schema Client example](./schema-client-example) 
-* [Process Example](./process-example) 
-* [Customer Onboarding Showcase](./customer-onboarding-showcase)
-* [Restaurant Showcase](./restaurant-showcase)
-* [Miranum IDE Showcase](./miranum-ide-showcase)
-* [Miranum Stack Showcase](./miranum-stack-showcase)
+* [Task Management](./taskmanagement)
+
+Earlier showcases are preserved at the tag [`archive/showcases-2026`](https://github.com/Miragon/consulting/tree/archive/showcases-2026).
 
 ## License
 
