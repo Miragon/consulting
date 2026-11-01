@@ -20,7 +20,7 @@
     "@jsonforms/react": "^3.3.0",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
-    "@mui/x-date-pickers": "^7.12.1",
+    "@mui/x-date-pickers": "^9.16.0",
     "axios": "^1.7.4",
     "dayjs": "^1.11.12",
     "form-data": "^4.0.0",
