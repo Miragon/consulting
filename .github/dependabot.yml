@@ -2,7 +2,7 @@ version: 2
 updates:
   # Fetch and update latest `maven` packages
   - package-ecosystem: maven
-    directory: "/"
+    directory: "/recipes/zeebe-external-tasklist"
     schedule:
       interval: weekly
       time: "05:00"
@@ -51,7 +51,7 @@ updates:
       prefix-development: chore
       include: scope
   - package-ecosystem: npm
-    directory: "/taskmanagement/apps/react-forms"
+    directory: "/recipes/zeebe-external-tasklist/apps/react-forms"
     schedule:
       interval: weekly
       time: "05:00"
@@ -63,7 +63,7 @@ updates:
       prefix-development: chore
       include: scope
   - package-ecosystem: npm
-    directory: "/taskmanagement/apps/tasklist"
+    directory: "/recipes/zeebe-external-tasklist/apps/tasklist"
     schedule:
       interval: weekly
       time: "05:00"
