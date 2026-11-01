@@ -1,4 +1,4 @@
-FROM maven:3.9.8-amazoncorretto-21 AS build
+FROM maven:3.9-amazoncorretto-25 AS build
 
 ARG PROJECT
 
@@ -10,7 +10,7 @@ COPY . .
 RUN echo "Building project: ${PROJECT}"
 RUN mvn package -pl ${PROJECT} -am -DskipTests
 
-FROM amazoncorretto:21-alpine
+FROM amazoncorretto:26-alpine
 
 ARG PORT
 ARG PROJECT
