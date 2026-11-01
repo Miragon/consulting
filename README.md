@@ -28,7 +28,7 @@ Open the recipe's folder, not the repository root. Its `README.md` and `AGENTS.m
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). The decisions behind this repository are in [docs/adr](docs/adr/).
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
