@@ -34,7 +34,7 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>4.12.0</version>
+            <version>5.5.1</version>
         </dependency>
 
     </dependencies>
@@ -57,7 +57,7 @@
                 <!-- Will create a single executable jar with all dependencies -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.0</version>
+                <version>3.6.2</version>
                 <configuration>
                 </configuration>
                 <executions>
