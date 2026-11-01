@@ -1,7 +1,7 @@
 services:
 
   zeebe:
-    image: camunda/zeebe:8.5.6
+    image: camunda/zeebe:8.9.11
     container_name: zeebe
     ports:
       - "26500:26500" # gRPC
@@ -23,7 +23,7 @@ services:
         condition: service_healthy
 
   operate:
-    image: camunda/operate:8.5.5
+    image: camunda/operate:8.9.11
     container_name: zeebe-operate
     ports:
       - "8081:8080"
@@ -40,7 +40,7 @@ services:
         condition: service_healthy
 
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.8.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.5.5
     container_name: zeebe-elasticsearch
     ports:
       - "9200:9200"
@@ -64,7 +64,7 @@ services:
       - internal
 
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.5.0
+    image: confluentinc/cp-zookeeper:7.9.1
     container_name: zookeeper
     ports:
       - "2181:2181"
@@ -75,7 +75,7 @@ services:
       - internal
 
   kafka:
-    image: confluentinc/cp-kafka:7.5.0
+    image: confluentinc/cp-kafka:8.3.2
     container_name: kafka
     ports:
       - "9092:9092"
@@ -94,7 +94,7 @@ services:
       - internal
 
   postgres:
-    image: postgres:15.3
+    image: postgres:18.4
     container_name: postgres
     volumes:
       - ./postgres/:/docker-entrypoint-initdb.d
@@ -114,7 +114,7 @@ services:
       - internal
 
   nginx:
-    image: nginx:1.24.0
+    image: nginx:1.31.7
     container_name: nginx
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
