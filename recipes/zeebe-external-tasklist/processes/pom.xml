@@ -18,8 +18,8 @@
     </modules>
 
     <properties>
-        <pojo.generator.version>1.2.1</pojo.generator.version>
-        <jsonschema.generator.version>4.35.0</jsonschema.generator.version>
+        <pojo.generator.version>1.3.3</pojo.generator.version>
+        <jsonschema.generator.version>5.0.0</jsonschema.generator.version>
     </properties>
 
     <dependencyManagement>
@@ -27,7 +27,7 @@
             <dependency>
                 <groupId>jakarta.validation</groupId>
                 <artifactId>jakarta.validation-api</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.1</version>
             </dependency>
             <dependency>
                 <groupId>io.miragon</groupId>

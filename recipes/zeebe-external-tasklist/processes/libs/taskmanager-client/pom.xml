@@ -12,8 +12,8 @@
     <artifactId>taskmanager-client</artifactId>
 
     <properties>
-        <maven.openapi.generation.version>7.4.0</maven.openapi.generation.version>
-        <maven.plugin.exec>3.0.0</maven.plugin.exec>
+        <maven.openapi.generation.version>7.26.0</maven.openapi.generation.version>
+        <maven.plugin.exec>3.6.4</maven.plugin.exec>
     </properties>
 
     <dependencies>
@@ -86,7 +86,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>3.4.0</version>
+                <version>3.6.2</version>
                 <executions>
                     <execution>
                         <id>add-source</id>
